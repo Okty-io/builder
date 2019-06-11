@@ -24,12 +24,12 @@ export class SearchComponent implements OnInit {
     }
 
     this.api.get(`registry/search?query=${this.apiSearch}`).toPromise().then(res => {
-      console.log(JSON.parse(res).results);
       this.resultSearch = JSON.parse(res).results;
     });
   }
 
-  public handleNext(): void {
+  public handleNext(imageName): void {
+    this.apiSearch = imageName;
     this.next.emit(this.apiSearch);
   }
 }

@@ -1,7 +1,17 @@
+<span>
+  <span [style.color]="!image && 'red'">Search</span>
+  -
+  <span [style.color]="image && 'red'">Config</span>
+  -
+  <span>Validate</span>
+</span>
+
+<br>
+
 <ng-container *ngIf="!image">
-  <app-builder-search (next)="handleNext($event)"></app-builder-search>
+    <app-builder-search (next)="handleNext($event)"></app-builder-search>
 </ng-container>
 
 <ng-container *ngIf="image">
-  <app-builder-config></app-builder-config>
+    <app-builder-config [imageName]="image"></app-builder-config>
 </ng-container>

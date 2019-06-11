@@ -2,10 +2,8 @@
 
 <br>
 
-<span (click)="apiSearch = result.repo_name" *ngFor="let result of resultSearch" style="padding:10px 10px;margin: 10px;width: 150px;height: 150px;background-color: red;display: inline-block;text-align: center;word-break: break-word;">
+<span (click)="handleNext(result.repo_name)" *ngFor="let result of resultSearch" style="padding:10px 10px;margin: 10px;width: 150px;height: 150px;background-color: red;display: inline-block;text-align: center;word-break: break-word;">
   {{result.repo_name}}
   <br>Star : {{result.star_count | number}}
   <br>Pull : {{result.pull_count | number}}
 </span>
-
-<button (click)="handleNext()">next</button>
