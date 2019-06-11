@@ -34,10 +34,4 @@ export class ApiService {
 
         return this.http.post(`${this.baseUrl}/${endpoint}`, data, {responseType: 'json', headers});
     }
-
-    public download(endpoint: string, data: any): Observable<Blob> {
-        const headers = this.getHeaders();
-
-        return this.http.post(`${this.baseUrl}/${endpoint}`, data, {responseType: 'blob', headers});
-    }
 }

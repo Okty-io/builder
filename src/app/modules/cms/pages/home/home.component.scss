@@ -76,15 +76,6 @@
             }
         }
 
-        app-page-illustration {
-            position: absolute;
-            top: calc(50% + 39px);
-            right: calc(50% + 113px);
-            z-index: 20;
-            transform: translateX(50%) translateY(-50%);
-            animation: jump 4s ease-in-out infinite;
-        }
-
         .planche {
             position: absolute;
             left: 0;
