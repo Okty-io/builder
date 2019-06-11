@@ -1,0 +1,7 @@
+<ng-container *ngIf="!image">
+  <app-builder-search (next)="handleNext($event)"></app-builder-search>
+</ng-container>
+
+<ng-container *ngIf="image">
+  <app-builder-config></app-builder-config>
+</ng-container>
