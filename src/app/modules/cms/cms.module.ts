@@ -8,6 +8,7 @@ import { InlineSVGModule } from 'ng-inline-svg';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../../shared/shared.module';
 import { BuilderComponent } from './pages/builder/builder.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import { BuilderComponent } from './pages/builder/builder.component';
         CmsRoutingModule,
         HttpClientModule,
         InlineSVGModule.forRoot(),
-        SharedModule
+        SharedModule,
+        FormsModule
     ]
 })
 export class CmsModule {

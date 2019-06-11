@@ -1,0 +1,7 @@
+<input type="text" [(ngModel)]="apiSearch" (input)="searchApi()">
+
+<br>
+
+<div *ngFor="let result of resultSearch">
+  <a href="#">{{result.repo_name}} - Star : {{result.star_count | number}} - Pull : {{result.pull_count | number}}</a>
+</div>
