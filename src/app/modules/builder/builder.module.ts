@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 import { ConfigComponent } from './components/config/config.component';
 import { StepsComponent } from './components/steps/steps.component';
+import { CardComponent } from './components/card/card.component';
 import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SharedModule } from '../../shared/shared.module';
     BuilderComponent,
     SearchComponent,
     ConfigComponent,
-    StepsComponent
+    StepsComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,

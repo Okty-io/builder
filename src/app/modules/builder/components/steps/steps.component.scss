@@ -1,3 +1,10 @@
+@import "../../../../../assets/style/media-query";
+
+
+app-button{
+  margin: 15px 0 0 15px;
+}
+
 .steps-navbar{
   height: 80px;
   width: 100%;
@@ -12,5 +19,33 @@
   color: #707070;
   .step{
     display: inline-block;
+    margin-right: 10px;
+    border-top: solid 2px transparent;
+    &:last-of-type{
+      margin-right: 0;
+    }
+
+    &.active{
+     border-top-color: #707070;
+    }
+  }
+}
+
+@include MQ(1200px){
+  .steps{
+    left: inherit;
+    right: 3%;
+    transform:inherit;
+  }
+}
+
+@include MQ(950px){
+  .steps{
+    .step{
+      display: none;
+      &.active{
+        display: block;
+      }
+    }
   }
 }
