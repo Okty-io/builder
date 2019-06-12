@@ -1,13 +1,4 @@
-<span>
-  <span [style.color]="!image && 'red'">Search</span>
-  -
-  <span [style.color]="image && 'red'">Config</span>
-  -
-  <span>Validate</span>
-</span>
-
-<br>
-
+<app-steps></app-steps>
 <ng-container *ngIf="!image">
     <app-builder-search (next)="handleNext($event)"></app-builder-search>
 </ng-container>

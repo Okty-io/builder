@@ -1,0 +1,16 @@
+.steps-navbar{
+  height: 80px;
+  width: 100%;
+}
+
+.steps{
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1em;
+  color: #707070;
+  .step{
+    display: inline-block;
+  }
+}

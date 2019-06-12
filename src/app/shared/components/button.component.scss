@@ -9,8 +9,8 @@ button {
 .cta{
   &.cta__primary{
     color: #fff;
-    background: #000;
-    text-align: center;
+    background: #FFFFFF;
+    color: #000;
     display: inline-block;
     text-transform: uppercase;
     font-weight: 300;
@@ -22,7 +22,23 @@ button {
     padding: 0 60px;
   }
 
+  &.cta__secondary{
+    color: #fff;
+    background: #FFFFFF;
+    color: #000;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-family: 'Open Sans';
+    line-height: 40px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    padding: 0 60px;
+  }
+
 }
+
 
   /*
     --------- COLORS ----------
@@ -30,12 +46,45 @@ button {
 .cta__primary, .cta__secondary, .cta__thridly{
   &.gradient__red{
     background-image: linear-gradient(108deg, #8a2387, #e94057 56%, #f27121);
+    color: #fff;
   }
   &.gradient__blue{
     background-image: linear-gradient(108deg, #8a2387, #e94057 56%, #f27121);
+    color: #fff;
+  }
+  &.outlined__grey{
+    border:solid 1px #ebebeb;
+  }
+  &.with__shadow{
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.05);
   }
 }
 
+
+/*
+  ------------- SPECIALS -----------
+ */
+
+.cta{
+  .specials{
+    .icon__hover__left{
+
+    }
+  }
+}
+
+
+/*
+  ------------ ICONS ------------
+ */
+
+.cta{
+  .icon{
+    .close{
+
+    }
+  }
+}
 
   /*
     --------- ALIGNMENTS ----------
@@ -45,6 +94,10 @@ button {
   display: block;
   margin: 0 auto;
   text-align: center;
+}
+
+:host(.align__left){
+  display: inline-block;
 }
 
 
