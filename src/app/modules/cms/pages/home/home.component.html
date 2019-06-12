@@ -1,25 +1,28 @@
-<div class="home-bg-gradient"></div>
-<div class="home-bg-art" [inlineSVG]="'./assets/background.svg'"></div>
+<div class="home-bg-art">
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1189.831 971.26">
+    <defs>
+      <linearGradient id="linear-gradient" x2="0.762" y2="0.885" gradientUnits="objectBoundingBox">
+        <stop offset="0" stop-color="#8a2387"/>
+        <stop offset="0.557" stop-color="#e94057"/>
+        <stop offset="1" stop-color="#f27121"/>
+      </linearGradient>
+    </defs>
+    <path id="Soustraction_5" data-name="Soustraction 5" d="M81.5,962.26l0,0h0V-9H1271.329c-6.246,8.108-12.756,17.52-19.9,28.776-6.884,10.843-14.382,23.442-22.925,38.517-25.126,44.339-33.232,100.721-42.618,166.006l0,.032,0,.013,0,.015c-4.3,29.881-8.741,60.779-15.187,93.388-3.491,17.657-7.206,33.985-11.357,49.916-4.631,17.771-9.87,35.156-15.569,51.67-6.255,18.129-13.341,36.011-21.061,53.149-8.325,18.479-17.69,36.764-27.834,54.347a635.82,635.82,0,0,1-35.886,55.269,699,699,0,0,1-45.219,55.912c-17.44,17.961-35.806,35.838-54.586,53.137-18.94,17.446-38.77,34.733-58.939,51.379-10.739,7.993-22.064,15.831-33.662,23.295-11.289,7.265-23.154,14.38-35.265,21.147-11.776,6.58-24.117,13.017-36.681,19.133-12.186,5.932-24.941,11.736-37.911,17.252-24.644,10.479-51.145,20.367-78.766,29.389-25.573,8.353-52.976,16.244-81.448,23.456C486.8,903.984,373.6,918.821,273.736,931.911l-.018,0-.013,0c-32.849,4.3-63.876,8.371-93.353,12.7-33.027,4.85-59.064,9.3-81.938,13.99-5.842,1.2-11.532,2.429-16.912,3.655Z" transform="translate(-81.498 9)" fill="url(#linear-gradient)"/>
+  </svg>
+
+</div>
 
 <div class="row">
     <div id="column_left" class="column column_left home-titles">
-        <div class="center">
-            <div class="center-item center-item-left">
-                <h1 class="title">Welcome to Okty</h1>
-                <h3 class="subtitle">The simplest open source application to create your docker projects</h3>
-
-                <app-button type="primary" size="large" routerLink="/generator/containers">Empty project</app-button>
-                <app-button type="light" size="large" routerLink="/generator/templates">From template</app-button>
-            </div>
-        </div>
+      <app-blobs></app-blobs>
     </div>
 
-    <div id="column_right" class="column column_right" (onSVGInserted)="animeIso()" [replaceContents]="false"
-         [inlineSVG]="'./assets/iso_lines_color.svg'">
-        <div id="plate">
-            <app-page-illustration></app-page-illustration>
+    <div id="column_right" class="column column_right">
+        <div class="home-titles">
+          <h1 class="title">A BETTER WAY</h1>
+          <h3 class="subtitle">To help us improve okty</h3>
+
+          <app-button class="align__center margin-top__large" type="cta cta__primary gradient__red" size="large" routerLink="/generator/containers">Let's start !</app-button>
         </div>
-        <img id="lines" class="planche" src="./assets/iso_lines_base.svg"/>
-        <img id="cubes" class="planche" src="./assets/iso_cubes.svg"/>
     </div>
 </div>

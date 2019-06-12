@@ -8,12 +8,14 @@ import { PageIllustrationComponent } from './components/page-illustration/page-i
 import { InlineSVGModule } from 'ng-inline-svg';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../../shared/shared.module';
+import { BlobsComponent } from './components/blobs/blobs.component';
 
 @NgModule({
     declarations: [
         HomeComponent,
         PrivacyComponent,
-        PageIllustrationComponent
+        PageIllustrationComponent,
+        BlobsComponent
     ],
     imports: [
         CommonModule,
