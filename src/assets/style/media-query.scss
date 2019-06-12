@@ -1,6 +1,7 @@
 $S: 700px;
 $M: 790px;
 $L: 970px;
+$XL: 1500px;
 
 @mixin MQ( $canvas ) {
     @if $canvas == S {
