@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ApiService } from '../../../../core/services/api.service';
 
 @Component({
@@ -19,17 +19,18 @@ export class SearchComponent implements OnInit {
   }
 
   public searchApi() {
-    if (this.apiSearch.length < 2) {
-      return;
-    }
-
-    this.api.get(`registry/search?query=${this.apiSearch}`).toPromise().then(res => {
-      this.resultSearch = JSON.parse(res).results;
+    this.api.get(`registry/search?query=${encodeURIComponent(this.apiSearch)}`).toPromise().then(res => {
+      this.resultSearch = res;
     });
   }
 
   public handleNext(imageName): void {
-    this.apiSearch = imageName;
-    this.next.emit(this.apiSearch);
+    if (imageName.split('/').length - 1 < 2) {
+      Object.getOwnPropertyNames(this.resultSearch).map(key => {
+        if (this.resultSearch[key].name === imageName) {
+          this.next.emit(this.resultSearch[key].name);
+        }
+      });
+    }
   }
 }

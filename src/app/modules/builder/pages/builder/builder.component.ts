@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuilderComponent implements OnInit {
 
-  private image: string = null;
+  public image: string = null;
 
   constructor() { }
 
