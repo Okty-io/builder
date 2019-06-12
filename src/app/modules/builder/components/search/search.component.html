@@ -2,9 +2,20 @@
 
 <br>
 
-<span (click)="handleNext(result.name)" *ngFor="let result of resultSearch" style="padding:10px 10px;margin: 10px;width: 150px;height: 150px;background-color: #dadada;display: inline-block;text-align: center;word-break: break-word;">
-  {{result.name}}
-  <br>Star : {{result.star_count | number}}
-  <br>Pull : {{result.pull_count}}
-  <br><img src="{{result.logo_url.large ? result.logo_url.large : 'https://d36jcksde1wxzq.cloudfront.net/be7833db9bddb4494d2a7c3dd659199a.png'}}" style="width: 60%;">
-</span>
+<ng-container *ngIf="customSearch" >
+  <span (click)="handleNext(resultSearch[0].name)" style="padding:10px 10px;margin: 10px;width: 150px;height: 150px;background-color: #dadada;display: inline-block;text-align: center;word-break: break-word;">
+    {{resultSearch[0].name}}
+      <br>Star : {{resultSearch[0].star_count | number}}
+      <br>Pull : {{resultSearch[0].pull_count}}
+      <br><img src="{{'https://d36jcksde1wxzq.cloudfront.net/be7833db9bddb4494d2a7c3dd659199a.png'}}" style="width: 60%;">
+  </span>
+</ng-container>
+
+<ng-container *ngIf="!customSearch" >
+  <span (click)="handleNext(result.name)" *ngFor="let result of resultSearch" style="padding:10px 10px;margin: 10px;width: 150px;height: 150px;background-color: #dadada;display: inline-block;text-align: center;word-break: break-word;">
+    {{result.name}}
+      <br>Star : {{result.star_count | number}}
+      <br>Pull : {{result.pull_count}}
+      <br><img src="{{result.logo_url.large ? result.logo_url.large : 'https://d36jcksde1wxzq.cloudfront.net/be7833db9bddb4494d2a7c3dd659199a.png'}}" style="width: 60%;">
+  </span>
+</ng-container>
