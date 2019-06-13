@@ -10,6 +10,7 @@ export class SearchTagComponent implements OnInit {
 
   @Input() imageName: string;
   @Output() next = new EventEmitter();
+  public tagName: string;
 
   public tags = null;
   public searchedTag = null;
