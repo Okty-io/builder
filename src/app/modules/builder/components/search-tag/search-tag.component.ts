@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ApiService} from '../../../../core/services/api.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ApiService } from '../../../../core/services/api.service';
 
 @Component({
   selector: 'app-builder-search-tag',
@@ -13,26 +13,22 @@ export class SearchTagComponent implements OnInit {
   @Output() next = new EventEmitter();
 
   public tags = null;
-  public tagSearch: string = null;
+  public searchedTag = null;
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
     this.tagName = '';
-  }
-
-  public handleNext(): void {
-    this.next.emit(this.tagName);
     this.api.get(`registry/tag?query=${encodeURIComponent(this.imageName)}`).toPromise().then(res => {
       this.tags = JSON.parse(res).tags;
     });
   }
 
+  public handleNext(value: string): void {
+    this.next.emit(value);
+  }
+
   public searchTag(): void {
-    Object.getOwnPropertyNames(this.tags).map(key => {
-      if (this.tags[key].name === this.tagSearch) {
-        // console.log(this.tags[key]);
-      }
-    });
+    this.searchedTag = this.tags.filter(val => val.includes(this.tagName));
   }
 }

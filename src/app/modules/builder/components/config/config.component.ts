@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ConfigComponent implements OnInit {
 
   @Input() imageName: string;
+  @Input() tagName: string;
 
   constructor() { }
 
