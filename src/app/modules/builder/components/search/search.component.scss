@@ -1,26 +1,28 @@
 @import "../../../../../assets/style/media-query";
 
-.search-block{
+.search-block {
   margin-left: 4%;
   margin-bottom: 30px;
-  *{
+
+  * {
     display: inline-block;
   }
 
-  p{
+  p {
     font-size: 1.5em;
     color: #636363;
     margin-right: 3%;
   }
-  input{
+
+  input {
     width: 100%;
     max-width: 450px;
     font-size: 1.4em;
     text-align: center;
-    border:none;
+    border: none;
     color: #636363;
-    border-bottom:solid 1px #636363;
-    outline:none;
+    border-bottom: solid 1px #636363;
+    outline: none;
   }
 }
 
@@ -42,15 +44,17 @@
 }
 
 
-@include MQ(950px){
-  .search-block{
-    *{
+@include MQ(950px) {
+  .search-block {
+    * {
       display: block;
     }
-    p{
+
+    p {
       text-align: center;
     }
-    input{
+
+    input {
       margin: 0 auto;
     }
   }

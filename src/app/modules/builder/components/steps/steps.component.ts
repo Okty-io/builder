@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-steps',
+  selector: 'app-builder-steps',
   templateUrl: './steps.component.html',
   styleUrls: ['./steps.component.scss']
 })

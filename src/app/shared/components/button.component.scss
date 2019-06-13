@@ -1,13 +1,13 @@
 button {
-    border: none;
-    font-family: 'Open Sans', sans-serif;
-    cursor: pointer;
-    outline: none;
-    transition: all .15s ease-in-out;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  outline: none;
+  transition: all .15s ease-in-out;
 }
 
-.cta{
-  &.cta__primary{
+.cta {
+  &.cta__primary {
     background: #FFFFFF;
     color: #000;
     text-align: center;
@@ -22,7 +22,7 @@ button {
     padding: 0 60px;
   }
 
-  &.cta__secondary{
+  &.cta__secondary {
     color: #fff;
     background: #FFFFFF;
     color: #000;
@@ -40,23 +40,26 @@ button {
 }
 
 
-  /*
-    --------- COLORS ----------
-   */
-.cta__primary, .cta__secondary, .cta__thridly{
-  &.gradient__red{
+/*
+  --------- COLORS ----------
+ */
+.cta__primary, .cta__secondary, .cta__thridly {
+  &.gradient__red {
     background-image: linear-gradient(108deg, #8a2387, #e94057 56%, #f27121);
     color: #fff;
   }
-  &.gradient__blue{
+
+  &.gradient__blue {
     background-image: linear-gradient(108deg, #8a2387, #e94057 56%, #f27121);
     color: #fff;
   }
-  &.outlined__grey{
-    border:solid 1px #ebebeb;
+
+  &.outlined__grey {
+    border: solid 1px #ebebeb;
   }
-  &.with__shadow{
-    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.05);
+
+  &.with__shadow {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.05);
   }
 }
 
@@ -65,9 +68,9 @@ button {
   ------------- SPECIALS -----------
  */
 
-.cta{
-  .specials{
-    .icon__hover__left{
+.cta {
+  .specials {
+    .icon__hover__left {
 
     }
   }
@@ -78,32 +81,33 @@ button {
   ------------ ICONS ------------
  */
 
-.cta{
-  .icon{
-    .close{
+.cta {
+  .icon {
+    .close {
 
     }
   }
 }
 
 
-  /*
-    --------- COLORS ----------
-   */
-.cta__primary, .cta__secondary, .cta__thridly{
-  &.gradient__red{
+/*
+  --------- COLORS ----------
+ */
+.cta__primary, .cta__secondary, .cta__thridly {
+  &.gradient__red {
     background-image: linear-gradient(108deg, #8a2387, #e94057 56%, #f27121);
   }
-  &.gradient__blue{
+
+  &.gradient__blue {
     background-image: linear-gradient(108deg, #8a2387, #e94057 56%, #f27121);
   }
 }
 
-  /*
-    --------- ALIGNMENTS ----------
-   */
+/*
+  --------- ALIGNMENTS ----------
+ */
 
-:host(.align__center){
+:host(.align__center) {
   display: block;
   margin: 0 auto;
   text-align: center;
@@ -113,14 +117,14 @@ button {
   display: inline-block;
 }
 
-:host(.align__center){
+:host(.align__center) {
   display: block;
   margin: 0 auto;
   text-align: center;
 }
 
 
-:host(.margin-top__large){
+:host(.margin-top__large) {
   margin-top: 70px;
 }
 

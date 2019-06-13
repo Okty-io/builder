@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
     <div>
       <router-outlet #outlet="outlet"></router-outlet>
     </div>
-    <!--<app-footer></app-footer> -->
   `,
   styleUrls: ['./app.component.scss'],
 })
