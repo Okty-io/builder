@@ -1,7 +1,7 @@
 <div class="card">
     <a >
         <span class="icon">
-            <img [src]="element.logo_url.large ? element.logo_url.large : 'https://d36jcksde1wxzq.cloudfront.net/be7833db9bddb4494d2a7c3dd659199a.png'" alt="">
+            <img [src]="element.logo_url?.large ? element.logo_url.large : 'https://d36jcksde1wxzq.cloudfront.net/be7833db9bddb4494d2a7c3dd659199a.png'" alt="">
         </span>
         <span class="title">{{ element.name }}</span>
     </a>
