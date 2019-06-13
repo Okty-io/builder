@@ -16,8 +16,7 @@ export class ConfigComponent implements OnInit {
 
   ngOnInit() {
     this.api.get(`registry/tag?query=${encodeURIComponent(this.imageName)}`).toPromise().then(res => {
-      this.tags = JSON.parse(res).results;
-      console.log(this.tags.length);
+      this.tags = res;
     });
   }
 
