@@ -7,12 +7,18 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class SearchTagComponent implements OnInit {
 
+  public tagName: string;
   @Input() imageName: string;
   @Output() next = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+    this.tagName = '';
+  }
+
+  public handleNext(): void {
+    this.next.emit(this.tagName);
   }
 
 }

@@ -1,3 +1,7 @@
-<p>
-  search-tag works!
-</p>
+<div class="search-block">
+  <p>Which default tag name should i use ?</p>
+  <input type="text" [(ngModel)]="tagName">
+
+  <app-button *ngIf="tagName.length > 0" (click)="handleNext()" class="" type="cta cta__secondary gradient__red" size="large">submit</app-button>
+
+</div>
