@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
   public apiSearch: string;
   public resultSearch: Array<{ name: string, star_count: number, pull_count: number }>;
   public customSearch: boolean;
+  public imageSent: boolean;
 
   constructor(private api: ApiService) {
   }
@@ -20,6 +21,7 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.resultSearch = [];
     this.customSearch = false;
+    this.imageSent = false;
   }
 
   public searchApi() {
@@ -49,6 +51,12 @@ export class SearchComponent implements OnInit {
       }
 
       this.next.emit(this.resultSearch[key].name);
+      this.imageSent = true;
     });
+  }
+
+  public cancelImage(): void {
+    this.next.emit('');
+    this.imageSent = false;
   }
 }
