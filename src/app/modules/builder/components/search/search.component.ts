@@ -49,14 +49,14 @@ export class SearchComponent implements OnInit {
       if (this.resultSearch[key].name !== imageName) {
         return;
       }
-
-      this.next.emit(this.resultSearch[key].name);
+      console.log({label: this.resultSearch[key].name, logo: this.resultSearch[key].logo_url.large});
+      this.next.emit({label: this.resultSearch[key].name, logo: this.resultSearch[key].logo_url.large});
       this.imageSent = true;
     });
   }
 
   public cancelImage(): void {
-    this.next.emit('');
+    this.next.emit({label: '', logo: ''});
     this.imageSent = false;
   }
 }
