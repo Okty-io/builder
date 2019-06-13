@@ -22,6 +22,12 @@ deploy:
       on:
         repo: Okty-io/okty-builder
         branch: dev
+  -   provider: script
+      skip_cleanup: true
+      script: aws s3 sync --region=eu-west-3 --delete --acl public-read dist/okty-builder s3://okty-builder
+      on:
+        repo: Okty-io/okty-builder
+        branch: master
 
 after_deploy:
   - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
