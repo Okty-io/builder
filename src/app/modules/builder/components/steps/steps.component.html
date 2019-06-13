@@ -1,0 +1,15 @@
+<div class="steps-navbar">
+  <app-button class="align__left" specials="true" icons="close" type="cta cta__secondary outlined__grey with__shadow cancel_button icon__hover__left" size="large" routerLink="/">Cancel your help</app-button>
+
+  <div class="steps">
+    <div [ngClass]="{'step':true, 'active': stepNumber == 1 }">
+      <p>1. Choose your image</p>
+    </div>
+    <div [ngClass]="{'step':true, 'active': stepNumber == 2 }">
+      <p>2. Create your configuration</p>
+    </div>
+    <div [ngClass]="{'step':true, 'active': stepNumber == 3 }">
+      <p>3. Submit your creation !</p>
+    </div>
+  </div>
+</div>

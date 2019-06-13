@@ -1,0 +1,61 @@
+@import "../../../../../assets/style/media-query";
+
+.search-block {
+  margin-left: 4%;
+  margin-bottom: 30px;
+
+  * {
+    display: inline-block;
+  }
+
+  p {
+    font-size: 1.5em;
+    color: #636363;
+    margin-right: 3%;
+  }
+
+  input {
+    width: 100%;
+    max-width: 450px;
+    font-size: 1.4em;
+    text-align: center;
+    border: none;
+    color: #636363;
+    border-bottom: solid 1px #636363;
+    outline: none;
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: calc(170px * 5);
+  justify-content: center;
+  margin: 0 auto;
+  width: 80%;
+
+  &.small {
+    justify-content: center;
+  }
+
+  > * {
+    width: 170px;
+  }
+}
+
+
+@include MQ(950px) {
+  .search-block {
+    * {
+      display: block;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    input {
+      margin: 0 auto;
+    }
+  }
+}

@@ -7,14 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuilderComponent implements OnInit {
 
-  public image: string = null;
+  public image: string;
+  public tag: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.image = '';
+    this.tag = '';
   }
 
-  public handleNext(name: string): void {
+  public handleImage(name: string): void {
     this.image = name;
+  }
+  public handleTag(tag: string): void {
+    this.tag = tag;
   }
 }

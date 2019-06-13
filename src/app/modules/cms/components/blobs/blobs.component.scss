@@ -1,0 +1,74 @@
+@import "../../../../../assets/style/media-query";
+
+@mixin scaling {
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      transform: scale(#{1 + ($i * .04)}) rotate(#{random(280)}deg);
+    }
+  }
+}
+
+.blobs {
+  width: 50vh;
+  position: relative;
+  top: 3vh;
+  left: 10vw;
+
+  &::before {
+    content: "";
+    padding-top: 100%;
+    display: block;
+  }
+
+  .main {
+    background: #fff;
+    z-index: 10;
+  }
+
+  .blob {
+    background: rgba(255, 255, 255, 0.15);
+    z-index: 8;
+    @include scaling;
+  }
+
+  .main, .blob {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 93% 95% 100% 85% / 93% 93% 95% 85%;
+    animation: blob-anim 10s linear infinite;
+
+    img {
+      width: 70%;
+      height: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      display: block;
+    }
+  }
+
+}
+
+@keyframes blob-anim {
+  0%, 100% {
+    border-radius: 90% 95% 100% 85% / 90% 90% 95% 85%;
+  }
+  34% {
+    border-radius: 100% 85% 85% 85% / 85% 85% 100% 100%;
+  }
+  67% {
+    border-radius: 100% 95% 95% 100% / 100% 100% 95% 95%;
+  }
+}
+
+
+@include MQ(1350px) {
+  .blobs {
+    width: 30vw;
+  }
+}

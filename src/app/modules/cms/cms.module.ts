@@ -7,11 +7,15 @@ import { HomeComponent } from './pages/home/home.component';
 import { InlineSVGModule } from 'ng-inline-svg';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../../shared/shared.module';
+import { BlobsComponent } from './components/blobs/blobs.component';
+import { NavbarComponent } from '../../core/components/navbar/navbar.component';
 
 @NgModule({
     declarations: [
         HomeComponent,
-        PrivacyComponent
+        PrivacyComponent,
+        BlobsComponent,
+        NavbarComponent
     ],
     imports: [
         CommonModule,
