@@ -2,10 +2,10 @@
 
 <div class="search-block">
   <p>Which docker image should i use ?</p>
-  <input type="text" [(ngModel)]="apiSearch" (input)="searchApi()">
+  <input type="text" [(ngModel)]="apiSearch" (input)="searchApi()" (focus)="cancelImage()">
 </div>
 
-<ng-container>
+<ng-container *ngIf="!imageSent">
   <div class="list" [ngClass]="{'small': resultSearch.length <= 5 }" *ngIf="resultSearch && resultSearch.length > 0">
     <app-generator-card (click)="handleNext(element.name)" [element]="element" *ngFor="let element of resultSearch">
     </app-generator-card>

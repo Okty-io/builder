@@ -9,6 +9,7 @@ import { ConfigComponent } from './components/config/config.component';
 import { StepsComponent } from './components/steps/steps.component';
 import { CardComponent } from './components/card/card.component';
 import { SharedModule } from '../../shared/shared.module';
+import { SearchTagComponent } from './components/search-tag/search-tag.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SharedModule } from '../../shared/shared.module';
     SearchComponent,
     ConfigComponent,
     StepsComponent,
-    CardComponent
+    CardComponent,
+    SearchTagComponent
   ],
   imports: [
     CommonModule,
