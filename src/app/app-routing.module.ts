@@ -3,6 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
     {
+        path: 'builder',
+        loadChildren: './modules/builder/builder.module#BuilderModule'
+    },
+    {
         path: '',
         loadChildren: './modules/cms/cms.module#CmsModule'
     }

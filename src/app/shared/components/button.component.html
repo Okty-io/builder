@@ -1,0 +1,30 @@
+<div *ngIf="specials">
+  <ng-container *ngTemplateOutlet="specials_block" ></ng-container>
+</div>
+
+<div *ngIf="!specials">
+  <ng-container [ngTemplateOutlet]="no_blocks"></ng-container>
+</div>
+
+<ng-template #specials_block>
+  <button type="button" class="specials {{type}} {{size}}" [disabled]="disabled">
+    <span class="icon {{icons}}"></span>
+    <span class="retractable">
+      <span class="content">
+        <ng-container [ngTemplateOutlet]="content"></ng-container>
+      </span>
+    </span>
+  </button>
+</ng-template>
+
+
+<ng-template #no_blocks>
+  <button type="button" class="{{type}} {{size}}" [disabled]="disabled">
+    <ng-container [ngTemplateOutlet]="content"></ng-container>
+  </button>
+</ng-template>
+
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>

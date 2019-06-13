@@ -1,0 +1,13 @@
+<app-builder-steps stepNumber="1"></app-builder-steps>
+
+<div class="search-block">
+  <p>Which docker image should i use ?</p>
+  <input type="text" [(ngModel)]="apiSearch" (input)="searchApi()">
+</div>
+
+<ng-container>
+  <div class="list" [ngClass]="{'small': resultSearch.length <= 5 }" *ngIf="resultSearch && resultSearch.length > 0">
+    <app-generator-card (click)="handleNext(element.name)" [element]="element" *ngFor="let element of resultSearch">
+    </app-generator-card>
+  </div>
+</ng-container>
