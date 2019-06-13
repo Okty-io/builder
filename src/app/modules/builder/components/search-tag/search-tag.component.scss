@@ -2,7 +2,6 @@
 
 .search-block {
   margin-left: 4%;
-  margin-bottom: 30px;
 
   * {
     display: inline-block;
@@ -61,4 +60,33 @@ app-button{
       margin: 0 auto;
     }
   }
+}
+
+.box{
+  background-color: #fff;
+  color: #000;
+  border: 2px solid black;
+  padding: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  max-width: 200px;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-image: linear-gradient(108deg, #8a2387, #e94057 56%, #f27121);
+    border-image-slice: 1;
+    border-width: 2px;
+  }
+
+}
+
+.wrapper {
+  width: calc(100% - 200px);
+  display: grid;
+  padding: 100px;
+  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
