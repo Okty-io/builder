@@ -20,7 +20,7 @@ export class SearchTagComponent implements OnInit {
   ngOnInit() {
     this.tagName = '';
     this.api.get(`registry/tag?query=${encodeURIComponent(this.imageName)}`).toPromise().then(res => {
-      this.tags = JSON.parse(res).tags;
+      this.tags = res;
     });
   }
 
