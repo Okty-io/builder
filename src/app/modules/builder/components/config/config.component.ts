@@ -8,7 +8,8 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ConfigComponent implements OnInit {
 
   @Input() imageName: string;
-  @Input() tagName: string;
+  @Input() logoUrl: string;
+  @Input() tag: string;
 
   constructor() { }
 

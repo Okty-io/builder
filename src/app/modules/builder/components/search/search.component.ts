@@ -50,14 +50,14 @@ export class SearchComponent implements OnInit {
         return;
       }
 
+      this.next.emit({label: this.resultSearch[key].name, logo: this.resultSearch[key].logo_url.large});
       this.apiSearch = this.resultSearch[key].name;
-      this.next.emit(this.resultSearch[key].name);
       this.imageSent = true;
     });
   }
 
   public cancelImage(): void {
-    this.next.emit('');
+    this.next.emit({label: '', logo: ''});
     this.imageSent = false;
   }
 }
