@@ -8,7 +8,6 @@ import { ApiService } from '../../../../core/services/api.service';
 })
 export class SearchTagComponent implements OnInit {
 
-  public tagName: string;
   @Input() imageName: string;
   @Output() next = new EventEmitter();
 
