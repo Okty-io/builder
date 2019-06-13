@@ -5,16 +5,9 @@
   <input type="text" [(ngModel)]="apiSearch" (input)="searchApi()">
 </div>
 
-
-
-<ng-container *ngIf="customSearch" >
+<ng-container>
   <div class="list" [ngClass]="{'small': resultSearch.length <= 5 }" *ngIf="resultSearch && resultSearch.length > 0">
-    <app-generator-card [element]="element" *ngFor="let element of resultSearch"></app-generator-card>
-  </div>
-</ng-container>
-
-<ng-container *ngIf="!customSearch" >
-  <div class="list" [ngClass]="{'small': resultSearch.length <= 5 }" *ngIf="resultSearch && resultSearch.length > 0">
-    <app-generator-card [element]="element" *ngFor="let element of resultSearch"></app-generator-card>
+    <app-generator-card (click)="handleNext(element.name)" [element]="element" *ngFor="let element of resultSearch">
+    </app-generator-card>
   </div>
 </ng-container>
