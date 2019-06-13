@@ -1,7 +1,12 @@
-<div class="search-block">
-  <p>Which default tag name should i use ?</p>
-  <input type="text" [(ngModel)]="tagName">
+{{imageName}}
 
-  <app-button *ngIf="tagName.length > 0" (click)="handleNext()" class="" type="cta cta__secondary gradient__red" size="large">submit</app-button>
+<br>
 
-</div>
+<input type="text" [(ngModel)]="tagSearch" (input)="searchTag()">
+
+<br>
+
+<span>{{tags?.length}}</span>
+<ul>
+  <li *ngFor="let tag of tags">{{ tag }}</li>
+</ul>
