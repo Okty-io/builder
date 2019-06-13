@@ -8,6 +8,7 @@
     display: inline-block;
     position: relative;
     margin: auto auto 32px auto;
+    cursor: pointer;
     transition: all .2s ease-in-out;
 
     &:nth-child(5n) {

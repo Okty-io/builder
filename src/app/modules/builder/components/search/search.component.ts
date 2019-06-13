@@ -49,8 +49,8 @@ export class SearchComponent implements OnInit {
       if (this.resultSearch[key].name !== imageName) {
         return;
       }
-      console.log({label: this.resultSearch[key].name, logo: this.resultSearch[key].logo_url.large});
       this.next.emit({label: this.resultSearch[key].name, logo: this.resultSearch[key].logo_url.large});
+      this.apiSearch = this.resultSearch[key].name;
       this.imageSent = true;
     });
   }

@@ -1,7 +1,10 @@
 <div class="search-block">
   <p>Which default tag name should i use ?</p>
-  <input type="text" [(ngModel)]="tagName">
+  <input type="text" [(ngModel)]="tagName" (input)="searchTag()">
+</div>
 
-  <app-button *ngIf="tagName.length > 0" (click)="handleNext()" class="" type="cta cta__secondary gradient__red" size="large">submit</app-button>
+<br>
 
+<div class="wrapper" *ngIf="tagName">
+  <div class="box" *ngFor="let tag of searchedTag" (click)="handleNext(tag)">{{tag}}</div>
 </div>

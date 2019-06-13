@@ -1,0 +1,33 @@
+env:
+  global:
+    - PATH=$HOME/.local/bin:$PATH
+
+services:
+  - docker
+
+before_install:
+  - pip install --user awscli
+
+install:
+  - docker run -v $(pwd):/app -w /app node:11-stretch npm install
+
+script:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then docker run -v $(pwd):/app -w /app node:11-stretch ./node_modules/.bin/ng build --prod --aot; fi
+  - if [ "$TRAVIS_BRANCH" == "dev" ]; then docker run -v $(pwd):/app -w /app node:11-stretch ./node_modules/.bin/ng build --configuration=develop; fi
+
+deploy:
+  -   provider: script
+      skip_cleanup: true
+      script: aws s3 sync --region=eu-west-3 --delete --acl public-read dist/okty-builder s3://okty-builder-dev
+      on:
+        repo: Okty-io/okty-builder
+        branch: dev
+  -   provider: script
+      skip_cleanup: true
+      script: aws s3 sync --region=eu-west-3 --delete --acl public-read dist/okty-builder s3://okty-builder
+      on:
+        repo: Okty-io/okty-builder
+        branch: master
+
+after_deploy:
+  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
