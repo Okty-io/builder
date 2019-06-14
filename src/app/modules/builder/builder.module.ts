@@ -13,6 +13,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { SearchTagComponent } from './components/search-tag/search-tag.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HighlightModule } from 'ngx-highlightjs';
+import { ConfigPopinComponent } from './components/config-popin/config-popin.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HighlightModule } from 'ngx-highlightjs';
     ConfigComponent,
     StepsComponent,
     CardComponent,
-    SearchTagComponent
+    SearchTagComponent,
+    ConfigPopinComponent
   ],
   imports: [
     CommonModule,

@@ -14,4 +14,21 @@
   <p>Time to make your configuration</p>
 </div>
 
-<app-generator-preview></app-generator-preview>
+<div class="form-and-preview">
+
+  <div class="config" >
+
+    <div class="form">
+      <form>
+
+      </form>
+      <app-button class="align__center" type="cta cta__small gradient__red with__shadow" size="large" (click)="openPopIn()" >Add a group</app-button>
+    </div>
+
+    <div class="preview">
+      <app-generator-preview></app-generator-preview>
+    </div>
+  </div>
+</div>
+
+<app-builder-config-popin [isActive]="isPopinActive"></app-builder-config-popin>

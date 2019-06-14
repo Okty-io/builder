@@ -71,9 +71,16 @@ button {
   &.outlined__grey {
     border: solid 1px #ebebeb;
   }
+}
 
+.cta__primary, .cta__secondary {
   &.with__shadow {
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+.cta__small{
+  &.with__shadow {
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.05);
   }
 }
 

@@ -10,10 +10,15 @@ export class ConfigComponent implements OnInit {
   @Input() imageName: string;
   @Input() logoUrl: string;
   @Input() tag: string;
+  public isPopinActive: boolean;
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.logoUrl);
+    this.isPopinActive = false;
+  }
+
+  public openPopIn(){
+    this.isPopinActive = true;
   }
 }
