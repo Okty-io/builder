@@ -20,6 +20,7 @@ import { InputComponent } from './components/fields/input/input.component';
 import { VoidComponent } from './components/fields/void/void.component';
 import { FormFieldDirective } from './directives/form-field.directive';
 import { OnlyVisibleFieldPipe } from './directives/only-visible-field.pipe';
+import { GroupTitleComponent } from './components/form/group-title/group-title.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { OnlyVisibleFieldPipe } from './directives/only-visible-field.pipe';
     InputComponent,
     VoidComponent,
     FormFieldDirective,
-    OnlyVisibleFieldPipe
+    OnlyVisibleFieldPipe,
+    GroupTitleComponent
   ],
   imports: [
     CommonModule,

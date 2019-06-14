@@ -10,7 +10,6 @@ export class FormComponent implements OnInit {
 
   public groups: Array<ContainerConfigGroup>;
 
-
   ngOnInit(): void {
     this.groups = [];
 
