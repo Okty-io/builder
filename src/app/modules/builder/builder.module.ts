@@ -15,6 +15,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HighlightModule } from 'ngx-highlightjs';
 import { ConfigPopinComponent } from './components/config-popin/config-popin.component';
 import { ReviewComponent } from './components/review/review.component';
+import { FormComponent } from './components/form/form.component';
+import { InputComponent } from './components/fields/input/input.component';
+import { VoidComponent } from './components/fields/void/void.component';
+import { FormFieldDirective } from './directives/form-field.directive';
+import { OnlyVisibleFieldPipe } from './directives/only-visible-field.pipe';
 
 @NgModule({
   declarations: [
@@ -25,8 +30,13 @@ import { ReviewComponent } from './components/review/review.component';
     StepsComponent,
     CardComponent,
     SearchTagComponent,
-    ConfigPopinComponent
-    ReviewComponent
+    ReviewComponent,
+    ConfigPopinComponent,
+    FormComponent,
+    InputComponent,
+    VoidComponent,
+    FormFieldDirective,
+    OnlyVisibleFieldPipe
   ],
   imports: [
     CommonModule,
@@ -37,4 +47,5 @@ import { ReviewComponent } from './components/review/review.component';
     HighlightModule
   ]
 })
-export class BuilderModule { }
+export class BuilderModule {
+}

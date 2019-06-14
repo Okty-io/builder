@@ -1,0 +1,11 @@
+<div class="group" *ngFor="let group of groups">
+    <h2>{{ group.label }}</h2>
+
+    <hr>
+
+    <div class="fields">
+        <div *ngFor="let field of group.fields|onlyVisibleField">
+            <ng-template appGeneratorFormField [appFormField]="field"></ng-template>
+        </div>
+    </div>
+</div>
