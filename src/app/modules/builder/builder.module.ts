@@ -5,7 +5,7 @@ import { BuilderRoutingModule } from './builder-routing.module';
 import { BuilderComponent } from './pages/builder/builder.component';
 import { FormsModule } from '@angular/forms';
 import { PreviewComponent } from './components/preview/preview.component';
-import { SearchComponent } from './components/search/search.component';
+import { SearchImageComponent } from './components/search-image/search-image.component';
 import { ConfigComponent } from './components/config/config.component';
 import { StepsComponent } from './components/steps/steps.component';
 import { CardComponent } from './components/card/card.component';
@@ -20,7 +20,7 @@ import { ReviewComponent } from './components/review/review.component';
   declarations: [
     BuilderComponent,
     PreviewComponent,
-    SearchComponent,
+    SearchImageComponent,
     ConfigComponent,
     StepsComponent,
     CardComponent,
