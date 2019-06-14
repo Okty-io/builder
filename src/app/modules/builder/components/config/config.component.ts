@@ -33,8 +33,9 @@ export class ConfigComponent implements OnInit {
 
   public addGroup(): void {
     const group = {
-      id: 'test',
-      label: 'General',
+      id: 'group_' + this.groups.length,
+      label: '',
+      editing: true,
       fields: []
     };
     this.groups.push(group);

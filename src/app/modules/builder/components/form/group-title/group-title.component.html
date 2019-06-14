@@ -1,4 +1,4 @@
-<h2 *ngIf="!edit">{{ data }}</h2>
-<input type="text" *ngIf="edit" [(ngModel)]="data" (change)="onLabelChange()">
+<h2 *ngIf="!editing">{{ data }}</h2>
+<input type="text" placeholder="Group name" *ngIf="editing" [(ngModel)]="data" (change)="onLabelChange()">
 
-<fa-icon [icon]="!edit ? faEdit : faSave" (click)="edit=!edit"></fa-icon>
+<fa-icon [icon]="!editing ? faEdit : faSave" (click)="editing=!editing"></fa-icon>

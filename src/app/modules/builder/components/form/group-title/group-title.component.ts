@@ -15,13 +15,12 @@ export class GroupTitleComponent implements OnInit {
   @Input() set label(value) {
     this.data = value;
   }
+  @Input() public editing: boolean;
 
-  public edit: boolean;
   public faEdit;
   public faSave;
 
   ngOnInit() {
-    this.edit = false;
     this.faEdit = faEdit;
     this.faSave = faCheck;
   }
