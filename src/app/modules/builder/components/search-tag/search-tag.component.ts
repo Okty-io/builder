@@ -43,6 +43,6 @@ export class SearchTagComponent implements OnInit {
       return;
     }
 
-    this.searchedTag = this.tags.filter(val => val.includes(this.tagName));
+    this.searchedTag = this.tags.filter(val => val.startsWith(this.tagName));
   }
 }
