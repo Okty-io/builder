@@ -14,6 +14,7 @@ import { SearchTagComponent } from './components/search-tag/search-tag.component
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HighlightModule } from 'ngx-highlightjs';
 import { ConfigPopinComponent } from './components/config-popin/config-popin.component';
+import { ReviewComponent } from './components/review/review.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ConfigPopinComponent } from './components/config-popin/config-popin.com
     CardComponent,
     SearchTagComponent,
     ConfigPopinComponent
+    ReviewComponent
   ],
   imports: [
     CommonModule,
