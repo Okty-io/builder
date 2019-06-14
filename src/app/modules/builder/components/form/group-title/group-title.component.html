@@ -1,1 +1,4 @@
-<h2>{{ label }}</h2>
+<h2 *ngIf="!edit">{{ data }}</h2>
+<input type="text" *ngIf="edit" [(ngModel)]="data" (change)="onLabelChange()">
+
+<fa-icon [icon]="!edit ? faEdit : faSave" (click)="edit=!edit"></fa-icon>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ContainerConfigGroup } from '../../models/container-config-group';
 
 @Component({
   selector: 'app-builder-config',
@@ -13,6 +14,7 @@ export class ConfigComponent implements OnInit {
 
   @Output() next = new EventEmitter();
 
+  public groups: Array<ContainerConfigGroup>;
   public isPopinActive: boolean;
 
   constructor() {
@@ -20,6 +22,9 @@ export class ConfigComponent implements OnInit {
 
   ngOnInit() {
     this.isPopinActive = false;
+
+    this.groups = [];
+    this.groups.push({id: 'test', label: 'ok', fields: []});
   }
 
   public openPopIn(): void {

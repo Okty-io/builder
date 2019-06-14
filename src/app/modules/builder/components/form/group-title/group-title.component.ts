@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 
 @Component({
   selector: 'app-builder-form-group-title',
@@ -7,12 +9,25 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class GroupTitleComponent implements OnInit {
 
-  @Input() public label: string;
+  public data;
 
-  constructor() {
+  @Output() labelChange: EventEmitter<string> = new EventEmitter<string>();
+  @Input() set label(value) {
+    this.data = value;
   }
 
+  public edit: boolean;
+  public faEdit;
+  public faSave;
+
   ngOnInit() {
+    this.edit = false;
+    this.faEdit = faEdit;
+    this.faSave = faCheck;
+  }
+
+  onLabelChange() {
+    this.labelChange.emit(this.data);
   }
 
 }
