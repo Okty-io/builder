@@ -4,16 +4,20 @@ import { CommonModule } from '@angular/common';
 import { BuilderRoutingModule } from './builder-routing.module';
 import { BuilderComponent } from './pages/builder/builder.component';
 import { FormsModule } from '@angular/forms';
+import { PreviewComponent } from './components/preview/preview.component';
 import { SearchComponent } from './components/search/search.component';
 import { ConfigComponent } from './components/config/config.component';
 import { StepsComponent } from './components/steps/steps.component';
 import { CardComponent } from './components/card/card.component';
 import { SharedModule } from '../../shared/shared.module';
 import { SearchTagComponent } from './components/search-tag/search-tag.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HighlightModule } from 'ngx-highlightjs';
 
 @NgModule({
   declarations: [
     BuilderComponent,
+    PreviewComponent,
     SearchComponent,
     ConfigComponent,
     StepsComponent,
@@ -24,7 +28,9 @@ import { SearchTagComponent } from './components/search-tag/search-tag.component
     CommonModule,
     BuilderRoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    FontAwesomeModule,
+    HighlightModule
   ]
 })
 export class BuilderModule { }

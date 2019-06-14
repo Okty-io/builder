@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './core/services/api.service';
 import { TitleService } from './core/services/title.service';
 import { SharedModule } from './shared/shared.module';
+import { HighlightModule } from 'ngx-highlightjs';
+import yaml from 'highlight.js/lib/languages/yaml';
 
 @NgModule({
     declarations: [
@@ -20,6 +22,7 @@ import { SharedModule } from './shared/shared.module';
         AppRoutingModule,
         CoreModule,
         SharedModule,
+        HighlightModule.forRoot({languages: () => [{name: 'yaml', func: yaml}]}),
     ],
     providers: [
         ApiService,
