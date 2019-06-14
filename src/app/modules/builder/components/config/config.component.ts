@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-builder-config',
@@ -10,6 +10,8 @@ export class ConfigComponent implements OnInit {
   @Input() imageName: string;
   @Input() logoUrl: string;
   @Input() tag: string;
+  @Output() next = new EventEmitter();
+
   public isPopinActive: boolean;
 
   constructor() { }
@@ -20,5 +22,9 @@ export class ConfigComponent implements OnInit {
 
   public openPopIn(){
     this.isPopinActive = true;
+  }
+
+  public handleNext(value: boolean): void {
+    this.next.emit(value);
   }
 }

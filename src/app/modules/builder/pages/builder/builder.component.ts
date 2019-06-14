@@ -10,6 +10,7 @@ export class BuilderComponent implements OnInit {
   public image: string;
   public tag: string;
   public logo: string;
+  public review: boolean;
 
   constructor() { }
 
@@ -17,6 +18,7 @@ export class BuilderComponent implements OnInit {
     this.image = '';
     this.tag = '';
     this.logo = '';
+    this.review = false;
   }
 
   public handleImage(image: {label: string, logo: string}): void {
@@ -25,5 +27,8 @@ export class BuilderComponent implements OnInit {
   }
   public handleTag(tag: string): void {
     this.tag = tag;
+  }
+  public handleReview(pass: boolean): void {
+    this.review = pass;
   }
 }

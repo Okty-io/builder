@@ -6,3 +6,7 @@
 <ng-container *ngIf="image && tag">
     <app-builder-config [imageName]="image" [logoUrl]="logo" [tag]="tag"></app-builder-config>
 </ng-container>
+
+<ng-container *ngIf="review">
+  <app-review (next)="handleReview($event)"></app-review>
+</ng-container>
