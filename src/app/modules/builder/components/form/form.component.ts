@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ContainerConfigGroup } from '../../models/container-config-group';
 
 @Component({
@@ -8,19 +8,9 @@ import { ContainerConfigGroup } from '../../models/container-config-group';
 })
 export class FormComponent implements OnInit {
 
-  public groups: Array<ContainerConfigGroup>;
-
-
+  @Input() groups;
   ngOnInit(): void {
-    this.groups = [];
 
-    const group = {
-      id: 'test',
-      label: 'ok',
-      fields: []
-    };
-
-    this.groups.push(group);
   }
 
   // @Input()
