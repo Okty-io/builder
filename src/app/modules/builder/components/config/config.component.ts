@@ -15,16 +15,16 @@ export class ConfigComponent implements OnInit {
 
   public isPopinActive: boolean;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     this.isPopinActive = false;
   }
 
-  public openPopIn(){
+  public openPopIn(): void {
     this.isPopinActive = true;
   }
-
 
 
   public handleNext(value: boolean): void {
