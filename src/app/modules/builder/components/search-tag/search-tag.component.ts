@@ -15,12 +15,22 @@ export class SearchTagComponent implements OnInit {
   public tags = null;
   public searchedTag = null;
 
-  constructor(private api: ApiService) { }
+  public loading: boolean;
+
+  constructor(private api: ApiService) {
+  }
 
   ngOnInit() {
+    this.loading = true;
     this.tagName = '';
+
     this.api.get(`registry/tag?query=${encodeURIComponent(this.imageName)}`).toPromise().then(res => {
       this.tags = res;
+      this.loading = false;
+
+      if (this.tagName) {
+        this.searchTag();
+      }
     });
   }
 
@@ -29,6 +39,10 @@ export class SearchTagComponent implements OnInit {
   }
 
   public searchTag(): void {
+    if (!this.tags || this.tags.length <= 0) {
+      return;
+    }
+
     this.searchedTag = this.tags.filter(val => val.includes(this.tagName));
   }
 }
