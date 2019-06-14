@@ -1,7 +1,7 @@
 <ng-container *ngFor="let group of groups">
   <button (click)="remove(group)">Remove this group</button>
   <div class="group">
-    <h2>{{ group.label }}</h2>
+    <app-builder-form-group-title [label]="group.label"></app-builder-form-group-title>
 
     <hr>
 

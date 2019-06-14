@@ -9,6 +9,7 @@ import { ContainerConfigGroup } from '../../models/container-config-group';
 export class FormComponent implements OnInit {
 
   @Input() groups;
+
   ngOnInit(): void {
 
   }
