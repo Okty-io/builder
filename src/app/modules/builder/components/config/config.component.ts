@@ -14,8 +14,8 @@ export class ConfigComponent implements OnInit {
 
   @Output() next = new EventEmitter();
 
-  public groups: Array<ContainerConfigGroup>;
   public isPopinActive: boolean;
+  public groups: Array<ContainerConfigGroup>;
 
   constructor() {
   }
@@ -31,6 +31,14 @@ export class ConfigComponent implements OnInit {
     this.isPopinActive = true;
   }
 
+  public addGroup(): void {
+    const group = {
+      id: 'test',
+      label: 'General',
+      fields: []
+    };
+    this.groups.push(group);
+  }
 
   public handleNext(value: boolean): void {
     this.next.emit(value);

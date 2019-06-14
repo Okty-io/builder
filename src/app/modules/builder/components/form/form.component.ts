@@ -16,6 +16,15 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.groups = [];
+
+    const group = {
+      id: 'test',
+      label: 'ok',
+      fields: []
+    };
+
+    this.groups.push(group);
   }
 
   remove(group: ContainerConfigGroup) {
