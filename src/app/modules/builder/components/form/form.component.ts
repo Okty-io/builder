@@ -14,6 +14,7 @@ export class FormComponent implements OnInit {
   @Output() groupsChange = new EventEmitter<ContainerConfigGroup[]>();
 
   @Input() set groups(value) {
+    console.log(value, 'TEST');
     this.groupsData = value;
   }
 

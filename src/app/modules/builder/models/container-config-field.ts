@@ -3,9 +3,9 @@ import { ContainerConfigFieldValidator } from './container-config-field-validato
 export interface ContainerConfigField {
   id: string;
   label: string;
-  type: 'input' | 'checkbox' | 'select-single' | 'select-multiple' | 'select-container' | 'hidden';
+  type: 'input' | 'checkbox' | 'select-single' | 'select-multiple' | 'select-container' | 'hidden' | string;
   base: string;
-  destination: 'id' | 'version' | 'compose' | 'volumes' | 'ports' | 'environments' | 'files';
+  destination: 'id' | 'version' | 'compose' | 'volumes' | 'ports' | 'environments' | 'files' | string;
   value: string;
   validators: Array<ContainerConfigFieldValidator>;
   source: Array<{ [key: string]: string }>;

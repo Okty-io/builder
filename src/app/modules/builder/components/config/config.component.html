@@ -32,7 +32,7 @@
   </div>
 </div>
 
-<app-builder-config-popin *ngIf="isPopinActive" (onClose)="isPopinActive = false" (onSubmit)="addField($event)">
+<app-builder-config-popin *ngIf="isPopinActive" (onClose)="hidePopIn()" (onSubmit)="addField($event)">
 </app-builder-config-popin>
 
 <button (click)="handleNext(true)">GO TO REVIEW</button>

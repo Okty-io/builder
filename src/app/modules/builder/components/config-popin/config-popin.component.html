@@ -5,8 +5,28 @@
   </div>
   <hr>
   <div class="body">
-    <form (submit)="handleSubmit($event)">
+    <form (submit)="handleSubmit($event)" [formGroup]="formGroup">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aut consectetur distinctio eius eos exercitationem illum impedit iure laborum, laudantium magnam maiores nostrum perferendis rem, repellendus repudiandae saepe tenetur unde?
+
+      <label>
+        Input title
+        <input type="text" name="title" [formControl]="labelControl">
+      </label>
+
+      <label>
+        Destination
+        <select name="destination" [formControl]="destinationControl">
+          <option *ngFor="let option of destinationOptions" [value]="option.value">{{option.label}}</option>
+        </select>
+      </label>
+
+      <label>
+        Type
+        <select name="type" [formControl]="typeControl">
+          <option *ngFor="let option of typeOptions" [value]="option.value">{{option.label}}</option>
+        </select>
+      </label>
+
       <button>Save</button>
     </form>
   </div>
