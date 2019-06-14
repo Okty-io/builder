@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
 @Component({
   selector: 'app-builder-config-popin',
@@ -7,11 +8,25 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ConfigPopinComponent implements OnInit {
 
-  @Input() isActive: boolean;
-  constructor() { }
+  @Output() onClose = new EventEmitter();
+  @Output() onSubmit = new EventEmitter();
 
-  ngOnInit() {
-    this.isActive = false;
+  public faExit;
+
+  constructor() {
   }
 
+  ngOnInit() {
+    this.faExit = faTimes;
+  }
+
+  handleClose(): void {
+    this.onClose.emit();
+  }
+
+  handleSubmit(event: Event) {
+    event.preventDefault();
+
+    this.onSubmit.emit();
+  }
 }

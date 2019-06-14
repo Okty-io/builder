@@ -10,7 +10,9 @@ export class FormComponent implements OnInit {
 
   public groupsData: Array<ContainerConfigGroup>;
 
+  @Output() addAction = new EventEmitter();
   @Output() groupsChange = new EventEmitter<ContainerConfigGroup[]>();
+
   @Input() set groups(value) {
     this.groupsData = value;
   }
@@ -19,8 +21,12 @@ export class FormComponent implements OnInit {
     console.log(this.groupsData);
   }
 
-  remove(group: ContainerConfigGroup) {
+  remove(group: ContainerConfigGroup): void {
     this.groupsData = this.groupsData.filter((element) => element.id !== group.id);
     this.groupsChange.emit(this.groupsData);
+  }
+
+  openPopIn(group: ContainerConfigGroup): void {
+    this.addAction.emit(group);
   }
 }

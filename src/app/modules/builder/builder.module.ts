@@ -21,6 +21,7 @@ import { VoidComponent } from './components/fields/void/void.component';
 import { FormFieldDirective } from './directives/form-field.directive';
 import { OnlyVisibleFieldPipe } from './directives/only-visible-field.pipe';
 import { GroupTitleComponent } from './components/form/group-title/group-title.component';
+import { NewComponent } from './components/fields/new/new.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { GroupTitleComponent } from './components/form/group-title/group-title.c
     VoidComponent,
     FormFieldDirective,
     OnlyVisibleFieldPipe,
-    GroupTitleComponent
+    GroupTitleComponent,
+    NewComponent
   ],
   imports: [
     CommonModule,
@@ -47,6 +49,9 @@ import { GroupTitleComponent } from './components/form/group-title/group-title.c
     SharedModule,
     FontAwesomeModule,
     HighlightModule
+  ],
+  entryComponents: [
+    InputComponent,
   ]
 })
 export class BuilderModule {

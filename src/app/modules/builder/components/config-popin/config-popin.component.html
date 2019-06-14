@@ -1,8 +1,13 @@
-<div *ngIf="isActive">
-  <div class="popin">
-    <div class="header">
-      <p class="title"></p>
-      <div class="close-button"></div>
-    </div>
+<div class="popin">
+  <div class="header">
+    <p class="title">Add an element</p>
+    <fa-icon [icon]="faExit" (click)="this.handleClose()"></fa-icon>
+  </div>
+  <hr>
+  <div class="body">
+    <form (submit)="handleSubmit($event)">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aut consectetur distinctio eius eos exercitationem illum impedit iure laborum, laudantium magnam maiores nostrum perferendis rem, repellendus repudiandae saepe tenetur unde?
+      <button>Save</button>
+    </form>
   </div>
 </div>

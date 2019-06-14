@@ -20,7 +20,7 @@
 
   <div class="config">
     <div class="form">
-      <app-builder-form [(groups)]="groups"></app-builder-form>
+      <app-builder-form [(groups)]="groups" (addAction)="openPopIn($event)"></app-builder-form>
       <app-button class="align__center" type="cta cta__small gradient__red with__shadow" size="large"
                   (click)="addGroup()">Add a group
       </app-button>
@@ -32,6 +32,7 @@
   </div>
 </div>
 
-<app-builder-config-popin [isActive]="isPopinActive"></app-builder-config-popin>
+<app-builder-config-popin *ngIf="isPopinActive" (onClose)="isPopinActive = false" (onSubmit)="addField($event)">
+</app-builder-config-popin>
 
 <button (click)="handleNext(true)">GO TO REVIEW</button>

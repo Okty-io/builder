@@ -9,6 +9,8 @@
       <div *ngFor="let field of group.fields|onlyVisibleField">
         <ng-template appGeneratorFormField [appFormField]="field"></ng-template>
       </div>
+
+      <app-builder-fields-new (click)="openPopIn(group)"></app-builder-fields-new>
     </div>
   </div>
 </ng-container>

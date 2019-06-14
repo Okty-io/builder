@@ -1,8 +1,17 @@
-.popin{
+:host {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popin {
   width: 100%;
   max-width: 550px;
   background: #fff;
-  border-radius:25px;
+  border-radius: 25px;
   min-height: 60px;
   border: solid 1px #707070;
   position: absolute;
@@ -10,4 +19,8 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 100;
+}
+
+fa-icon {
+  cursor: pointer;
 }

@@ -24,10 +24,14 @@ export class ConfigComponent implements OnInit {
     this.isPopinActive = false;
 
     this.groups = [];
-    this.groups.push({id: 'test', label: 'ok', fields: []});
+    this.groups.push({
+      id: 'group_1', label: 'Général', fields: [
+        {id: 'name', label: 'Container ID', type: 'input', destination: 'id', value: ''}
+      ]
+    });
   }
 
-  public openPopIn(): void {
+  public openPopIn(group: ContainerConfigGroup): void {
     this.isPopinActive = true;
   }
 
@@ -43,5 +47,9 @@ export class ConfigComponent implements OnInit {
 
   public handleNext(value: boolean): void {
     this.next.emit(value);
+  }
+
+  addField(field: Event): void {
+    console.log(field);
   }
 }
