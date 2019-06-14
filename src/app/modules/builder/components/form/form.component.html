@@ -1,11 +1,14 @@
-<div class="group" *ngFor="let group of groups">
+<ng-container *ngFor="let group of groups">
+  <button (click)="remove(group)">Remove this group</button>
+  <div class="group">
     <h2>{{ group.label }}</h2>
 
     <hr>
 
     <div class="fields">
-        <div *ngFor="let field of group.fields|onlyVisibleField">
-            <ng-template appGeneratorFormField [appFormField]="field"></ng-template>
-        </div>
+      <div *ngFor="let field of group.fields|onlyVisibleField">
+        <ng-template appGeneratorFormField [appFormField]="field"></ng-template>
+      </div>
     </div>
-</div>
+  </div>
+</ng-container>

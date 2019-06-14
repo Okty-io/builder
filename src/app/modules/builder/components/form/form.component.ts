@@ -45,4 +45,8 @@ export class FormComponent implements OnInit {
   //         });
   //     });
   // }
+
+  remove(group: ContainerConfigGroup) {
+    this.groups = this.groups.filter((element) => element.id !== group.id);
+  }
 }
