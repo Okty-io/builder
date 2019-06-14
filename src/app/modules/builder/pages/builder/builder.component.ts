@@ -9,16 +9,19 @@ export class BuilderComponent implements OnInit {
 
   public image: string;
   public tag: string;
+  public logo: string;
 
   constructor() { }
 
   ngOnInit() {
     this.image = '';
     this.tag = '';
+    this.logo = '';
   }
 
-  public handleImage(name: string): void {
-    this.image = name;
+  public handleImage(image: {label: string, logo: string}): void {
+    this.image = image.label;
+    this.logo = image.logo;
   }
   public handleTag(tag: string): void {
     this.tag = tag;
