@@ -19,7 +19,6 @@ import { FormComponent } from './components/form/form.component';
 import { InputComponent } from './components/fields/input/input.component';
 import { VoidComponent } from './components/fields/void/void.component';
 import { FormFieldDirective } from './directives/form-field.directive';
-import { OnlyVisibleFieldPipe } from './directives/only-visible-field.pipe';
 import { GroupTitleComponent } from './components/form/group-title/group-title.component';
 import { NewComponent } from './components/fields/new/new.component';
 
@@ -38,7 +37,6 @@ import { NewComponent } from './components/fields/new/new.component';
     InputComponent,
     VoidComponent,
     FormFieldDirective,
-    OnlyVisibleFieldPipe,
     GroupTitleComponent,
     NewComponent
   ],
@@ -54,6 +52,7 @@ import { NewComponent } from './components/fields/new/new.component';
   ],
   entryComponents: [
     InputComponent,
+    VoidComponent
   ]
 })
 export class BuilderModule {

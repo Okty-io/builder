@@ -1,11 +1,13 @@
 
 h2 {
-  width: 100%;
+  width: calc(100% - 18px);
   text-align: center;
   font-weight: 300;
   margin: 8px 0;
+  display: inline-block;
 }
 
 fa-icon {
   cursor: pointer;
+  display: inline-block;
 }

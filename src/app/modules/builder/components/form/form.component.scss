@@ -3,6 +3,11 @@
 :host {
     font-family: 'Open Sans', sans-serif;
 
+    .remove {
+      text-align: right;
+      margin-bottom: 8px;
+    }
+
     .group {
         margin: 0 0 32px 0;
         border: 1px solid rgba(0, 0, 0, 0.16);

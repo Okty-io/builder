@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ContainerConfigGroup } from '../../models/container-config-group';
-import { ContainerConfigField } from '../../models/container-config-field';
 
 @Component({
   selector: 'app-builder-config',
@@ -28,8 +27,8 @@ export class ConfigComponent implements OnInit {
 
     this.groups = [];
     this.groups.push({
-      id: 'group_1', label: 'Général', editing: false, fields: [
-        {id: 'name', label: 'Container ID', type: 'input', destination: 'id', value: '', base: '', validators: [], source: []}
+      id: 'group_0', label: 'Général', editing: false, fields: [
+        {id: 'name', label: 'Container ID', type: 'input', destination: 'id', value: this.imageName, base: '', validators: [], source: []}
       ]
     });
   }
@@ -42,6 +41,8 @@ export class ConfigComponent implements OnInit {
   public hidePopIn(): void {
     this.isPopinActive = false;
     this.currentGroup = '';
+
+    console.log(this.groups);
   }
 
   public addGroup(): void {
@@ -62,18 +63,7 @@ export class ConfigComponent implements OnInit {
     const groups = Object.assign([], this.groups);
 
     const index = groups.findIndex((element: ContainerConfigGroup) => element.id === this.currentGroup);
-
-    // TODO
-    groups[index].fields.push({
-      id: 'name',
-      label: 'Container ID',
-      type: 'input',
-      destination: 'id',
-      value: '',
-      base: '',
-      validators: [],
-      source: []
-    });
+    groups[index].fields.push(data);
 
     this.groups = groups;
 

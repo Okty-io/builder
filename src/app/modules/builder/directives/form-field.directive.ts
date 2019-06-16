@@ -9,7 +9,6 @@ import { ContainerConfigField } from '../models/container-config-field';
 export class FormFieldDirective implements OnInit {
 
     @Input() appFormField: ContainerConfigField;
-    @Input() appFormControl: string;
 
     constructor(private viewContainer: ViewContainerRef, private factory: ComponentFactoryResolver) {
     }
@@ -19,7 +18,7 @@ export class FormFieldDirective implements OnInit {
         const componentFactory = this.factory.resolveComponentFactory(componentType);
 
         const component = this.viewContainer.createComponent(componentFactory);
-        component.instance.formControl = this.appFormControl;
+
         component.instance.field = this.appFormField;
     }
 
