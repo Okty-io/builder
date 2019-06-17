@@ -28,7 +28,7 @@ export class ConfigComponent implements OnInit {
     this.groups = [];
     this.groups.push({
       id: 'group_0', label: 'Général', editing: false, fields: [
-        {id: 'name', label: 'Container ID', type: 'input', destination: 'id', value: this.imageName, base: '', validators: [], source: []}
+        {id: 'name', label: 'Container ID', type: 'input', destination: 'id', value: this.imageName, base: '', validators: [], source: []},
       ]
     });
   }

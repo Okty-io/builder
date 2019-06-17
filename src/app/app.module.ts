@@ -13,7 +13,7 @@ import yaml from 'highlight.js/lib/languages/yaml';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         BrowserModule,

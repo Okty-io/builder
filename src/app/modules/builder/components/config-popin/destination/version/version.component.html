@@ -1,0 +1,35 @@
+<!--<label>Available version</label>-->
+
+
+<!--<p>-->
+<!---->
+<!--</p>-->
+
+<!--&lt;!&ndash;<p>&ndash;&gt;-->
+<!--&lt;!&ndash;<label>&ndash;&gt;-->
+<!--&lt;!&ndash;Default value&ndash;&gt;-->
+<!--&lt;!&ndash;<select name="default">&ndash;&gt;-->
+<!--&lt;!&ndash;<option *ngFor="let version of data" [value]="version">{{version}}</option>&ndash;&gt;-->
+<!--&lt;!&ndash;</select>&ndash;&gt;-->
+<!--&lt;!&ndash;</label>&ndash;&gt;-->
+<!--&lt;!&ndash;</p>&ndash;&gt;-->
+
+<div>Available version <fa-icon [icon]="faPlus" (click)="addVersion()"></fa-icon></div>
+
+<form [formGroup]="form">
+  <div formArrayName="source">
+    <div *ngFor="let version of form.controls.source.controls; let i=index">
+        <input type="text" placeholder="Enter Link" [formControlName]="i">
+        <span *ngIf="form.controls.source.controls.length > 1" (click)="removeVersion(i)">Remove</span>
+    </div>
+  </div>
+
+  <br>
+
+  <div>
+    Default value
+    <select formControlName="value">
+      <option *ngFor="let version of form.controls.source.value" [value]="version">{{version}}</option>
+    </select>
+  </div>
+</form>

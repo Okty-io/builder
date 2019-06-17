@@ -21,6 +21,9 @@ import { VoidComponent } from './components/fields/void/void.component';
 import { FormFieldDirective } from './directives/form-field.directive';
 import { GroupTitleComponent } from './components/form/group-title/group-title.component';
 import { NewComponent } from './components/fields/new/new.component';
+import { VersionComponent } from './components/config-popin/destination/version/version.component';
+import { SelectSingleComponent } from './components/fields/select-single/select-single.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { NewComponent } from './components/fields/new/new.component';
     VoidComponent,
     FormFieldDirective,
     GroupTitleComponent,
-    NewComponent
+    NewComponent,
+    VersionComponent,
+    SelectSingleComponent,
   ],
   imports: [
     CommonModule,
@@ -48,11 +53,13 @@ import { NewComponent } from './components/fields/new/new.component';
     FontAwesomeModule,
     HighlightModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgSelectModule,
   ],
   entryComponents: [
     InputComponent,
-    VoidComponent
+    VoidComponent,
+    SelectSingleComponent,
   ]
 })
 export class BuilderModule {

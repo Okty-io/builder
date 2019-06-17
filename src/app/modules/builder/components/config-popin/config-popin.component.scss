@@ -41,3 +41,14 @@
   padding: 0 16px;
   box-sizing: border-box;
 }
+
+
+form {
+  .general {
+    display: flex;
+
+    & > * {
+      width: 50%;
+    }
+  }
+}

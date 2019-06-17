@@ -29,28 +29,18 @@ export class ConfigPopinComponent implements OnInit {
     this.formGroup = new FormGroup({
       label: new FormControl(''),
       destination: new FormControl(''),
-      type: new FormControl('')
+      type: new FormControl(''),
+      custom: new FormGroup({})
     });
   }
 
   private initOptions(): void {
     this.destinationOptions = [
-      {label: 'ID', value: 'id'},
       {label: 'Version', value: 'version'},
       {label: 'Docker Compose', value: 'compose'},
       {label: 'Volumes', value: 'volumes'},
       {label: 'Ports', value: 'ports'},
       {label: 'Environments', value: 'environments'},
-      {label: 'File', value: 'files'}
-    ];
-
-    this.typeOptions = [
-      {label: 'Input', value: 'input'},
-      {label: 'Checkbox', value: 'checkbox'},
-      {label: 'Select single', value: 'select-single'},
-      {label: 'Select multiple', value: 'select-multiple'},
-      {label: 'Select container', value: 'select-container'},
-      {label: 'Hidden', value: 'hidden'}
     ];
   }
 
@@ -61,9 +51,16 @@ export class ConfigPopinComponent implements OnInit {
   handleSubmit(event: Event) {
     event.preventDefault();
 
-    console.log(this.formGroup.value);
+    const config = Object.assign({}, this.formGroup.value, this.formGroup.get('custom').value);
+    delete config.custom;
 
-    this.onSubmit.emit(this.formGroup.value);
+    config.id = this.getIdFromLabel();
+
+    this.onSubmit.emit(config);
+  }
+
+  private getIdFromLabel(): string {
+    return this.labelControl.value; // TODO
   }
 
   get labelControl(): AbstractControl {
@@ -74,7 +71,7 @@ export class ConfigPopinComponent implements OnInit {
     return this.formGroup.get('destination');
   }
 
-  get typeControl(): AbstractControl {
-    return this.formGroup.get('type');
+  get customGroup(): AbstractControl {
+    return this.formGroup.get('custom');
   }
 }

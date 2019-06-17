@@ -8,5 +8,5 @@ export interface ContainerConfigField {
   destination: 'id' | 'version' | 'compose' | 'volumes' | 'ports' | 'environments' | 'files' | string;
   value: string;
   validators: Array<ContainerConfigFieldValidator>;
-  source: Array<{ [key: string]: string }>;
+  source: Array<string>;
 }

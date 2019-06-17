@@ -6,31 +6,25 @@
   <hr>
   <div class="body">
     <form (submit)="handleSubmit($event)" [formGroup]="formGroup">
-      <p>
-        <label>
-          Input title
-          <input type="text" name="title" [formControl]="labelControl">
-        </label>
-      </p>
+      <div class="general">
+        <p>
+          <label>
+            Input title
+            <input type="text" name="title" [formControl]="labelControl">
+          </label>
+        </p>
 
-      <p>
-        <label>
-          Destination
-          <select name="destination" [formControl]="destinationControl">
-            <option *ngFor="let option of destinationOptions" [value]="option.value">{{option.label}}</option>
-          </select>
-        </label>
-      </p>
-
-      <p>
-        <label>
-          Type
-          <select name="type" [formControl]="typeControl">
-            <option *ngFor="let option of typeOptions" [value]="option.value">{{option.label}}</option>
-          </select>
-        </label>
-      </p>
-
+        <p>
+          <label>
+            Destination
+            <select name="destination" [formControl]="destinationControl">
+              <option *ngFor="let option of destinationOptions" [value]="option.value">{{option.label}}</option>
+            </select>
+          </label>
+        </p>
+      </div>
+      <app-builder-config-popin-destination-version *ngIf="destinationControl.value == 'version'" [form]="customGroup">
+      </app-builder-config-popin-destination-version>
       <button>Save</button>
     </form>
   </div>
