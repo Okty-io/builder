@@ -36,6 +36,9 @@
       <app-builder-config-popin-destination-ports *ngIf="destinationControl.value == 'ports'" [form]="customGroup">
       </app-builder-config-popin-destination-ports>
 
+      <app-builder-config-popin-destination-environments *ngIf="destinationControl.value == 'environments'" [form]="customGroup">
+      </app-builder-config-popin-destination-environments>
+
       <button>Save</button>
     </form>
   </div>
