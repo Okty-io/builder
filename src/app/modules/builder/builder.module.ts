@@ -25,6 +25,7 @@ import { VersionComponent } from './components/config-popin/destination/version/
 import { SelectSingleComponent } from './components/fields/select-single/select-single.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { DockerComposeComponent } from './components/config-popin/destination/docker-compose/docker-compose.component';
+import { VolumesComponent } from './components/config-popin/destination/volumes/volumes.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { DockerComposeComponent } from './components/config-popin/destination/do
     VersionComponent,
     SelectSingleComponent,
     DockerComposeComponent,
+    VolumesComponent,
   ],
   imports: [
     CommonModule,

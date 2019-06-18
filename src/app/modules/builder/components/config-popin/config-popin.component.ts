@@ -75,7 +75,7 @@ export class ConfigPopinComponent implements OnInit {
     return this.formGroup.get('destination');
   }
 
-  get customGroup(): AbstractControl {
-    return this.formGroup.get('custom');
+  get customGroup(): FormGroup {
+    return this.formGroup.get('custom') as FormGroup;
   }
 }

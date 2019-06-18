@@ -26,8 +26,4 @@ export class DockerComposeComponent implements OnInit {
   public checkValue() {
     this.form.get('type').setValue(this.hiddenControl.value ? 'hidden' : 'input');
   }
-
-  get commandControl() {
-    return this.form.get('base');
-  }
 }

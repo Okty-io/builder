@@ -23,10 +23,16 @@
           </label>
         </p>
       </div>
+
       <app-builder-config-popin-destination-version *ngIf="destinationControl.value == 'version'" [form]="customGroup">
       </app-builder-config-popin-destination-version>
+
       <app-builder-config-popin-destination-docker-compose *ngIf="destinationControl.value == 'compose'" [form]="customGroup">
       </app-builder-config-popin-destination-docker-compose>
+
+      <app-builder-config-popin-destination-volumes *ngIf="destinationControl.value == 'volumes'" [form]="customGroup">
+      </app-builder-config-popin-destination-volumes>
+
       <button>Save</button>
     </form>
   </div>
