@@ -10,14 +10,14 @@
         <p>
           <label>
             Input title
-            <input type="text" name="title" [formControl]="labelControl">
+            <input type="text" name="title" formControlName="label">
           </label>
         </p>
 
         <p>
           <label>
             Destination
-            <select name="destination" [formControl]="destinationControl">
+            <select name="destination" formControlName="destination" (change)="onDestinationChange()">
               <option *ngFor="let option of destinationOptions" [value]="option.value">{{option.label}}</option>
             </select>
           </label>
@@ -25,6 +25,8 @@
       </div>
       <app-builder-config-popin-destination-version *ngIf="destinationControl.value == 'version'" [form]="customGroup">
       </app-builder-config-popin-destination-version>
+      <app-builder-config-popin-destination-docker-compose *ngIf="destinationControl.value == 'compose'" [form]="customGroup">
+      </app-builder-config-popin-destination-docker-compose>
       <button>Save</button>
     </form>
   </div>

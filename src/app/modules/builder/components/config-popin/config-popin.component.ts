@@ -59,6 +59,10 @@ export class ConfigPopinComponent implements OnInit {
     this.onSubmit.emit(config);
   }
 
+  onDestinationChange(): void {
+    this.formGroup.setControl('custom', new FormGroup({}));
+  }
+
   private getIdFromLabel(): string {
     return this.labelControl.value; // TODO
   }
