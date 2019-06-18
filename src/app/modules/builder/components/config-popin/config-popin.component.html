@@ -33,6 +33,9 @@
       <app-builder-config-popin-destination-volumes *ngIf="destinationControl.value == 'volumes'" [form]="customGroup">
       </app-builder-config-popin-destination-volumes>
 
+      <app-builder-config-popin-destination-ports *ngIf="destinationControl.value == 'ports'" [form]="customGroup">
+      </app-builder-config-popin-destination-ports>
+
       <button>Save</button>
     </form>
   </div>
