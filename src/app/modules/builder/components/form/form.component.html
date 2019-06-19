@@ -8,11 +8,21 @@
     <hr>
 
     <div class="fields">
-      <div *ngFor="let field of group.fields">
+      <div *ngFor="let field of group.fields" [ngClass]="{'highlight': overlayVisible}">
         <ng-template appGeneratorFormField [appFormField]="field"></ng-template>
       </div>
 
       <app-builder-fields-new (click)="openPopIn(group)"></app-builder-fields-new>
     </div>
+
+    <div class="action">
+      <p *ngIf="isEditing" [ngClass]="{'highlight': overlayVisible}">Which element do you want to edit ?</p>
+      <p *ngIf="isRemoving" [ngClass]="{'highlight': overlayVisible}">Which element do you want to remove ?</p>
+      <fa-icon [icon]="editIcon" [size]="'2x'" (click)="handleEdit()" [ngClass]="{'highlight': overlayVisible && isEditing}"></fa-icon>
+      <fa-icon [icon]="deleteIcon" [size]="'2x'" (click)="handleRemove()" [ngClass]="{'highlight': overlayVisible && isRemoving}"></fa-icon>
+    </div>
   </div>
 </ng-container>
+
+<div class="overlay" *ngIf="overlayVisible"></div>
+
