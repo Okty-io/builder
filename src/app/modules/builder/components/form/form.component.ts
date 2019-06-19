@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ContainerConfigGroup } from '../../models/container-config-group';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faEraser } from '@fortawesome/free-solid-svg-icons/faEraser';
@@ -36,6 +36,25 @@ export class FormComponent {
     this.overlayVisible = false;
   }
 
+  @HostListener('click', ['$event'])
+  onClick(event: MouseEvent): void {
+    if (!this.isEditing && !this.isRemoving) {
+      return;
+    }
+
+    const elements = event.composedPath() as HTMLElement[];
+    if (elements[0].classList && elements[0].classList.contains('overlay')) {
+      this.toggleOverlay();
+    }
+
+    const highlightElement = elements.find((element: HTMLElement) => element.classList && element.classList.contains('highlight'));
+    if (!highlightElement) {
+      return;
+    }
+
+    console.log(highlightElement); // TODO
+  }
+
   remove(group: ContainerConfigGroup): void {
     this.groupsData = this.groupsData.filter((element) => element.id !== group.id);
     this.groupsChange.emit(this.groupsData);
@@ -56,6 +75,11 @@ export class FormComponent {
   }
 
   private toggleOverlay(): void {
+    if (this.overlayVisible) {
+      this.isEditing = false;
+      this.isRemoving = false;
+    }
+
     this.overlayVisible = !this.overlayVisible;
   }
 }
