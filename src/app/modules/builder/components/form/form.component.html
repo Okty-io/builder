@@ -1,4 +1,4 @@
-<ng-container *ngFor="let group of groupsData">
+<ng-container *ngFor="let group of groupsData; let i = index;">
   <div class="remove">
     <button (click)="remove(group)">Remove this group</button>
   </div>
@@ -8,7 +8,7 @@
     <hr>
 
     <div class="fields">
-      <div *ngFor="let field of group.fields" [ngClass]="{'highlight': overlayVisible}">
+      <div *ngFor="let field of group.fields" [ngClass]="{'highlight': overlayVisible}" [attr.data-field]="field.id">
         <ng-template appGeneratorFormField [appFormField]="field"></ng-template>
       </div>
 
@@ -18,8 +18,10 @@
     <div class="action">
       <p *ngIf="isEditing" [ngClass]="{'highlight': overlayVisible}">Which element do you want to edit ?</p>
       <p *ngIf="isRemoving" [ngClass]="{'highlight': overlayVisible}">Which element do you want to remove ?</p>
-      <fa-icon [icon]="editIcon" [size]="'2x'" (click)="handleEdit()" [ngClass]="{'highlight': overlayVisible && isEditing}"></fa-icon>
-      <fa-icon [icon]="deleteIcon" [size]="'2x'" (click)="handleRemove()" [ngClass]="{'highlight': overlayVisible && isRemoving}"></fa-icon>
+      <fa-icon [icon]="editIcon" [size]="'2x'" (click)="handleEdit(i)"
+               [ngClass]="{'highlight': overlayVisible && isEditing}"></fa-icon>
+      <fa-icon [icon]="deleteIcon" [size]="'2x'" (click)="handleRemove(i)"
+               [ngClass]="{'highlight': overlayVisible && isRemoving}"></fa-icon>
     </div>
   </div>
 </ng-container>

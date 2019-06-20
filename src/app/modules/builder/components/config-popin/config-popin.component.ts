@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
+import { ContainerConfigField } from '../../models/container-config-field';
 
 @Component({
   selector: 'app-builder-config-popin',
@@ -11,6 +12,8 @@ export class ConfigPopinComponent implements OnInit {
 
   @Output() onClose = new EventEmitter();
   @Output() onSubmit = new EventEmitter();
+
+  @Input() field: ContainerConfigField;
 
   public faExit;
   public formGroup: FormGroup;
@@ -26,12 +29,17 @@ export class ConfigPopinComponent implements OnInit {
 
     this.initOptions();
 
+    if (!this.field) {
+      this.field = {} as ContainerConfigField;
+    }
+
     this.formGroup = new FormGroup({
-      label: new FormControl(''),
-      destination: new FormControl(''),
-      type: new FormControl(''),
+      label: new FormControl(this.field ? this.field.label : ''),
+      destination: new FormControl(this.field ? this.field.destination : ''),
+      type: new FormControl(this.field ? this.field.type : ''),
       custom: new FormGroup({})
     });
+
   }
 
   private initOptions(): void {

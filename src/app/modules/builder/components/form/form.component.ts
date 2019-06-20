@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output} from '@angular/core';
 import { ContainerConfigGroup } from '../../models/container-config-group';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faEraser } from '@fortawesome/free-solid-svg-icons/faEraser';
@@ -17,10 +17,14 @@ export class FormComponent {
 
   public isEditing: boolean;
   public isRemoving: boolean;
+  public currentGroup: number;
 
   public overlayVisible: boolean;
 
   @Output() addAction = new EventEmitter();
+  @Output() editAction = new EventEmitter();
+  @Output() removeAction = new EventEmitter();
+
   @Output() groupsChange = new EventEmitter<ContainerConfigGroup[]>();
 
   @Input() set groups(data: ContainerConfigGroup[]) {
@@ -52,7 +56,24 @@ export class FormComponent {
       return;
     }
 
-    console.log(highlightElement); // TODO
+    const group = this.groupsData[this.currentGroup];
+
+    const fieldId = highlightElement.getAttribute('data-field');
+    const field = group.fields.find((element) => element.id === fieldId);
+
+    if (!field) {
+      return;
+    }
+
+    if (this.isEditing) {
+      this.toggleOverlay();
+      this.editAction.emit({group, field});
+    }
+
+    if (this.isRemoving) {
+      this.toggleOverlay();
+      this.removeAction.emit({group, field});
+    }
   }
 
   remove(group: ContainerConfigGroup): void {
@@ -64,20 +85,23 @@ export class FormComponent {
     this.addAction.emit(group);
   }
 
-  handleEdit(): void {
+  handleEdit(group: number): void {
     this.toggleOverlay();
     this.isEditing = true;
+    this.currentGroup = group;
   }
 
-  handleRemove(): void {
+  handleRemove(group: number): void {
     this.toggleOverlay();
     this.isRemoving = true;
+    this.currentGroup = group;
   }
 
   private toggleOverlay(): void {
     if (this.overlayVisible) {
       this.isEditing = false;
       this.isRemoving = false;
+      this.currentGroup = null;
     }
 
     this.overlayVisible = !this.overlayVisible;
