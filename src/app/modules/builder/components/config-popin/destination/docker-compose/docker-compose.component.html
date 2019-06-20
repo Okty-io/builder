@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+  <label>
+    Docker compose command
+    <input type="text" name="command" formControlName="base">
+  </label>
+
+  <label>
+    Default value
+    <input type="text" name="value" formControlName="value">
+  </label>
+
+  <label>
+    Is hidden ?
+    <input type="checkbox" name="hidden"
+           [formControl]="hiddenControl"
+           [checked]="form.get('type').value === 'hidden'"
+           (change)="checkValue()" >
+  </label>
+</form>

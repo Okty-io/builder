@@ -1,8 +1,12 @@
 <ng-container *ngIf="!image || !tag">
-    <app-builder-search (next)="handleImage($event)"></app-builder-search>
+    <app-builder-search-image (next)="handleImage($event)"></app-builder-search-image>
     <app-builder-search-tag (next)="handleTag($event)" [imageName]="image" *ngIf="image"></app-builder-search-tag>
 </ng-container>
 
 <ng-container *ngIf="image && tag">
     <app-builder-config [imageName]="image" [logoUrl]="logo" [tag]="tag"></app-builder-config>
+</ng-container>
+
+<ng-container *ngIf="review">
+  <app-review (next)="handleReview($event)"></app-review>
 </ng-container>

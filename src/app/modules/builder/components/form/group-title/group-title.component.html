@@ -1,0 +1,9 @@
+<h2 *ngIf="!editing">{{ data }}</h2>
+<input type="text"
+       [autofocus]="editing"
+       placeholder="Group name"
+       *ngIf="editing"
+       [(ngModel)]="data"
+       (change)="onLabelChange()">
+
+<fa-icon [icon]="!editing ? faEdit : faSave" (click)="editing=!editing"></fa-icon>

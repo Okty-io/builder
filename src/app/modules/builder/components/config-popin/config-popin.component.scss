@@ -1,0 +1,54 @@
+:host {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popin {
+  width: 100%;
+  max-width: 550px;
+  background: #fff;
+  border-radius: 25px;
+  min-height: 60px;
+  border: solid 1px #707070;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 100;
+}
+
+.header {
+  .title {
+    display: inline-block;
+    width: calc(100% - 32px);
+    box-sizing: border-box;
+    text-align: center;
+    padding-left: 32px;
+    margin-bottom: 0;
+  }
+
+  fa-icon {
+    cursor: pointer;
+    display: inline-block;
+  }
+}
+
+.body {
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+
+form {
+  .general {
+    display: flex;
+
+    & > * {
+      width: 50%;
+    }
+  }
+}

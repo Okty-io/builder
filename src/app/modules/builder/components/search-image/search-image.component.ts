@@ -2,11 +2,11 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ApiService } from '../../../../core/services/api.service';
 
 @Component({
-  selector: 'app-builder-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  selector: 'app-builder-search-image',
+  templateUrl: './search-image.component.html',
+  styleUrls: ['./search-image.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchImageComponent implements OnInit {
 
   @Output() next = new EventEmitter();
 

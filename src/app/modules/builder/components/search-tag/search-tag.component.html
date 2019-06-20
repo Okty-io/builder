@@ -6,5 +6,6 @@
 <br>
 
 <div class="wrapper" *ngIf="tagName">
+  <app-loader [loading]="loading" *ngIf="loading"></app-loader>
   <div class="box" *ngFor="let tag of searchedTag" (click)="handleNext(tag)">{{tag}}</div>
 </div>

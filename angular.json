@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/style/select.scss",
               "src/assets/style/highlight.scss",
               "src/styles.scss"
             ],

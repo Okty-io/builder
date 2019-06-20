@@ -10,13 +10,13 @@ export class BuilderComponent implements OnInit {
   public image: string;
   public tag: string;
   public logo: string;
-
-  constructor() { }
+  public review: boolean;
 
   ngOnInit() {
-    this.image = '';
-    this.tag = '';
+    this.image = 'node';
+    this.tag = '10.9';
     this.logo = '';
+    this.review = false;
   }
 
   public handleImage(image: {label: string, logo: string}): void {
@@ -25,5 +25,8 @@ export class BuilderComponent implements OnInit {
   }
   public handleTag(tag: string): void {
     this.tag = tag;
+  }
+  public handleReview(pass: boolean): void {
+    this.review = pass;
   }
 }
