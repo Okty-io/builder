@@ -53,8 +53,6 @@ export class ConfigComponent implements OnInit {
     this.popinGroup = '';
     this.popinFieldId = '';
     this.popinField = null;
-
-    console.log(this.groups);
   }
 
   public addGroup(): void {
