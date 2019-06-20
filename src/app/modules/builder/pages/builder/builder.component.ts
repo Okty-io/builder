@@ -13,8 +13,8 @@ export class BuilderComponent implements OnInit {
   public review: boolean;
 
   ngOnInit() {
-    this.image = 'node';
-    this.tag = '10.9';
+    this.image = '';
+    this.tag = '';
     this.logo = '';
     this.review = false;
   }
