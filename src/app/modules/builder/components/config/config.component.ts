@@ -19,6 +19,7 @@ export class ConfigComponent implements OnInit {
   public groups: Array<ContainerConfigGroup>;
 
   public popinGroup: string;
+  public popinFieldId: string;
   public popinField: ContainerConfigField;
 
   constructor() {
@@ -43,12 +44,14 @@ export class ConfigComponent implements OnInit {
   public openEditPopIn(data: { group: ContainerConfigGroup, field: ContainerConfigField }): void {
     this.isPopinActive = true;
     this.popinGroup = data.group.id;
+    this.popinFieldId = data.field.id;
     this.popinField = data.field;
   }
 
   public hidePopIn(): void {
     this.isPopinActive = false;
     this.popinGroup = '';
+    this.popinFieldId = '';
     this.popinField = null;
 
     console.log(this.groups);
@@ -69,12 +72,16 @@ export class ConfigComponent implements OnInit {
   }
 
   addField(data: any): void {
-    const groups = Object.assign([], this.groups);
+    const index = this.groups.findIndex((element: ContainerConfigGroup) => element.id === this.popinGroup);
+    if (!this.popinField) {
+      this.groups[index].fields.push(data);
+      this.hidePopIn();
 
-    const index = groups.findIndex((element: ContainerConfigGroup) => element.id === this.popinGroup);
-    groups[index].fields.push(data);
+      return;
+    }
 
-    this.groups = groups;
+    const fieldIndex = this.groups[index].fields.findIndex((element) => element.id === this.popinFieldId);
+    this.groups[index].fields[fieldIndex] = data;
 
     this.hidePopIn();
   }
