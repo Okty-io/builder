@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ContainerConfigField } from '../../../../models/container-config-field';
 
 @Component({
   selector: 'app-builder-config-popin-destination-docker-compose',
@@ -9,6 +10,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class DockerComposeComponent implements OnInit {
 
   @Input() form: FormGroup;
+  @Input() field: ContainerConfigField;
 
   public hiddenControl: FormControl;
 
@@ -16,11 +18,11 @@ export class DockerComposeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.form.addControl('base', new FormControl(''));
-    this.form.addControl('value', new FormControl(''));
-    this.form.addControl('type', new FormControl('input'));
+    this.form.addControl('base', new FormControl(this.field ? this.field.base : ''));
+    this.form.addControl('value', new FormControl(this.field ? this.field.value : ''));
+    this.form.addControl('type', new FormControl(this.field ? this.field.type : 'input'));
 
-    this.hiddenControl = new FormControl('');
+    this.hiddenControl = new FormControl(this.field && this.field.type === 'hidden');
   }
 
   public checkValue() {

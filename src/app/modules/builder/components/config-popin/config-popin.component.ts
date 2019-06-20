@@ -19,7 +19,6 @@ export class ConfigPopinComponent implements OnInit {
   public formGroup: FormGroup;
 
   public destinationOptions: Array<{ value: string, label: string }>;
-  public typeOptions: Array<{ value: string, label: string }>;
 
   constructor() {
   }

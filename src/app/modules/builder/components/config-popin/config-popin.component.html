@@ -24,19 +24,29 @@
         </p>
       </div>
 
-      <app-builder-config-popin-destination-version *ngIf="destinationControl.value == 'version'" [form]="customGroup">
+      <app-builder-config-popin-destination-version *ngIf="destinationControl.value == 'version'"
+                                                    [form]="customGroup"
+                                                    [field]="field">
       </app-builder-config-popin-destination-version>
 
-      <app-builder-config-popin-destination-docker-compose *ngIf="destinationControl.value == 'compose'" [form]="customGroup">
+      <app-builder-config-popin-destination-docker-compose *ngIf="destinationControl.value == 'compose'"
+                                                           [form]="customGroup"
+                                                           [field]="field">
       </app-builder-config-popin-destination-docker-compose>
 
-      <app-builder-config-popin-destination-volumes *ngIf="destinationControl.value == 'volumes'" [form]="customGroup">
+      <app-builder-config-popin-destination-volumes *ngIf="destinationControl.value == 'volumes'"
+                                                    [form]="customGroup"
+                                                    [field]="field">
       </app-builder-config-popin-destination-volumes>
 
-      <app-builder-config-popin-destination-ports *ngIf="destinationControl.value == 'ports'" [form]="customGroup">
+      <app-builder-config-popin-destination-ports *ngIf="destinationControl.value == 'ports'"
+                                                  [form]="customGroup"
+                                                  [field]="field">
       </app-builder-config-popin-destination-ports>
 
-      <app-builder-config-popin-destination-environments *ngIf="destinationControl.value == 'environments'" [form]="customGroup">
+      <app-builder-config-popin-destination-environments *ngIf="destinationControl.value == 'environments'"
+                                                         [form]="customGroup"
+                                                         [field]="field">
       </app-builder-config-popin-destination-environments>
 
       <button>Save</button>
