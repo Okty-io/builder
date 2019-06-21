@@ -15,6 +15,8 @@ export class SearchImageComponent implements OnInit {
   public customSearch: boolean;
   public imageSent: boolean;
 
+  public loading: boolean;
+
   constructor(private api: ApiService) {
   }
 
@@ -25,6 +27,8 @@ export class SearchImageComponent implements OnInit {
   }
 
   public searchApi() {
+    this.loading = true;
+
     if (!this.apiSearch || this.apiSearch.length <= 0) {
       this.resultSearch = [];
       return;
@@ -33,6 +37,7 @@ export class SearchImageComponent implements OnInit {
     this.api.get(`registry/search?query=${encodeURIComponent(this.apiSearch)}`).toPromise()
       .then(res => {
         this.resultSearch = res;
+        this.loading = false;
 
         if (this.apiSearch.split('/').filter(Boolean).length > 2) {
           this.resultSearch = [{name: this.apiSearch, star_count: 0, pull_count: 0}];

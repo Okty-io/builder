@@ -6,6 +6,7 @@
 </div>
 
 <ng-container *ngIf="!imageSent">
+  <app-loader [loading]="loading" *ngIf="loading"></app-loader>
   <div class="list" [ngClass]="{'small': resultSearch.length <= 5 }" *ngIf="resultSearch && resultSearch.length > 0">
     <app-generator-card (click)="handleNext(element.name)" [element]="element" *ngFor="let element of resultSearch">
     </app-generator-card>
