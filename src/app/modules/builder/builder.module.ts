@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { BuilderRoutingModule } from './builder-routing.module';
 import { BuilderComponent } from './pages/builder/builder.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PreviewComponent } from './components/preview/preview.component';
 import { SearchImageComponent } from './components/search-image/search-image.component';
 import { ConfigComponent } from './components/config/config.component';
@@ -19,7 +19,15 @@ import { FormComponent } from './components/form/form.component';
 import { InputComponent } from './components/fields/input/input.component';
 import { VoidComponent } from './components/fields/void/void.component';
 import { FormFieldDirective } from './directives/form-field.directive';
-import { OnlyVisibleFieldPipe } from './directives/only-visible-field.pipe';
+import { GroupTitleComponent } from './components/form/group-title/group-title.component';
+import { NewComponent } from './components/fields/new/new.component';
+import { VersionComponent } from './components/config-popin/destination/version/version.component';
+import { SelectSingleComponent } from './components/fields/select-single/select-single.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { DockerComposeComponent } from './components/config-popin/destination/docker-compose/docker-compose.component';
+import { VolumesComponent } from './components/config-popin/destination/volumes/volumes.component';
+import { PortsComponent } from './components/config-popin/destination/ports/ports.component';
+import { EnvironmentsComponent } from './components/config-popin/destination/environments/environments.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +44,14 @@ import { OnlyVisibleFieldPipe } from './directives/only-visible-field.pipe';
     InputComponent,
     VoidComponent,
     FormFieldDirective,
-    OnlyVisibleFieldPipe
+    GroupTitleComponent,
+    NewComponent,
+    VersionComponent,
+    SelectSingleComponent,
+    DockerComposeComponent,
+    VolumesComponent,
+    PortsComponent,
+    EnvironmentsComponent,
   ],
   imports: [
     CommonModule,
@@ -44,7 +59,15 @@ import { OnlyVisibleFieldPipe } from './directives/only-visible-field.pipe';
     FormsModule,
     SharedModule,
     FontAwesomeModule,
-    HighlightModule
+    HighlightModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgSelectModule,
+  ],
+  entryComponents: [
+    InputComponent,
+    VoidComponent,
+    SelectSingleComponent,
   ]
 })
 export class BuilderModule {

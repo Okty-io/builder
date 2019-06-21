@@ -2,6 +2,7 @@ import { ComponentFactoryResolver, Directive, Input, OnInit, Type, ViewContainer
 import { VoidComponent } from '../components/fields/void/void.component';
 import { InputComponent } from '../components/fields/input/input.component';
 import { ContainerConfigField } from '../models/container-config-field';
+import { SelectSingleComponent } from '../components/fields/select-single/select-single.component';
 
 @Directive({
     selector: '[appGeneratorFormField]'
@@ -9,7 +10,6 @@ import { ContainerConfigField } from '../models/container-config-field';
 export class FormFieldDirective implements OnInit {
 
     @Input() appFormField: ContainerConfigField;
-    @Input() appFormControl: string;
 
     constructor(private viewContainer: ViewContainerRef, private factory: ComponentFactoryResolver) {
     }
@@ -19,7 +19,7 @@ export class FormFieldDirective implements OnInit {
         const componentFactory = this.factory.resolveComponentFactory(componentType);
 
         const component = this.viewContainer.createComponent(componentFactory);
-        component.instance.formControl = this.appFormControl;
+
         component.instance.field = this.appFormField;
     }
 
@@ -27,7 +27,7 @@ export class FormFieldDirective implements OnInit {
         const mapping = {
             input: InputComponent,
             // 'checkbox': CheckboxComponent,
-            // 'select-single': SelectSingleComponent,
+            'select-single': SelectSingleComponent,
             // 'select-multiple': SelectMultipleComponent,
             // 'select-container': SelectContainerComponent,
         };

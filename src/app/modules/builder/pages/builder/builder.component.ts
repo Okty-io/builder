@@ -12,11 +12,9 @@ export class BuilderComponent implements OnInit {
   public logo: string;
   public review: boolean;
 
-  constructor() { }
-
   ngOnInit() {
-    this.image = 'node';
-    this.tag = 'alpine';
+    this.image = '';
+    this.tag = '';
     this.logo = '';
     this.review = false;
   }

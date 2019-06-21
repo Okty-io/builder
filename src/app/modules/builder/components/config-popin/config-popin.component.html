@@ -1,8 +1,55 @@
-<div *ngIf="isActive">
-  <div class="popin">
-    <div class="header">
-      <p class="title"></p>
-      <div class="close-button"></div>
-    </div>
+<div class="popin">
+  <div class="header">
+    <p class="title">Add an element</p>
+    <fa-icon [icon]="faExit" (click)="this.handleClose()"></fa-icon>
+  </div>
+  <hr>
+  <div class="body">
+    <form (submit)="handleSubmit($event)" [formGroup]="formGroup">
+      <div class="general">
+        <p>
+          <label>
+            Input title
+            <input type="text" name="title" formControlName="label">
+          </label>
+        </p>
+
+        <p>
+          <label>
+            Destination
+            <select name="destination" formControlName="destination" (change)="onDestinationChange()">
+              <option *ngFor="let option of destinationOptions" [value]="option.value">{{option.label}}</option>
+            </select>
+          </label>
+        </p>
+      </div>
+
+      <app-builder-config-popin-destination-version *ngIf="destinationControl.value == 'version'"
+                                                    [form]="customGroup"
+                                                    [field]="field">
+      </app-builder-config-popin-destination-version>
+
+      <app-builder-config-popin-destination-docker-compose *ngIf="destinationControl.value == 'compose'"
+                                                           [form]="customGroup"
+                                                           [field]="field">
+      </app-builder-config-popin-destination-docker-compose>
+
+      <app-builder-config-popin-destination-volumes *ngIf="destinationControl.value == 'volumes'"
+                                                    [form]="customGroup"
+                                                    [field]="field">
+      </app-builder-config-popin-destination-volumes>
+
+      <app-builder-config-popin-destination-ports *ngIf="destinationControl.value == 'ports'"
+                                                  [form]="customGroup"
+                                                  [field]="field">
+      </app-builder-config-popin-destination-ports>
+
+      <app-builder-config-popin-destination-environments *ngIf="destinationControl.value == 'environments'"
+                                                         [form]="customGroup"
+                                                         [field]="field">
+      </app-builder-config-popin-destination-environments>
+
+      <button>Save</button>
+    </form>
   </div>
 </div>

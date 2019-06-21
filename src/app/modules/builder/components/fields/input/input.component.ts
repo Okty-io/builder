@@ -8,7 +8,6 @@ import { ContainerConfigField } from '../../../models/container-config-field';
 })
 export class InputComponent {
 
-    @Input() formControl: FormControl;
     @Input() field: ContainerConfigField;
 
 }
