@@ -1,3 +1,18 @@
-<p>
-  review works!
-</p>
+<app-builder-steps stepNumber="3"></app-builder-steps>
+
+<div class="container">
+  <p class="title">Your configuration is ready !</p>
+
+  <div class="search-block">
+    <p>Reminder, you have chosen</p>
+    <div class="choose-block">
+      <div class="container-chosen">
+        <div class="logo"><img [src]="logoUrl" alt=""></div>
+        <p class="name">{{imageName}}:{{tag}}</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="custom-button orange-button">yes</button>
+  <button class="custom-button blue-button">no</button>
+</div>

@@ -16,7 +16,7 @@ export class BuilderComponent implements OnInit {
 
   ngOnInit() {
     this.image = 'node';
-    this.tag = 'latest';
+    this.tag = 'alpine';
     this.logo = '';
     this.review = false;
   }
