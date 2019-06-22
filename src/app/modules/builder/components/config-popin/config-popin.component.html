@@ -52,7 +52,7 @@
                                                          [field]="field">
       </app-builder-config-popin-destination-environments>
 
-      <button>Save</button>
+      <button [disabled]="formGroup.invalid">Save</button>
     </form>
   </div>
 </div>

@@ -58,11 +58,6 @@ export class ConfigPopinComponent implements OnInit {
   handleSubmit(event: Event) {
     event.preventDefault();
 
-    console.log(this.formGroup.valid);
-    console.log(this.formGroup);
-
-    return;
-
     const config = Object.assign({}, this.formGroup.value, this.formGroup.get('custom').value);
     delete config.custom;
 
