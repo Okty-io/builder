@@ -30,6 +30,7 @@ import { PortsComponent } from './components/config-popin/destination/ports/port
 import { EnvironmentsComponent } from './components/config-popin/destination/environments/environments.component';
 import { EnvironmentsValidator } from './validators/environments.validator';
 import { PortsValidator } from './validators/ports.validator';
+import { VolumesValidator } from './validators/volumes.validator';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { PortsValidator } from './validators/ports.validator';
   providers: [
     EnvironmentsValidator,
     PortsValidator,
+    VolumesValidator,
   ],
   entryComponents: [
     InputComponent,
