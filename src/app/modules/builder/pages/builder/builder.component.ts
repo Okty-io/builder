@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContainerConfigGroup } from '../../models/container-config-group';
 
 @Component({
   selector: 'app-builder',
@@ -12,6 +13,8 @@ export class BuilderComponent implements OnInit {
   public logo: string;
   public review: boolean;
 
+  public config: ContainerConfigGroup[];
+
   ngOnInit() {
     this.image = 'node';
     this.tag = 'latest';
@@ -19,14 +22,22 @@ export class BuilderComponent implements OnInit {
     this.review = false;
   }
 
-  public handleImage(image: {label: string, logo: string}): void {
+  public handleImage(image: { label: string, logo: string }): void {
     this.image = image.label;
     this.logo = image.logo;
   }
+
   public handleTag(tag: string): void {
     this.tag = tag;
   }
-  public handleReview(pass: boolean): void {
-    this.review = pass;
+
+  public handleReview(config: ContainerConfigGroup[]): void {
+    this.review = true;
+    this.config = config;
+  }
+
+  public goToEdit() {
+    this.review = false;
+    this.config = [];
   }
 }

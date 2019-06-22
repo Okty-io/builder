@@ -16,7 +16,7 @@ export class ConfigComponent implements OnInit {
   @Output() next = new EventEmitter();
 
   public isPopinActive: boolean;
-  public groups: Array<ContainerConfigGroup>;
+  public groups: ContainerConfigGroup[];
 
   public popinGroup: string;
   public popinFieldId: string;
@@ -65,8 +65,8 @@ export class ConfigComponent implements OnInit {
     this.groups.push(group);
   }
 
-  public handleNext(value: boolean): void {
-    this.next.emit(value);
+  public handleNext(): void {
+    this.next.emit(this.groups);
   }
 
   addField(data: any): void {

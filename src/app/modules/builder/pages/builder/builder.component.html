@@ -1,12 +1,17 @@
 <ng-container *ngIf="!image || !tag">
-    <app-builder-search-image (next)="handleImage($event)"></app-builder-search-image>
-    <app-builder-search-tag (next)="handleTag($event)" [imageName]="image" *ngIf="image"></app-builder-search-tag>
+    <app-builder-search-image (next)="handleImage($event)">
+    </app-builder-search-image>
+
+    <app-builder-search-tag (next)="handleTag($event)" [imageName]="image" *ngIf="image">
+    </app-builder-search-tag>
 </ng-container>
 
 <ng-container *ngIf="image && tag && !review">
-    <app-builder-config (next)="handleReview($event)" [imageName]="image" [logoUrl]="logo" [tag]="tag"></app-builder-config>
+    <app-builder-config (next)="handleReview($event)" [imageName]="image" [logoUrl]="logo" [tag]="tag">
+    </app-builder-config>
 </ng-container>
 
 <ng-container *ngIf="review">
-  <app-review [imageName]="image" [logoUrl]="logo" [tag]="tag"></app-review>
+  <app-builder-review [imageName]="image" [logoUrl]="logo" [tag]="tag" [config]="config" (goBack)="goToEdit()">
+  </app-builder-review>
 </ng-container>
