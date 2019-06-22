@@ -27,11 +27,11 @@
       <app-button class="align__center" type="cta cta__small gradient__red with__shadow" size="large" (click)="addGroup()">
         Add a group
       </app-button>
-      <button (click)="handleNext(true)">GO TO REVIEW</button>
+      <button (click)="handleNext()">GO TO REVIEW</button>
     </div>
 
     <div class="preview">
-      <app-generator-preview></app-generator-preview>
+      <app-builder-preview [config]="groups"></app-builder-preview>
     </div>
   </div>
 </div>
