@@ -47,5 +47,4 @@ export class PortsComponent implements OnInit {
   get valueControl() {
     return this.form.get('value');
   }
-
 }

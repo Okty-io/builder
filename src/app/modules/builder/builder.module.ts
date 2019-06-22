@@ -31,6 +31,7 @@ import { EnvironmentsComponent } from './components/config-popin/destination/env
 import { EnvironmentsValidator } from './validators/environments.validator';
 import { PortsValidator } from './validators/ports.validator';
 import { VolumesValidator } from './validators/volumes.validator';
+import { DockerComposeValidator } from './validators/docker-compose.validator';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { VolumesValidator } from './validators/volumes.validator';
     EnvironmentsValidator,
     PortsValidator,
     VolumesValidator,
+    DockerComposeValidator,
   ],
   entryComponents: [
     InputComponent,
