@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContainerConfigField } from '../../models/container-config-field';
 
 @Component({
@@ -33,8 +33,8 @@ export class ConfigPopinComponent implements OnInit {
     }
 
     this.formGroup = new FormGroup({
-      label: new FormControl(this.field ? this.field.label : ''),
-      destination: new FormControl(this.field ? this.field.destination : ''),
+      label: new FormControl(this.field ? this.field.label : '', Validators.required),
+      destination: new FormControl(this.field ? this.field.destination : '', Validators.required),
       type: new FormControl(this.field ? this.field.type : ''),
       custom: new FormGroup({})
     });

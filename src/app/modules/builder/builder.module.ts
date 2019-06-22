@@ -28,6 +28,10 @@ import { DockerComposeComponent } from './components/config-popin/destination/do
 import { VolumesComponent } from './components/config-popin/destination/volumes/volumes.component';
 import { PortsComponent } from './components/config-popin/destination/ports/ports.component';
 import { EnvironmentsComponent } from './components/config-popin/destination/environments/environments.component';
+import { EnvironmentsValidator } from './validators/environments.validator';
+import { PortsValidator } from './validators/ports.validator';
+import { VolumesValidator } from './validators/volumes.validator';
+import { DockerComposeValidator } from './validators/docker-compose.validator';
 
 @NgModule({
   declarations: [
@@ -63,6 +67,12 @@ import { EnvironmentsComponent } from './components/config-popin/destination/env
     FormsModule,
     ReactiveFormsModule,
     NgSelectModule,
+  ],
+  providers: [
+    EnvironmentsValidator,
+    PortsValidator,
+    VolumesValidator,
+    DockerComposeValidator,
   ],
   entryComponents: [
     InputComponent,

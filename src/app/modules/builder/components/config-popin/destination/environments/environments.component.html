@@ -1,11 +1,17 @@
 <form [formGroup]="form">
-  <label>
-    Name
-    <input type="text" name="command" formControlName="base">
-  </label>
+  <p>
+    <label>
+      Name
+      <input type="text" name="command" formControlName="base">
+    </label>
+    <span *ngIf="baseControl.touched && baseControl.invalid">This field is invalid</span>
+  </p>
 
-  <label>
-    Default value
-    <input type="text" name="value" formControlName="value">
-  </label>
+  <p>
+    <label>
+      Default value
+      <input type="text" name="value" formControlName="value">
+    </label>
+    <span *ngIf="valueControl.touched && valueControl.invalid">This field is invalid</span>
+  </p>
 </form>
