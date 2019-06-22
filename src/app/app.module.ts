@@ -11,6 +11,10 @@ import { SharedModule } from './shared/shared.module';
 import { HighlightModule } from 'ngx-highlightjs';
 import yaml from 'highlight.js/lib/languages/yaml';
 
+export function hljsLanguages() {
+  return [{name: 'yaml', func: yaml}];
+}
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -22,7 +26,7 @@ import yaml from 'highlight.js/lib/languages/yaml';
         AppRoutingModule,
         CoreModule,
         SharedModule,
-        HighlightModule.forRoot({languages: () => [{name: 'yaml', func: yaml}]}),
+        HighlightModule.forRoot({languages: hljsLanguages}),
     ],
     providers: [
         ApiService,
