@@ -6,6 +6,8 @@
         <input type="text" placeholder="Enter Link" [formControlName]="i">
         <span *ngIf="form.controls.source.controls.length > 1" (click)="removeVersion(i)">Remove</span>
     </div>
+
+    <span *ngIf="form.controls.source.touched && form.controls.source.invalid">Each field must be filled</span>
   </div>
 
   <br>

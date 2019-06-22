@@ -32,7 +32,7 @@ export class VersionComponent implements OnInit {
   }
 
   initVersion(): AbstractControl {
-    return this.formBuilder.control('', Validators.required);
+    return this.formBuilder.control('', Validators.required); // TODO Add tag validator (check from docker hub)
   }
 
   addVersion(): void {
