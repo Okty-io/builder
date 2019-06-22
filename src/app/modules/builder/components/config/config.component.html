@@ -19,7 +19,7 @@
 <div class="form-and-preview">
   <div class="config">
     <div class="form">
-      <app-builder-form [groups]="groups" (groupsChange)="groups = $event"
+      <app-builder-form [groups]="groups" (groupsChange)="updateGroup($event)"
                         (addAction)="openAddPopIn($event)"
                         (editAction)="openEditPopIn($event)"
                         (removeAction)="removeField($event)"
@@ -31,7 +31,7 @@
     </div>
 
     <div class="preview">
-      <app-builder-preview [config]="groups"></app-builder-preview>
+      <app-builder-preview [config]="groups" [image]="imageName"></app-builder-preview>
     </div>
   </div>
 </div>

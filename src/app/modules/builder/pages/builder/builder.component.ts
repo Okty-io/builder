@@ -16,8 +16,8 @@ export class BuilderComponent implements OnInit {
   public config: ContainerConfigGroup[];
 
   ngOnInit() {
-    this.image = 'node';
-    this.tag = 'latest';
+    this.image = '';
+    this.tag = '';
     this.logo = '';
     this.review = false;
   }
