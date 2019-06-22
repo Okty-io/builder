@@ -32,6 +32,7 @@ import { EnvironmentsValidator } from './validators/environments.validator';
 import { PortsValidator } from './validators/ports.validator';
 import { VolumesValidator } from './validators/volumes.validator';
 import { DockerComposeValidator } from './validators/docker-compose.validator';
+import { ContainerService } from './services/container.service';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { DockerComposeValidator } from './validators/docker-compose.validator';
     PortsValidator,
     VolumesValidator,
     DockerComposeValidator,
+    ContainerService,
   ],
   entryComponents: [
     InputComponent,

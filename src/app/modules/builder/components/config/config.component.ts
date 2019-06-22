@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ContainerConfigGroup } from '../../models/container-config-group';
 import { ContainerConfigField } from '../../models/container-config-field';
 
@@ -22,7 +22,7 @@ export class ConfigComponent implements OnInit {
   public popinFieldId: string;
   public popinField: ContainerConfigField;
 
-  constructor() {
+  constructor(private cd: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -69,18 +69,23 @@ export class ConfigComponent implements OnInit {
     this.next.emit(this.groups);
   }
 
-  addField(data: any): void {
-    const index = this.groups.findIndex((element: ContainerConfigGroup) => element.id === this.popinGroup);
+  public addField(data: any): void {
+    const groups = [...this.groups];
+
+    const index = groups.findIndex((element: ContainerConfigGroup) => element.id === this.popinGroup);
+
     if (!this.popinField) {
-      this.groups[index].fields.push(data);
+      groups[index].fields.push(data);
+      this.groups = groups;
       this.hidePopIn();
 
       return;
     }
 
-    const fieldIndex = this.groups[index].fields.findIndex((element) => element.id === this.popinFieldId);
-    this.groups[index].fields[fieldIndex] = data;
+    const fieldIndex = groups[index].fields.findIndex((element) => element.id === this.popinFieldId);
+    groups[index].fields[fieldIndex] = data;
 
+    this.groups = groups;
     this.hidePopIn();
   }
 
@@ -88,5 +93,9 @@ export class ConfigComponent implements OnInit {
     const group = this.groups.find((element) => element.id === data.group.id);
 
     group.fields = group.fields.filter(element => element.id !== data.field.id);
+  }
+
+  updateGroup(event: ContainerConfigGroup[]) {
+    this.groups = event;
   }
 }
