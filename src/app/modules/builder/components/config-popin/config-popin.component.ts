@@ -35,7 +35,7 @@ export class ConfigPopinComponent implements OnInit {
     this.formGroup = new FormGroup({
       label: new FormControl(this.field ? this.field.label : '', Validators.required),
       destination: new FormControl(this.field ? this.field.destination : '', Validators.required),
-      type: new FormControl(this.field ? this.field.type : '', Validators.required),
+      type: new FormControl(this.field ? this.field.type : ''),
       custom: new FormGroup({})
     });
 
