@@ -7,11 +7,13 @@
   <div class="body">
     <form (submit)="handleSubmit($event)" [formGroup]="formGroup">
       <div class="general">
+
         <p>
           <label>
             Input title
             <input type="text" name="title" formControlName="label">
           </label>
+          <span class="error" *ngIf="labelControl.touched && labelControl.invalid">This field is required</span>
         </p>
 
         <p>
@@ -21,6 +23,7 @@
               <option *ngFor="let option of destinationOptions" [value]="option.value">{{option.label}}</option>
             </select>
           </label>
+          <span class="error" *ngIf="destinationControl.touched && destinationControl.invalid">This field is required</span>
         </p>
       </div>
 
@@ -49,7 +52,7 @@
                                                          [field]="field">
       </app-builder-config-popin-destination-environments>
 
-      <button>Save</button>
+      <button [disabled]="formGroup.invalid">Save</button>
     </form>
   </div>
 </div>

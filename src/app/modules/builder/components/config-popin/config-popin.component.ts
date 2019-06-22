@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContainerConfigField } from '../../models/container-config-field';
 
 @Component({
@@ -33,9 +33,9 @@ export class ConfigPopinComponent implements OnInit {
     }
 
     this.formGroup = new FormGroup({
-      label: new FormControl(this.field ? this.field.label : ''),
-      destination: new FormControl(this.field ? this.field.destination : ''),
-      type: new FormControl(this.field ? this.field.type : ''),
+      label: new FormControl(this.field ? this.field.label : '', Validators.required),
+      destination: new FormControl(this.field ? this.field.destination : '', Validators.required),
+      type: new FormControl(this.field ? this.field.type : '', Validators.required),
       custom: new FormGroup({})
     });
 
@@ -57,6 +57,11 @@ export class ConfigPopinComponent implements OnInit {
 
   handleSubmit(event: Event) {
     event.preventDefault();
+
+    console.log(this.formGroup.valid);
+    console.log(this.formGroup);
+
+    return;
 
     const config = Object.assign({}, this.formGroup.value, this.formGroup.get('custom').value);
     delete config.custom;
