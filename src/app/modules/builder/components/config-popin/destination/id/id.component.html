@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+  <p>
+    <label>
+      Container ID
+      <input type="text" name="value" formControlName="value">
+    </label>
+    <span *ngIf="valueControl.touched && valueControl.invalid">This field is invalid</span>
+  </p>
+</form>

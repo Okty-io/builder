@@ -36,5 +36,5 @@
   </div>
 </div>
 
-<app-builder-config-popin *ngIf="isPopinActive" (onClose)="hidePopIn()" (onSubmit)="addField($event)" [field]="popinField">
+<app-builder-config-popin *ngIf="isPopinActive" (closeEvent)="hidePopIn()" (submitEvent)="addField($event)" [field]="popinField">
 </app-builder-config-popin>
