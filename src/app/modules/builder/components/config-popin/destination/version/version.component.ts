@@ -55,4 +55,8 @@ export class VersionComponent implements OnInit {
 
     return sources;
   }
+
+  get sourceControls() {
+    return (this.form.controls.source as FormArray).controls;
+  }
 }
