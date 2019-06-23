@@ -55,7 +55,7 @@ export class ConfigPopinComponent implements OnInit {
   }
 
   handleClose(): void {
-    this.onClose.emit();
+    this.closeEvent.emit();
   }
 
   handleSubmit(event: Event) {
@@ -66,7 +66,7 @@ export class ConfigPopinComponent implements OnInit {
 
     config.id = this.getIdFromLabel();
 
-    this.onSubmit.emit(config);
+    this.submitEvent.emit(config);
   }
 
   onDestinationChange(): void {
