@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angu
 import { ApiService } from '../../../../core/services/api.service';
 import { ContainerConfigGroup } from '../../models/container-config-group';
 import { Subscription } from 'rxjs';
+import { TitleService } from '../../../../core/services/title.service';
 
 @Component({
   selector: 'app-builder-review',
@@ -24,10 +25,12 @@ export class ReviewComponent implements OnInit, OnDestroy {
   public loading: boolean;
   public error: boolean;
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private titleService: TitleService) {
   }
 
   ngOnInit(): void {
+    this.titleService.set('Review');
+
     this.loading = false;
     this.error = false;
   }

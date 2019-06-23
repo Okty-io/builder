@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ContainerConfigGroup } from '../../models/container-config-group';
 import { ContainerConfigField } from '../../models/container-config-field';
+import { TitleService } from '../../../../core/services/title.service';
 
 @Component({
   selector: 'app-builder-config',
@@ -22,7 +23,11 @@ export class ConfigComponent implements OnInit {
   public popinFieldId: string;
   public popinField: ContainerConfigField;
 
+  constructor(private titleService: TitleService) {
+  }
+
   ngOnInit() {
+    this.titleService.set('Configuration');
     this.isPopinActive = false;
 
     const id = this.imageName.replace('/', '-');

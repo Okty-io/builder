@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContainerConfigGroup } from '../../models/container-config-group';
+import { TitleService } from '../../../../core/services/title.service';
 
 @Component({
   selector: 'app-builder',
@@ -15,11 +16,16 @@ export class BuilderComponent implements OnInit {
 
   public config: ContainerConfigGroup[];
 
+  constructor(private titleService: TitleService) {
+  }
+
   ngOnInit() {
     this.image = '';
     this.tag = '';
     this.logo = '';
     this.review = false;
+
+    this.titleService.set('Choose image');
   }
 
   public handleImage(image: { label: string, logo: string }): void {
