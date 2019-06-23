@@ -8,10 +8,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './core/services/api.service';
 import { TitleService } from './core/services/title.service';
 import { SharedModule } from './shared/shared.module';
+import { HighlightModule } from 'ngx-highlightjs';
+import yaml from 'highlight.js/lib/languages/yaml';
+
+export function hljsLanguages() {
+  return [{name: 'yaml', func: yaml}];
+}
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         BrowserModule,
@@ -20,6 +26,7 @@ import { SharedModule } from './shared/shared.module';
         AppRoutingModule,
         CoreModule,
         SharedModule,
+        HighlightModule.forRoot({languages: hljsLanguages}),
     ],
     providers: [
         ApiService,

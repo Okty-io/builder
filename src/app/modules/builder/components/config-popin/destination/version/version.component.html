@@ -1,0 +1,21 @@
+<div>Available version <fa-icon [icon]="faPlus" (click)="addVersion()"></fa-icon></div>
+
+<form [formGroup]="form">
+  <div formArrayName="source">
+    <div *ngFor="let version of sourceControls; let i=index">
+        <input type="text" placeholder="Enter Link" [formControlName]="i">
+        <span *ngIf="sourceControls.length > 1" (click)="removeVersion(i)">Remove</span>
+    </div>
+
+    <span *ngIf="form.controls.source.touched && form.controls.source.invalid">Each field must be filled</span>
+  </div>
+
+  <br>
+
+  <div>
+    Default value
+    <select formControlName="value">
+      <option *ngFor="let version of form.controls.source.value" [value]="version">{{version}}</option>
+    </select>
+  </div>
+</form>

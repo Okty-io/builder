@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './components/button.component';
 import { LoaderComponent } from './components/loader.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
     declarations: [
@@ -10,6 +11,7 @@ import { LoaderComponent } from './components/loader.component';
     ],
     imports: [
         CommonModule,
+        FontAwesomeModule
     ],
     exports: [
         ButtonComponent,

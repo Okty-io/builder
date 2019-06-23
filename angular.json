@@ -28,9 +28,13 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/style/select.scss",
+              "src/assets/style/highlight.scss",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/yamljs/dist/yaml.min.js"
+            ]
           },
           "configurations": {
             "production": {

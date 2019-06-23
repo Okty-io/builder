@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+  <p>
+    <label>
+      Path inside container
+      <input type="text" name="base" formControlName="base">
+    </label>
+    <span *ngIf="baseControl.touched && baseControl.invalid">This field is require and should start with a slash</span>
+  </p>
+
+  <p>
+    <label>
+      Path on host
+      <input type="text" name="value" formControlName="value">
+    </label>
+    <span *ngIf="valueControl.touched && valueControl.invalid">This field is invalid</span>
+  </p>
+</form>
