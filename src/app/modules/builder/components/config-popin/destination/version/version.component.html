@@ -2,9 +2,9 @@
 
 <form [formGroup]="form">
   <div formArrayName="source">
-    <div *ngFor="let version of form.controls.source.controls; let i=index">
+    <div *ngFor="let version of sourceControls; let i=index">
         <input type="text" placeholder="Enter Link" [formControlName]="i">
-        <span *ngIf="form.controls.source.controls.length > 1" (click)="removeVersion(i)">Remove</span>
+        <span *ngIf="sourceControls.length > 1" (click)="removeVersion(i)">Remove</span>
     </div>
 
     <span *ngIf="form.controls.source.touched && form.controls.source.invalid">Each field must be filled</span>
