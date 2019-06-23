@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ContainerConfigGroup } from '../../models/container-config-group';
 import { ContainerConfigField } from '../../models/container-config-field';
 
@@ -22,16 +22,15 @@ export class ConfigComponent implements OnInit {
   public popinFieldId: string;
   public popinField: ContainerConfigField;
 
-  constructor(private cd: ChangeDetectorRef) {
-  }
-
   ngOnInit() {
     this.isPopinActive = false;
+
+    const id = this.imageName.replace('/', '-');
 
     this.groups = [];
     this.groups.push({
       id: 'group_0', label: 'Général', editing: false, fields: [
-        {id: 'name', label: 'Container ID', type: 'input', destination: 'id', value: this.imageName, base: '', validators: [], source: []},
+        {id: 'name', label: 'Container ID', type: 'input', destination: 'id', value: id, base: '', validators: [], source: []},
       ]
     });
   }
