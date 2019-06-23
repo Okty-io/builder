@@ -16,5 +16,8 @@
   <button class="custom-button orange-button" (click)="handleGoBack()">Go back to configuration</button>
   <button class="custom-button blue-button" (click)="createPullRequest()">Create the pull request</button>
 
-  <p *ngIf="pullRequestUrl">Here is the link of your pull request : {{pullRequestUrl}}</p>
+  <app-loader [loading]="loading" [error]="error"></app-loader>
+  <p *ngIf="pullRequestUrl">
+    Here is the link of your pull request : <a [href]="pullRequestUrl">{{pullRequestUrl}}</a>
+  </p>
 </div>

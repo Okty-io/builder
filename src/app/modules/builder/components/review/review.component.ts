@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { ApiService } from '../../../../core/services/api.service';
 import { ContainerConfigGroup } from '../../models/container-config-group';
 import { Subscription } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './review.component.html',
   styleUrls: ['./review.component.scss']
 })
-export class ReviewComponent implements OnDestroy {
+export class ReviewComponent implements OnInit, OnDestroy {
 
   @Input() imageName: string;
   @Input() logoUrl: string;
@@ -21,8 +21,15 @@ export class ReviewComponent implements OnDestroy {
   private subscription: Subscription;
 
   public pullRequestUrl: string;
+  public loading: boolean;
+  public error: boolean;
 
   constructor(private apiService: ApiService) {
+  }
+
+  ngOnInit(): void {
+    this.loading = false;
+    this.error = false;
   }
 
   ngOnDestroy(): void {
@@ -37,10 +44,13 @@ export class ReviewComponent implements OnDestroy {
     const container = {image: this.imageName, tag: this.tag};
     const form = {name: 'Name', logo: 'Logo', config: this.config};
 
-    this.pullRequestUrl = 'http://github.com';
+    this.loading = true;
 
     this.subscription = this.apiService.post('builder/submit', {container, form}).subscribe((response) => {
       this.pullRequestUrl = response.url;
+      this.loading = false;
+    }, () => {
+      this.error = true;
     });
   }
 }
