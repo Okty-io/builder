@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContainerConfigField } from '../../models/container-config-field';
+import Slugify from 'slugify';
 
 @Component({
   selector: 'app-builder-config-popin',
@@ -19,6 +20,7 @@ export class ConfigPopinComponent implements OnInit {
   public formGroup: FormGroup;
 
   public destinationOptions: Array<{ value: string, label: string }>;
+
 
   constructor() {
   }
@@ -71,7 +73,7 @@ export class ConfigPopinComponent implements OnInit {
   }
 
   private getIdFromLabel(): string {
-    return this.labelControl.value; // TODO
+    return Slugify(this.labelControl.value, {remove: /[*+~.()'"!:@]/g});
   }
 
   get labelControl(): AbstractControl {
