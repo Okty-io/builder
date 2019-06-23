@@ -25,6 +25,10 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
+              "src/favicon.png",
+              "src/favicon-32.png",
+              "src/favicon-64.png",
+              "src/favicon-96.png",
               "src/assets"
             ],
             "styles": [
