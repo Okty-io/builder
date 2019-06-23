@@ -11,8 +11,8 @@ import Slugify from 'slugify';
 })
 export class ConfigPopinComponent implements OnInit {
 
-  @Output() onClose = new EventEmitter();
-  @Output() onSubmit = new EventEmitter();
+  @Output() closeEvent = new EventEmitter();
+  @Output() submitEvent = new EventEmitter();
 
   @Input() field: ContainerConfigField;
 
@@ -45,6 +45,7 @@ export class ConfigPopinComponent implements OnInit {
 
   private initOptions(): void {
     this.destinationOptions = [
+      {label: 'ID', value: 'id'},
       {label: 'Version', value: 'version'},
       {label: 'Docker Compose', value: 'compose'},
       {label: 'Volumes', value: 'volumes'},

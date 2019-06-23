@@ -33,6 +33,7 @@ import { PortsValidator } from './validators/ports.validator';
 import { VolumesValidator } from './validators/volumes.validator';
 import { DockerComposeValidator } from './validators/docker-compose.validator';
 import { ContainerService } from './services/container.service';
+import { IdComponent } from './components/config-popin/destination/id/id.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ContainerService } from './services/container.service';
     VolumesComponent,
     PortsComponent,
     EnvironmentsComponent,
+    IdComponent,
   ],
   imports: [
     CommonModule,
