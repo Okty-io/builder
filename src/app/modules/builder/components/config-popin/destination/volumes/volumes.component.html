@@ -1,11 +1,14 @@
 <form [formGroup]="form">
-  <label>
-    Path inside container
-    <input type="text" name="command" formControlName="base">
-  </label>
+  <div class="general">
+    <label>
+      <input required type="text" name="command" formControlName="base">
+      <span>Path inside container</span>
+    </label>
 
-  <label>
-    Path on host
-    <input type="text" name="value" formControlName="value">
-  </label>
+    <label>
+      <input required type="text" name="value" formControlName="value">
+      <span>Path on host</span>
+    </label>
+  </div>
+
 </form>

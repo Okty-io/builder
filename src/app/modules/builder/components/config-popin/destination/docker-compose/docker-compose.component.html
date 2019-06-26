@@ -1,19 +1,23 @@
 <form [formGroup]="form">
-  <label>
-    Docker compose command
-    <input type="text" name="command" formControlName="base">
-  </label>
+  <div class="general">
+    <label class="basic-input">
+      <input required type="text" name="command" formControlName="base">
+      <span>Docker compose command</span>
+    </label>
 
-  <label>
-    Default value
-    <input type="text" name="value" formControlName="value">
-  </label>
+    <label class="basic-input">
+      <input required type="text" name="value" formControlName="value">
+      <span>Default value</span>
+    </label>
+    <label class="checkbox-input">
 
-  <label>
-    Is hidden ?
-    <input type="checkbox" name="hidden"
-           [formControl]="hiddenControl"
-           [checked]="form.get('type').value === 'hidden'"
-           (change)="checkValue()" >
-  </label>
+      <input type="checkbox" name="hidden"
+             [formControl]="hiddenControl"
+             [checked]="form.get('type').value === 'hidden'"
+             (change)="checkValue()" >
+      <span>Is hidden ?</span>
+    </label>
+  </div>
+
+
 </form>

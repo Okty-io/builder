@@ -1,4 +1,4 @@
-<div>Available version <fa-icon [icon]="faPlus" (click)="addVersion()"></fa-icon></div>
+<p>Available version</p>
 
 <form [formGroup]="form">
   <div formArrayName="source">
@@ -9,7 +9,7 @@
   </div>
 
   <br>
-
+  <button (click)="addVersion()"><fa-icon [icon]="faPlus" ></fa-icon> add version </button>
   <div>
     Default value
     <select formControlName="value">

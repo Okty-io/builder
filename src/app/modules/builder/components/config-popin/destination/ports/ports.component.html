@@ -1,11 +1,13 @@
 <form [formGroup]="form">
-  <label>
-    Port inside container
-    <input type="text" name="command" formControlName="base">
-  </label>
+  <div class="general">
+    <label>
+      <input required type="text" name="command" formControlName="base">
+      <span>Port inside container</span>
+    </label>
 
-  <label>
-    Port on host
-    <input type="text" name="value" formControlName="value">
-  </label>
+    <label>
+      <input required type="text" name="value" formControlName="value">
+      <span>Port on host</span>
+    </label>
+  </div>
 </form>

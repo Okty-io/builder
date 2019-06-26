@@ -1,11 +1,13 @@
 <form [formGroup]="form">
-  <label>
-    Name
-    <input type="text" name="command" formControlName="base">
-  </label>
+  <div class="general">
+    <label>
+      <input required type="text" name="command" formControlName="base">
+      <span>Name</span>
+    </label>
 
-  <label>
-    Default value
-    <input type="text" name="value" formControlName="value">
-  </label>
+    <label>
+      <input required type="text" name="value" formControlName="value">
+      <span>Default value</span>
+    </label>
+  </div>
 </form>

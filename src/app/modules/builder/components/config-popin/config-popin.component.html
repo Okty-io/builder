@@ -9,17 +9,17 @@
       <div class="general">
         <p>
           <label>
-            Input title
-            <input type="text" name="title" formControlName="label">
+            <input type="text" required name="title" formControlName="label">
+            <span>Input title</span>
           </label>
         </p>
 
         <p>
           <label>
-            Destination
-            <select name="destination" formControlName="destination" (change)="onDestinationChange()">
+            <select  required name="destination" formControlName="destination" (change)="onDestinationChange()">
               <option *ngFor="let option of destinationOptions" [value]="option.value">{{option.label}}</option>
             </select>
+            <span>Destination</span>
           </label>
         </p>
       </div>
@@ -49,7 +49,7 @@
                                                          [field]="field">
       </app-builder-config-popin-destination-environments>
 
-      <button>Save</button>
+      <button class="save-button">Save</button>
     </form>
   </div>
 </div>
