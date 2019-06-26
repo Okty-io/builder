@@ -44,14 +44,73 @@
 
 
 form {
+  margin-top: 20px;
   .general {
     display: flex;
+    label{
+      position: relative;
+      width: calc(100%);
+      span,input{
+        font-size: 1em;
+      }
+      span{
+        position: absolute;
+        pointer-events: none;
+        left: 10px;
+        top: 0;
+        transition: all ease .2s;
+        background: #fff;
+        padding: 0;
+      }
 
+      select{
+        width: 100%;
+        box-sizing: border-box;
+        line-height: 50px;
+        height: 50px;
+      }
+
+      input {
+        height: 50px;
+        line-height: 50px;
+        width: 100%;
+        border-radius: 4px;
+        border: solid 1px #919191;
+        background-color: #fefefe;
+        padding: 0 15px;
+        box-sizing: border-box;
+      }
+
+      input, select{
+        &:focus,&:valid{
+          outline: none;
+          border-color: #474747;
+          &+span{
+            top: -28px;
+            font-size: 0.9em;
+            padding: 5px;
+          }
+        }
+      }
+
+    }
     & > * {
-      width: 50%;
+      width: calc(50% - 20px);
+      margin: 0 10px;
     }
   }
+  .save-button{
+    color: #fff;
+    border-radius: 16px;
+    background-color: #ff9900;
+    height: 40px;
+    margin: 20px 10px;
+    padding: 0 20px;
+    border: none;
+    cursor: pointer;
+  }
 }
+
 
 .error {
   color: #f03434;
