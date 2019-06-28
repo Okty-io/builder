@@ -24,10 +24,14 @@
                         (editAction)="openEditPopIn($event)"
                         (removeAction)="removeField($event)"
       ></app-builder-form>
-      <app-button class="align__left" type="cta cta__small gradient__red with__shadow" size="large" (click)="addGroup()">
-        Add a group
-      </app-button>
-      <button class="gotoreview"(click)="handleNext(true)">GO TO REVIEW</button>
+      <div class="actions">
+        <app-button class="align__left" type="cta cta__small gradient__red with__shadow" size="large" (click)="addGroup()">
+          Add a group
+        </app-button>
+        <app-button class="align__right" type="cta cta__small gradient__cyan with__shadow" size="large" (click)="handleNext(true)">
+          Validate
+        </app-button>
+      </div>
     </div>
 
     <div class="preview">

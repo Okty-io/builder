@@ -1,19 +1,25 @@
-<p>Available version</p>
+<p class="title">Available version</p>
+
 
 <form [formGroup]="form">
-  <div formArrayName="source">
-    <div *ngFor="let version of form.controls.source.controls; let i=index">
+
+  <div class="left">
+    <div class="versions" formArrayName="source">
+      <div class="version" *ngFor="let version of form.controls.source.controls; let i=index">
         <input type="text" placeholder="Enter Link" [formControlName]="i">
-        <span *ngIf="form.controls.source.controls.length > 1" (click)="removeVersion(i)">Remove</span>
+        <span class="delete-button" *ngIf="form.controls.source.controls.length > 1" (click)="removeVersion(i)"><fa-icon [icon]="faTrash" ></fa-icon></span>
+      </div>
     </div>
   </div>
 
-  <br>
-  <button (click)="addVersion()"><fa-icon [icon]="faPlus" ></fa-icon> add version </button>
-  <div>
-    Default value
-    <select formControlName="value">
-      <option *ngFor="let version of form.controls.source.value" [value]="version">{{version}}</option>
-    </select>
+  <div class="right">
+    <button class="add-button" (click)="addVersion()"><fa-icon [icon]="faPlus" ></fa-icon> add version </button>
+    <div class="default_value_block">
+      <p>Default value</p>
+      <select class="default_value" formControlName="value">
+        <option *ngFor="let version of form.controls.source.value" [value]="version">{{version}}</option>
+      </select>
+    </div>
   </div>
+
 </form>
