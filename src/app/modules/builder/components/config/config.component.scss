@@ -78,6 +78,7 @@
     width: 75%;
     margin-left: calc(12.5% - 140px);
     font-family: 'Open Sans', sans-serif;
+    margin-top: 50px;
 
     @include MQ(S) {
       width: 92%;
@@ -167,4 +168,7 @@
       margin-left: 2%;
     }
   }
+}
+.actions{
+  margin-bottom: 30px;
 }
