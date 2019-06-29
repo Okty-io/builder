@@ -31,6 +31,6 @@ export class IdComponent implements OnInit {
   }
 
   get valueControl() {
-    return this.form.get('value');
+    return this.form.get('value') as FormControl;
   }
 }
