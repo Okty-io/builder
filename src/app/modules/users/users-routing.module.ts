@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { OauthComponent } from './pages/oauth/oauth.component';
-import { ProfileComponent } from './pages/profile/profile.component';
 import { IsNotLoggedIn } from '../../core/guards/isNotLoggedIn';
 import { IsLoggedIn } from '../../core/guards/isLoggedIn';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 const routes: Routes = [
     {
@@ -22,8 +22,8 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'profile',
-        component: ProfileComponent,
+        path: 'logout',
+        component: LogoutComponent,
         canActivate: [
             IsLoggedIn
         ]
