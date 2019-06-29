@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApiService } from '../../../../core/services/api.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { ApiService } from '../../../../core/services/api.service';
 })
 export class SearchImageComponent implements OnInit {
 
+  @Input() image: string;
   @Output() next = new EventEmitter();
 
   public apiSearch: string;
@@ -24,6 +25,10 @@ export class SearchImageComponent implements OnInit {
     this.resultSearch = [];
     this.customSearch = false;
     this.imageSent = false;
+
+    if (this.image) {
+      this.apiSearch = this.image;
+    }
   }
 
   public searchApi() {
