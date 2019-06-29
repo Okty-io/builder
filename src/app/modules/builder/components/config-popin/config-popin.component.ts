@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContainerConfigField } from '../../models/container-config-field';
 import Slugify from 'slugify';
 
@@ -83,12 +83,14 @@ export class ConfigPopinComponent implements OnInit {
         continue;
       }
 
-      if (controlsKey === 'custom') {
-        this.markFormAsTouched(formGroup.controls[controlsKey] as FormGroup);
+      const control = formGroup.controls[controlsKey];
+
+      if (control instanceof FormGroup || control instanceof FormArray) {
+        this.markFormAsTouched(control as FormGroup);
         continue;
       }
 
-      formGroup.controls[controlsKey].markAsTouched();
+      control.markAsTouched();
     }
   }
 

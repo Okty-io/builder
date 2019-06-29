@@ -67,9 +67,13 @@ export class VersionComponent implements OnInit {
   }
 
   get versionOptions() {
-    return Object.values(this.form.controls.source.value).map((value) => {
+    return Object.values(this.form.controls.source.value).map((value: string) => {
+      if (!value || value.length <= 0) {
+        return;
+      }
+
       return {label: value, value};
-    });
+    }).filter(Boolean);
   }
 
   sourceControl(i: number) {
