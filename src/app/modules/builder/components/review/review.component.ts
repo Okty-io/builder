@@ -3,59 +3,61 @@ import { ApiService } from '../../../../core/services/api.service';
 import { ContainerConfigGroup } from '../../models/container-config-group';
 import { Subscription } from 'rxjs';
 import { TitleService } from '../../../../core/services/title.service';
+import { AuthenticationService } from '../../../../core/authentication/authentication.service';
 
 @Component({
-  selector: 'app-builder-review',
-  templateUrl: './review.component.html',
-  styleUrls: ['./review.component.scss']
+    selector: 'app-builder-review',
+    templateUrl: './review.component.html',
+    styleUrls: ['./review.component.scss']
 })
 export class ReviewComponent implements OnInit, OnDestroy {
 
-  @Input() imageName: string;
-  @Input() logoUrl: string;
-  @Input() tag: string;
+    @Input() imageName: string;
+    @Input() logoUrl: string;
+    @Input() tag: string;
 
-  @Input() config: ContainerConfigGroup[];
+    @Input() config: ContainerConfigGroup[];
 
-  @Output() goBack = new EventEmitter();
+    @Output() goBack = new EventEmitter();
 
-  private subscription: Subscription;
+    private subscription: Subscription;
 
-  public pullRequestUrl: string;
-  public loading: boolean;
-  public error: boolean;
+    public pullRequestUrl: string;
+    public loading: boolean;
+    public error: boolean;
 
-  constructor(private apiService: ApiService, private titleService: TitleService) {
-  }
-
-  ngOnInit(): void {
-    this.titleService.set('Review');
-
-    this.loading = false;
-    this.error = false;
-  }
-
-  ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
+    constructor(private apiService: ApiService, private titleService: TitleService, private authentification: AuthenticationService) {
     }
-  }
 
-  handleGoBack() {
-    this.goBack.emit();
-  }
+    ngOnInit(): void {
+        this.titleService.set('Review');
 
-  createPullRequest() {
-    const container = {image: this.imageName, tag: this.tag};
-    const form = {name: 'Name', logo: 'Logo', config: this.config};
+        this.loading = false;
+        this.error = false;
+    }
 
-    this.loading = true;
+    ngOnDestroy(): void {
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
+    }
 
-    this.subscription = this.apiService.post('builder/submit', {container, form}).subscribe((response) => {
-      this.pullRequestUrl = response.url;
-      this.loading = false;
-    }, () => {
-      this.error = true;
-    });
-  }
+    handleGoBack() {
+        this.goBack.emit();
+    }
+
+    createPullRequest() {
+        const container = {image: this.imageName, tag: this.tag};
+        const form = {name: 'Name', logo: 'Logo', config: this.config};
+        const user = {id: this.authentification.getUserId()};
+
+        this.loading = true;
+
+        this.subscription = this.apiService.post('builder/submit', {container, form, user}).subscribe((response) => {
+            this.pullRequestUrl = response.url;
+            this.loading = false;
+        }, () => {
+            this.error = true;
+        });
+    }
 }

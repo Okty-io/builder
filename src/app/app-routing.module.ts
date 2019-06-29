@@ -7,6 +7,10 @@ const routes: Routes = [
         loadChildren: './modules/builder/builder.module#BuilderModule'
     },
     {
+        path: 'users',
+        loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule)
+    },
+    {
         path: '',
         loadChildren: './modules/cms/cms.module#CmsModule'
     }
