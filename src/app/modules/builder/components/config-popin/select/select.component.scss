@@ -4,7 +4,7 @@ p {
   width: calc(100%);
 
   &.error {
-    input, select {
+    select {
       border-color: #f03434;
     }
   }
@@ -31,19 +31,6 @@ select {
   background-color: #fff;
   padding-left: 4px;
   cursor: pointer;
-}
-
-input {
-  height: 50px;
-  line-height: 50px;
-  width: 100%;
-  border: solid 1px #919191;
-  background-color: #fefefe;
-  padding: 0 15px;
-  box-sizing: border-box;
-}
-
-input, select {
   border-radius: 4px;
 
   &:focus, &:valid {
