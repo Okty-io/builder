@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContainerConfigField } from '../../models/container-config-field';
 import Slugify from 'slugify';
 
@@ -69,7 +69,7 @@ export class ConfigPopinComponent implements OnInit {
     this.submitEvent.emit(config);
   }
 
-  onDestinationChange(): void {
+  resetCustomData() {
     this.formGroup.setControl('custom', new FormGroup({}));
   }
 
@@ -81,8 +81,8 @@ export class ConfigPopinComponent implements OnInit {
     return this.formGroup.get('label') as FormControl;
   }
 
-  get destinationControl(): AbstractControl {
-    return this.formGroup.get('destination');
+  get destinationControl(): FormControl {
+    return this.formGroup.get('destination') as FormControl;
   }
 
   get customGroup(): FormGroup {

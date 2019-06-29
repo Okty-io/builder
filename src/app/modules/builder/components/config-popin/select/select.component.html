@@ -1,0 +1,10 @@
+<div>
+  <p [ngClass]="{error: fieldControl.touched && fieldControl.invalid}">
+    <select required name="destination" [formControl]="fieldControl" (change)="onDestinationChange()">
+      <option *ngFor="let option of options" [value]="option.value">{{option.label}}</option>
+    </select>
+
+    <label>{{label}}</label>
+  </p>
+  <small class="error" *ngIf="fieldControl.touched && fieldControl.invalid">{{error}}</small>
+</div>
