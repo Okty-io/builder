@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContainerConfigField } from '../../../../models/container-config-field';
 import { DockerComposeValidator } from '../../../../validators/docker-compose.validator';
+import {faCheck} from '@fortawesome/free-solid-svg-icons/faCheck';
 
 @Component({
   selector: 'app-builder-config-popin-destination-docker-compose',
@@ -14,6 +15,7 @@ export class DockerComposeComponent implements OnInit {
   @Input() field: ContainerConfigField;
 
   public hiddenControl: FormControl;
+  public faCheck;
 
   ngOnInit() {
     this.addBaseField();
@@ -21,6 +23,7 @@ export class DockerComposeComponent implements OnInit {
     this.addHiddenField();
 
     this.addStaticFields();
+    this.faCheck = faCheck;
   }
 
   private addBaseField(): void {

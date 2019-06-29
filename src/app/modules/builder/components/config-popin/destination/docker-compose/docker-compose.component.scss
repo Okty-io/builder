@@ -60,6 +60,38 @@ form {
         }
 
         &.checkbox-input{
+          margin-top: 20px;
+          margin-left: 5px;
+          display: block;
+          cursor: pointer;
+          .custom-checkbox{
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border: solid 1px #474747;
+            border-radius: 4px;
+            fa-icon{
+              width: 20px;
+              height: 20px;
+              display: block;
+              margin: 0;
+              padding: 0;
+              text-align: center;
+              line-height: 20px;
+            }
+
+            &.checked{
+              background: #ff9900;
+              fa-icon{
+                color: #ffffff;
+              }
+            }
+          }
+
+          input[type="checkbox"]{
+            display: none;
+          }
 
         }
 
