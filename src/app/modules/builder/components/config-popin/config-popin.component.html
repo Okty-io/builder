@@ -17,14 +17,15 @@
         </div>
 
         <div>
-          <p>
+          <p [ngClass]="{error: destinationControl.touched && destinationControl.invalid}">
             <select required name="destination" formControlName="destination" (change)="onDestinationChange()">
               <option *ngFor="let option of destinationOptions" [value]="option.value">{{option.label}}</option>
             </select>
             <label>Destination</label>
           </p>
-          <span class="error"
-                *ngIf="destinationControl.touched && destinationControl.invalid">This field is required</span>
+          <small class="error" *ngIf="destinationControl.touched && destinationControl.invalid">
+            This field is required
+          </small>
         </div>
       </div>
 
