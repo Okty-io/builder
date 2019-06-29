@@ -7,8 +7,9 @@
 </ng-container>
 
 <ng-container *ngIf="currentStep === 'config'">
-  <app-builder-config (previous)="displayImageStep()" (next)="handleReview($event)" [imageName]="image" [logoUrl]="logo"
-                      [tag]="tag">
+  <app-builder-config (previous)="displayImageStep()" (next)="handleReview($event)"
+                      [imageName]="image" [logoUrl]="logo" [tag]="tag"
+                      [config]="config">
   </app-builder-config>
 </ng-container>
 
