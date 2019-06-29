@@ -1,4 +1,4 @@
-  <div class="popin">
+<div class="popin">
   <div class="header">
     <p class="title">Add an element</p>
     <fa-icon [icon]="faExit" (click)="this.handleClose()"></fa-icon>
@@ -8,28 +8,29 @@
     <form (submit)="handleSubmit($event)" [formGroup]="formGroup">
       <div class="general">
 
-        <p>
-          <label>
+        <div>
+          <p [ngClass]="{error: labelControl.touched && labelControl.invalid}">
             <input type="text" required name="title" formControlName="label">
-            <p>Input title</p>
-          </label>
-          <span class="error" *ngIf="labelControl.touched && labelControl.invalid">This field is required</span>
-        </p>
+            <label>Input title</label>
+          </p>
+          <small class="error" *ngIf="labelControl.touched && labelControl.invalid">This field is required</small>
+        </div>
 
-        <p>
-          <label>
-            <select  required name="destination" formControlName="destination" (change)="onDestinationChange()">
+        <div>
+          <p>
+            <select required name="destination" formControlName="destination" (change)="onDestinationChange()">
               <option *ngFor="let option of destinationOptions" [value]="option.value">{{option.label}}</option>
             </select>
-            <p>Destination</p>
-          </label>
-          <span class="error" *ngIf="destinationControl.touched && destinationControl.invalid">This field is required</span>
-        </p>
+            <label>Destination</label>
+          </p>
+          <span class="error"
+                *ngIf="destinationControl.touched && destinationControl.invalid">This field is required</span>
+        </div>
       </div>
 
       <app-builder-config-popin-destination-id *ngIf="destinationControl.value == 'id'"
-                                                    [form]="customGroup"
-                                                    [field]="field">
+                                               [form]="customGroup"
+                                               [field]="field">
       </app-builder-config-popin-destination-id>
 
       <app-builder-config-popin-destination-version *ngIf="destinationControl.value == 'version'"
