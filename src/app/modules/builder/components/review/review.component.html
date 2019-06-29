@@ -13,7 +13,7 @@
     </div>
   </div>
 
-  <div class="actions" *ngIf="!loading">
+  <div class="actions" *ngIf="!loading && !pullRequestUrl">
     <app-button class="align__left" type="cta cta__secondary gradient__red with__shadow" size="large" (click)="handleGoBack()">
       Edit my work
     </app-button>
@@ -25,7 +25,7 @@
   </div>
 
   <div class="loading" *ngIf="loading">
-    <p>We are submitting you pull request to github</p>
+    <p>We are submitting your pull request to github</p>
     <app-loader [loading]="loading" [error]="error"></app-loader>
   </div>
 
