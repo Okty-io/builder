@@ -1,18 +1,22 @@
-:host{
+:host {
   margin-top: 20px;
   display: block;
 }
+
 form {
   .general {
     display: flex;
-    div{
-      label{
+
+    div {
+      label {
         position: relative;
         width: calc(100%);
-        p,input{
+
+        p, input {
           font-size: 1em;
         }
-        p{
+
+        p {
           position: absolute;
           pointer-events: none;
           left: 10px;
@@ -23,7 +27,7 @@ form {
           margin: 0;
         }
 
-        select{
+        select {
           width: 100%;
           box-sizing: border-box;
           line-height: 50px;
@@ -41,11 +45,12 @@ form {
           box-sizing: border-box;
         }
 
-        input, select{
-          &:focus,&:valid{
+        input, select {
+          &:focus, &:valid {
             outline: none;
             border-color: #474747;
-            &+p{
+
+            & + p {
               top: -28px;
               font-size: 0.9em;
               padding: 5px;
@@ -54,6 +59,7 @@ form {
         }
       }
     }
+
     & > * {
       width: calc(50% - 20px);
       margin: 0 10px;

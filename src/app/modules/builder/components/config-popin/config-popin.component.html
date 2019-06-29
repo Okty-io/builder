@@ -8,13 +8,8 @@
     <form (submit)="handleSubmit($event)" [formGroup]="formGroup">
       <div class="general">
 
-        <div>
-          <p [ngClass]="{error: labelControl.touched && labelControl.invalid}">
-            <input type="text" required name="title" formControlName="label">
-            <label>Input title</label>
-          </p>
-          <small class="error" *ngIf="labelControl.touched && labelControl.invalid">This field is required</small>
-        </div>
+        <app-builder-popin-input [control]="labelControl" [label]="'Input title'" [error]="'This field is required'">
+        </app-builder-popin-input>
 
         <div>
           <p [ngClass]="{error: destinationControl.touched && destinationControl.invalid}">

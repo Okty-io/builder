@@ -77,8 +77,8 @@ export class ConfigPopinComponent implements OnInit {
     return Slugify(this.labelControl.value, {remove: /[*+~.()'"!:@]/g});
   }
 
-  get labelControl(): AbstractControl {
-    return this.formGroup.get('label');
+  get labelControl(): FormControl {
+    return this.formGroup.get('label') as FormControl;
   }
 
   get destinationControl(): AbstractControl {
