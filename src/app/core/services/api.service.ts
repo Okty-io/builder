@@ -13,7 +13,7 @@ export class ApiService {
     }
 
     private getHeaders(): HttpHeaders {
-        const token = localStorage.getItem('token');
+        const token = sessionStorage.getItem('token');
         if (!token) {
             return new HttpHeaders();
         }
