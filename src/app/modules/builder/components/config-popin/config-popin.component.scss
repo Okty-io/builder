@@ -52,10 +52,10 @@ form {
     label{
       position: relative;
       width: calc(100%);
-      span,input{
+      p,input{
         font-size: 1em;
       }
-      span{
+      p{
         position: absolute;
         pointer-events: none;
         left: 10px;
@@ -63,6 +63,7 @@ form {
         transition: all ease .2s;
         background: #fff;
         padding: 0;
+        margin: 0;
       }
 
       select{
@@ -87,7 +88,7 @@ form {
         &:focus,&:valid{
           outline: none;
           border-color: #474747;
-          &+span{
+          &+p{
             top: -28px;
             font-size: 0.9em;
             padding: 5px;

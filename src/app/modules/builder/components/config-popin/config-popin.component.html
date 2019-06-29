@@ -11,7 +11,7 @@
         <p>
           <label>
             <input type="text" required name="title" formControlName="label">
-            <span>Input title</span>
+            <p>Input title</p>
           </label>
           <span class="error" *ngIf="labelControl.touched && labelControl.invalid">This field is required</span>
         </p>
@@ -21,7 +21,7 @@
             <select  required name="destination" formControlName="destination" (change)="onDestinationChange()">
               <option *ngFor="let option of destinationOptions" [value]="option.value">{{option.label}}</option>
             </select>
-            <span>Destination</span>
+            <p>Destination</p>
           </label>
           <span class="error" *ngIf="destinationControl.touched && destinationControl.invalid">This field is required</span>
         </p>

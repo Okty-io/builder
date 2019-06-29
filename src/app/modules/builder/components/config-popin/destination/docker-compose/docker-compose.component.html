@@ -1,24 +1,31 @@
 <form [formGroup]="form">
   <div class="general">
-    <label class="basic-input">
-      <input required type="text" name="command" formControlName="base">
-      <span>Docker compose command</span>
+    <div>
+      <label class="basic-input">
+        <input required type="text" name="command" formControlName="base">
+        <p>Docker compose command</p>
+      </label>
       <span *ngIf="baseControl.touched && baseControl.invalid">This value is not allowed</span>
-    </label>
+    </div>
 
-    <label class="basic-input">
-      <input required type="text" name="value" formControlName="value">
-      <span>Default value</span>
+    <div>
+      <label class="basic-input">
+        <input required type="text" name="value" formControlName="value">
+        <p>Default value</p>
+      </label>
       <span *ngIf="valueControl.touched && valueControl.invalid">This field is invalid</span>
-    </label>
-    <label class="checkbox-input">
+    </div>
 
-      <input type="checkbox" name="hidden"
-             [formControl]="hiddenControl"
-             [checked]="form.get('type').value === 'hidden'"
-             (change)="checkValue()" >
-      <span>Is hidden ?</span>
-    </label>
+    <div>
+      <label class="checkbox-input">
+
+        <input type="checkbox" name="hidden"
+               [formControl]="hiddenControl"
+               [checked]="form.get('type').value === 'hidden'"
+               (change)="checkValue()" >
+        <span>Is hidden ?</span>
+      </label>
+    </div>
   </div>
 
 

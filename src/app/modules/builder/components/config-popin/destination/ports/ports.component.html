@@ -1,16 +1,19 @@
 <form [formGroup]="form">
   <div class="general">
-    <label>
-      <input required type="text" name="command" formControlName="base">
-      <span>Port inside container</span>
-    </label>
-    <span *ngIf="baseControl.touched && baseControl.invalid">This field is invalid</span>
+    <div>
+      <label>
+        <input required type="text" name="command" formControlName="base">
+        <p>Port inside container</p>
+      </label>
+      <span *ngIf="baseControl.touched && baseControl.invalid">This field is invalid</span>
+    </div>
 
-
-    <label>
-      <input required type="text" name="value" formControlName="value">
-      <span>Port on host</span>
-    </label>
-    <span *ngIf="valueControl.touched && valueControl.invalid">This field is invalid</span>
+    <div>
+      <label>
+        <input required type="text" name="value" formControlName="value">
+        <p>Port on host</p>
+      </label>
+      <span *ngIf="valueControl.touched && valueControl.invalid">This field is invalid</span>
+    </div>
   </div>
 </form>
