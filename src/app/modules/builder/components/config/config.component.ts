@@ -13,7 +13,9 @@ export class ConfigComponent implements OnInit {
   @Input() imageName: string;
   @Input() logoUrl: string;
   @Input() tag: string;
+  @Input() config: ContainerConfigGroup[];
 
+  @Output() previous = new EventEmitter();
   @Output() next = new EventEmitter();
 
   public isPopinActive: boolean;
@@ -30,6 +32,14 @@ export class ConfigComponent implements OnInit {
     this.titleService.set('Configuration');
     this.isPopinActive = false;
 
+    this.groups = this.config;
+    if (!this.config) {
+      this.initEmptyConfig();
+    }
+
+  }
+
+  private initEmptyConfig(): void {
     const id = this.imageName.replace('/', '-');
 
     this.groups = [];
@@ -101,5 +111,9 @@ export class ConfigComponent implements OnInit {
 
   updateGroup(event: ContainerConfigGroup[]) {
     this.groups = event;
+  }
+
+  goBack() {
+    this.previous.emit(true);
   }
 }

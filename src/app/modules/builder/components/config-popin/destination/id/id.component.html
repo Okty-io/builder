@@ -1,11 +1,8 @@
 <form [formGroup]="form">
   <div class="general">
-    <div>
-      <label>
-        <input required type="text" name="value" formControlName="value">
-        <p>Container ID</p>
-      </label>
-      <span *ngIf="valueControl.touched && valueControl.invalid">This field is invalid</span>
-    </div>
+    <app-builder-popin-input [control]="valueControl"
+                             label="Default value"
+                             error="This field is invalid">
+    </app-builder-popin-input>
   </div>
 </form>

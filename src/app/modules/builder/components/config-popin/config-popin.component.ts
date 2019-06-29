@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ContainerConfigField } from '../../models/container-config-field';
 import Slugify from 'slugify';
 
@@ -60,6 +60,10 @@ export class ConfigPopinComponent implements OnInit {
 
   handleSubmit(event: Event) {
     event.preventDefault();
+    if (this.formGroup.invalid) {
+      this.markFormAsTouched(this.formGroup);
+      return;
+    }
 
     const config = Object.assign({}, this.formGroup.value, this.formGroup.get('custom').value);
     delete config.custom;
@@ -69,20 +73,37 @@ export class ConfigPopinComponent implements OnInit {
     this.submitEvent.emit(config);
   }
 
-  onDestinationChange(): void {
+  resetCustomData() {
     this.formGroup.setControl('custom', new FormGroup({}));
+  }
+
+  private markFormAsTouched(formGroup: FormGroup): void {
+    for (const controlsKey in formGroup.controls) {
+      if (!formGroup.controls.hasOwnProperty(controlsKey)) {
+        continue;
+      }
+
+      const control = formGroup.controls[controlsKey];
+
+      if (control instanceof FormGroup || control instanceof FormArray) {
+        this.markFormAsTouched(control as FormGroup);
+        continue;
+      }
+
+      control.markAsTouched();
+    }
   }
 
   private getIdFromLabel(): string {
     return Slugify(this.labelControl.value, {remove: /[*+~.()'"!:@]/g});
   }
 
-  get labelControl(): AbstractControl {
-    return this.formGroup.get('label');
+  get labelControl(): FormControl {
+    return this.formGroup.get('label') as FormControl;
   }
 
-  get destinationControl(): AbstractControl {
-    return this.formGroup.get('destination');
+  get destinationControl(): FormControl {
+    return this.formGroup.get('destination') as FormControl;
   }
 
   get customGroup(): FormGroup {

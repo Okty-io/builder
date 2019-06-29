@@ -9,8 +9,9 @@ import { ApiService } from '../../../../core/services/api.service';
 export class SearchTagComponent implements OnInit {
 
   @Input() imageName: string;
+  @Input() tag: string;
+
   @Output() next = new EventEmitter();
-  public tagName: string;
 
   public tags = null;
   public searchedTag = null;
@@ -22,13 +23,12 @@ export class SearchTagComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
-    this.tagName = '';
 
     this.api.get(`registry/tag?query=${encodeURIComponent(this.imageName)}`).toPromise().then(res => {
       this.tags = res;
       this.loading = false;
 
-      if (this.tagName) {
+      if (this.tag) {
         this.searchTag();
       }
     });
@@ -43,6 +43,6 @@ export class SearchTagComponent implements OnInit {
       return;
     }
 
-    this.searchedTag = this.tags.filter(val => val.startsWith(this.tagName));
+    this.searchedTag = this.tags.filter(val => val.startsWith(this.tag));
   }
 }

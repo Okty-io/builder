@@ -1,27 +1,25 @@
-<p class="title">Available version</p>
-
-
 <form [formGroup]="form">
+  <div class="general">
+    <app-builder-popin-select [control]="valueControl" [options]="versionOptions"
+                              label="Default version" error="A default value is required">
+    </app-builder-popin-select>
 
-  <div class="left">
-    <div class="versions" formArrayName="source">
-      <div class="version" *ngFor="let version of sourceControls; let i=index">
-        <input type="text" placeholder="Enter Link" [formControlName]="i">
-        <span class="delete-button" *ngIf="sourceControls.length > 1" (click)="removeVersion(i)"><fa-icon [icon]="faTrash" ></fa-icon></span>
-      </div>
-    </div>
-
-    <span *ngIf="form.controls.source.touched && form.controls.source.invalid">Each field must be filled</span>
+    <button type="button" class="action-button" (click)="addVersion()">
+      <fa-icon [icon]="faPlus"></fa-icon> Add version
+    </button>
   </div>
 
-  <div class="right">
-    <button class="add-button" (click)="addVersion()"><fa-icon [icon]="faPlus" ></fa-icon> add version </button>
-    <div class="default_value_block">
-      <p>Default value</p>
-      <select class="default_value" formControlName="value">
-        <option *ngFor="let version of form.controls.source.value" [value]="version">{{version}}</option>
-      </select>
+  <p class="title">Available versions</p>
+
+  <div class="versions">
+    <div class="version" *ngFor="let version of sourceControls; let i=index">
+      <p>
+        <app-builder-popin-input [control]="sourceControl(i)" error="This field is required"></app-builder-popin-input>
+
+        <button type="button" class="action-button" *ngIf="sourceControls.length > 1" (click)="removeVersion(i)">
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </p>
     </div>
   </div>
-
 </form>

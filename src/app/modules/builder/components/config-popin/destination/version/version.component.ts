@@ -17,8 +17,8 @@ export class VersionComponent implements OnInit {
   public data: string[];
   public faPlus;
   public faTrash;
-  constructor(private formBuilder: FormBuilder) {
 
+  constructor(private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
@@ -60,5 +60,25 @@ export class VersionComponent implements OnInit {
 
   get sourceControls() {
     return (this.form.controls.source as FormArray).controls;
+  }
+
+  get valueControl() {
+    return this.form.get('value') as FormControl;
+  }
+
+  get versionOptions() {
+    return Object.values(this.form.controls.source.value).map((value: string) => {
+      if (!value || value.length <= 0) {
+        return;
+      }
+
+      return {label: value, value};
+    }).filter(Boolean);
+  }
+
+  sourceControl(i: number) {
+    const source = this.form.get('source') as FormArray;
+
+    return source.at(i) as FormControl;
   }
 }

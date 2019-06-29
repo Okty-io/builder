@@ -1,0 +1,16 @@
+:host {
+  margin-top: 20px;
+  display: block;
+}
+
+form {
+  .general {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > * {
+      width: calc(50% - 20px);
+      margin: 0 10px;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 <app-builder-steps stepNumber="2"></app-builder-steps>
 
 <div class="search-block">
-  <p>You have choose</p>
+  <p>You have chosen</p>
   <div class="choose-block">
     <div class="container-choosen">
       <div class="logo"><img [src]="logoUrl" alt=""></div>
@@ -9,11 +9,12 @@
     </div>
     <div class="cancel-zone">
       <app-button class="align__left" specials="true" icons="close"
-                  type="cta cta__small outlined__grey with__shadow cancel_button" size="large">< Change my base image
+                  type="cta cta__small outlined__grey with__shadow cancel_button" size="large"
+                  (click)="goBack()">< Choose another image
       </app-button>
     </div>
   </div>
-  <p>Time to make your configuration</p>
+  <p>Now it's time to make your configuration !</p>
 </div>
 
 <div class="form-and-preview">

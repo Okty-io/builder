@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostListener, Input, Output} from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { ContainerConfigGroup } from '../../models/container-config-group';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faEraser } from '@fortawesome/free-solid-svg-icons/faEraser';
@@ -86,12 +86,20 @@ export class FormComponent {
   }
 
   handleEdit(group: number): void {
+    if (this.isEditing) {
+      return;
+    }
+
     this.toggleOverlay();
     this.isEditing = true;
     this.currentGroup = group;
   }
 
   handleRemove(group: number): void {
+    if (this.isRemoving) {
+      return;
+    }
+
     this.toggleOverlay();
     this.isRemoving = true;
     this.currentGroup = group;
