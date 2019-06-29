@@ -11,7 +11,7 @@ export class AuthenticationService {
 
     private user: User;
     private subject: BehaviorSubject<User>;
-    private jwtHelper;
+    private jwtHelper: JwtHelperService;
 
     constructor(private api: ApiService) {
         this.user = null;
@@ -58,5 +58,16 @@ export class AuthenticationService {
         }
 
         return true;
+    }
+
+    public getUserId(): string {
+        if (!this.hasToken()) {
+            return '';
+        }
+
+        const token = sessionStorage.getItem('token');
+        const user = this.jwtHelper.decodeToken(token);
+
+        return user.username;
     }
 }
