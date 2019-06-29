@@ -60,6 +60,10 @@ export class ConfigPopinComponent implements OnInit {
 
   handleSubmit(event: Event) {
     event.preventDefault();
+    if (this.formGroup.invalid) {
+      this.markFormAsTouched(this.formGroup);
+      return;
+    }
 
     const config = Object.assign({}, this.formGroup.value, this.formGroup.get('custom').value);
     delete config.custom;
@@ -71,6 +75,21 @@ export class ConfigPopinComponent implements OnInit {
 
   resetCustomData() {
     this.formGroup.setControl('custom', new FormGroup({}));
+  }
+
+  private markFormAsTouched(formGroup: FormGroup): void {
+    for (const controlsKey in formGroup.controls) {
+      if (!formGroup.controls.hasOwnProperty(controlsKey)) {
+        continue;
+      }
+
+      if (controlsKey === 'custom') {
+        this.markFormAsTouched(formGroup.controls[controlsKey] as FormGroup);
+        continue;
+      }
+
+      formGroup.controls[controlsKey].markAsTouched();
+    }
   }
 
   private getIdFromLabel(): string {
