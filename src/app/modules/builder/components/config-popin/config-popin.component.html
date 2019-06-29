@@ -11,17 +11,10 @@
         <app-builder-popin-input [control]="labelControl" [label]="'Input title'" [error]="'This field is required'">
         </app-builder-popin-input>
 
-        <div>
-          <p [ngClass]="{error: destinationControl.touched && destinationControl.invalid}">
-            <select required name="destination" formControlName="destination" (change)="onDestinationChange()">
-              <option *ngFor="let option of destinationOptions" [value]="option.value">{{option.label}}</option>
-            </select>
-            <label>Destination</label>
-          </p>
-          <small class="error" *ngIf="destinationControl.touched && destinationControl.invalid">
-            This field is required
-          </small>
-        </div>
+        <app-builder-popin-select [control]="destinationControl" [label]="'Destination'"
+                                  [error]="'This field is required'" [options]="destinationOptions"
+                                  (valueChanged)="resetCustomData()">
+        </app-builder-popin-select>
       </div>
 
       <app-builder-config-popin-destination-id *ngIf="destinationControl.value == 'id'"
