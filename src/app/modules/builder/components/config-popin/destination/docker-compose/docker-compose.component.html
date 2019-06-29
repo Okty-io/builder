@@ -1,20 +1,10 @@
 <form [formGroup]="form">
   <div class="general">
-    <div>
-      <label class="basic-input">
-        <input required type="text" name="command" formControlName="base">
-        <p>Docker compose command</p>
-      </label>
-      <span *ngIf="baseControl.touched && baseControl.invalid">This value is not allowed</span>
-    </div>
+    <app-builder-popin-input [control]="baseControl" label="Docker compose entry" error="This field is required">
+    </app-builder-popin-input>
 
-    <div>
-      <label class="basic-input">
-        <input required type="text" name="value" formControlName="value">
-        <p>Default value</p>
-      </label>
-      <span *ngIf="valueControl.touched && valueControl.invalid">This field is invalid</span>
-    </div>
+    <app-builder-popin-input [control]="valueControl" label="Default value" error="This field is required">
+    </app-builder-popin-input>
 
     <div>
       <label class="checkbox-input">

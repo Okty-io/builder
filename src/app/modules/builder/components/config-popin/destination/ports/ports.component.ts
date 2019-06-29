@@ -41,10 +41,10 @@ export class PortsComponent implements OnInit {
   }
 
   get baseControl() {
-    return this.form.get('base');
+    return this.form.get('base') as FormControl;
   }
 
   get valueControl() {
-    return this.form.get('value');
+    return this.form.get('value') as FormControl;
   }
 }

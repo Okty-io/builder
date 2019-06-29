@@ -8,11 +8,11 @@
     <form (submit)="handleSubmit($event)" [formGroup]="formGroup">
       <div class="general">
 
-        <app-builder-popin-input [control]="labelControl" [label]="'Input title'" [error]="'This field is required'">
+        <app-builder-popin-input [control]="labelControl" label="Field title" error="This field is required">
         </app-builder-popin-input>
 
-        <app-builder-popin-select [control]="destinationControl" [label]="'Destination'"
-                                  [error]="'This field is required'" [options]="destinationOptions"
+        <app-builder-popin-select [control]="destinationControl" [options]="destinationOptions"
+                                  label="Destination" error="This field is required"
                                   (valueChanged)="resetCustomData()">
         </app-builder-popin-select>
       </div>
