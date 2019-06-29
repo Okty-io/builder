@@ -56,18 +56,15 @@ form {
       position: relative;
       width: calc(100%);
 
-      label, input {
-        font-size: 1em;
-      }
-
       label {
+        font-size: 1em;
         display: block;
         position: absolute;
         pointer-events: none;
         left: 10px;
         top: 0;
         transition: all ease .2s;
-        background: #fff;
+        background: transparent;
         padding: 0;
         margin: 0;
       }
@@ -77,13 +74,15 @@ form {
         box-sizing: border-box;
         line-height: 50px;
         height: 50px;
+        background-color: #fff;
+        padding-left: 4px;
+        cursor: pointer;
       }
 
       input {
         height: 50px;
         line-height: 50px;
         width: 100%;
-        border-radius: 4px;
         border: solid 1px #919191;
         background-color: #fefefe;
         padding: 0 15px;
@@ -91,11 +90,14 @@ form {
       }
 
       input, select {
+        border-radius: 4px;
+
         &:focus, &:valid {
           outline: none;
           border-color: #474747;
 
           & + label {
+            background-color: #fff;
             top: -28px;
             font-size: 0.9em;
             padding: 5px;
@@ -104,7 +106,7 @@ form {
       }
 
       &.error {
-        input {
+        input, select {
           border-color: #f03434;
         }
       }
