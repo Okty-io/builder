@@ -14,7 +14,7 @@
   <div class="versions">
     <div class="version" *ngFor="let version of sourceControls; let i=index">
       <p>
-        <app-builder-popin-input [control]="sourceControl(i)"></app-builder-popin-input>
+        <app-builder-popin-input [control]="sourceControl(i)" error="This field is required"></app-builder-popin-input>
 
         <button type="button" class="action-button" *ngIf="sourceControls.length > 1" (click)="removeVersion(i)">
           <fa-icon [icon]="faTrash"></fa-icon>
