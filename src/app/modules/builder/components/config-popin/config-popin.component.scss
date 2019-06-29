@@ -47,15 +47,21 @@
 
 form {
   margin-top: 20px;
+
   .general {
     display: flex;
-    label{
+
+    p {
+      display: inline;
       position: relative;
       width: calc(100%);
-      p,input{
+
+      label, input {
         font-size: 1em;
       }
-      p{
+
+      label {
+        display: block;
         position: absolute;
         pointer-events: none;
         left: 10px;
@@ -66,7 +72,7 @@ form {
         margin: 0;
       }
 
-      select{
+      select {
         width: 100%;
         box-sizing: border-box;
         line-height: 50px;
@@ -84,11 +90,12 @@ form {
         box-sizing: border-box;
       }
 
-      input, select{
-        &:focus,&:valid{
+      input, select {
+        &:focus, &:valid {
           outline: none;
           border-color: #474747;
-          &+p{
+
+          & + label {
             top: -28px;
             font-size: 0.9em;
             padding: 5px;
@@ -96,13 +103,21 @@ form {
         }
       }
 
+      &.error {
+        input {
+          border-color: #f03434;
+        }
+      }
+
     }
+
     & > * {
       width: calc(50% - 20px);
       margin: 0 10px;
     }
   }
-  .save-button{
+
+  .save-button {
     color: #fff;
     border-radius: 16px;
     background-color: #ff9900;
@@ -113,7 +128,6 @@ form {
     cursor: pointer;
   }
 }
-
 
 .error {
   color: #f03434;
