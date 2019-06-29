@@ -9,6 +9,8 @@ import { TitleService } from '../../../../core/services/title.service';
 })
 export class BuilderComponent implements OnInit {
 
+  public currentStep = 'image';
+
   public image: string;
   public tag: string;
   public logo: string;
@@ -23,7 +25,8 @@ export class BuilderComponent implements OnInit {
     this.image = '';
     this.tag = '';
     this.logo = '';
-    this.review = false;
+
+    this.currentStep = 'image';
 
     this.titleService.set('Choose image');
   }
@@ -35,15 +38,23 @@ export class BuilderComponent implements OnInit {
 
   public handleTag(tag: string): void {
     this.tag = tag;
+    this.displayConfigStep();
   }
 
   public handleReview(config: ContainerConfigGroup[]): void {
-    this.review = true;
     this.config = config;
+    this.dispayReviewStep();
   }
 
-  public goToEdit() {
-    this.review = false;
-    this.config = [];
+  displayImageStep() {
+    this.currentStep = 'image';
+  }
+
+  displayConfigStep() {
+    this.currentStep = 'config';
+  }
+
+  dispayReviewStep() {
+    this.currentStep = 'review';
   }
 }

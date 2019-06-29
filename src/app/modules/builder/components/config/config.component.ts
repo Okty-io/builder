@@ -14,6 +14,7 @@ export class ConfigComponent implements OnInit {
   @Input() logoUrl: string;
   @Input() tag: string;
 
+  @Output() previous = new EventEmitter();
   @Output() next = new EventEmitter();
 
   public isPopinActive: boolean;
@@ -101,5 +102,9 @@ export class ConfigComponent implements OnInit {
 
   updateGroup(event: ContainerConfigGroup[]) {
     this.groups = event;
+  }
+
+  goBack() {
+    this.previous.emit(true);
   }
 }
