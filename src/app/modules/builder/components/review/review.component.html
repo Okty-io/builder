@@ -12,9 +12,14 @@
       </div>
     </div>
   </div>
-
-  <button class="custom-button orange-button" (click)="handleGoBack()">Go back to configuration</button>
-  <button class="custom-button blue-button" (click)="createPullRequest()">Create the pull request</button>
+  <div class="actions">
+    <app-button class="align__left" type="cta cta__secondary gradient__red with__shadow" size="large" (click)="handleGoBack()">
+      Return to config
+    </app-button>
+    <app-button class="" type="cta cta__secondary gradient__cyan with__shadow" size="large" (click)="createPullRequest()">
+      Send to github
+    </app-button>
+  </div>
 
   <app-loader [loading]="loading" [error]="error"></app-loader>
   <p *ngIf="pullRequestUrl">

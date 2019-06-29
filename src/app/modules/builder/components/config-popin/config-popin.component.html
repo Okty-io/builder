@@ -1,4 +1,4 @@
-<div class="popin">
+  <div class="popin">
   <div class="header">
     <p class="title">Add an element</p>
     <fa-icon [icon]="faExit" (click)="this.handleClose()"></fa-icon>
@@ -10,18 +10,18 @@
 
         <p>
           <label>
-            Input title
-            <input type="text" name="title" formControlName="label">
+            <input type="text" required name="title" formControlName="label">
+            <p>Input title</p>
           </label>
           <span class="error" *ngIf="labelControl.touched && labelControl.invalid">This field is required</span>
         </p>
 
         <p>
           <label>
-            Destination
-            <select name="destination" formControlName="destination" (change)="onDestinationChange()">
+            <select  required name="destination" formControlName="destination" (change)="onDestinationChange()">
               <option *ngFor="let option of destinationOptions" [value]="option.value">{{option.label}}</option>
             </select>
+            <p>Destination</p>
           </label>
           <span class="error" *ngIf="destinationControl.touched && destinationControl.invalid">This field is required</span>
         </p>
@@ -57,7 +57,7 @@
                                                          [field]="field">
       </app-builder-config-popin-destination-environments>
 
-      <button [disabled]="formGroup.invalid">Save</button>
+      <button class="save-button" [disabled]="formGroup.invalid">Save</button>
     </form>
   </div>
 </div>
