@@ -116,4 +116,8 @@ p {
 .url {
   margin-top: 20px !important;
   text-align: center;
+
+  & > p:first-child {
+    margin-bottom: 20px;
+  }
 }
