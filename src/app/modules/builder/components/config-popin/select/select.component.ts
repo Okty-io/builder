@@ -12,7 +12,7 @@ export class SelectComponent {
   @Input() label: string;
   @Input() error: string;
 
-  @Input() options: any[];
+  @Input() options: Array<{ label: string, value: string }>;
 
   @Output() valueChanged = new EventEmitter();
 
