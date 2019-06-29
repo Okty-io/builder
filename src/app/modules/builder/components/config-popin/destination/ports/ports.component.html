@@ -1,17 +1,12 @@
 <form [formGroup]="form">
-  <p>
-    <label>
-      Port inside container
-      <input type="text" name="base" formControlName="base">
-    </label>
-    <span *ngIf="baseControl.touched && baseControl.invalid">This field is invalid</span>
-  </p>
+  <div class="general">
 
-  <p>
-    <label>
-      Port on host
-      <input type="text" name="value" formControlName="value">
-    </label>
-    <span *ngIf="valueControl.touched && valueControl.invalid">This field is invalid</span>
-  </p>
+    <app-builder-popin-input [control]="baseControl"
+                             label="Port inside container" error="A valid port is between 1 and 65535">
+    </app-builder-popin-input>
+
+    <app-builder-popin-input [control]="valueControl"
+                             label="Default port on host" error="A valid port is between 1 and 65535">
+    </app-builder-popin-input>
+  </div>
 </form>

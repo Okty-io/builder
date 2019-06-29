@@ -1,0 +1,7 @@
+<div>
+  <p [ngClass]="{error: fieldControl.touched && fieldControl.invalid}">
+    <input type="text" required [formControl]="fieldControl">
+    <label>{{label}}</label>
+  </p>
+  <small class="error" *ngIf="fieldControl.touched && fieldControl.invalid">{{error}}</small>
+</div>

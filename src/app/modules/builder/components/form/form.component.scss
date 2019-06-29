@@ -6,6 +6,19 @@
   .remove {
     text-align: right;
     margin-bottom: 8px;
+    button{
+      padding: 13px;
+      border-radius: 13px;
+      border: solid 1px #707070;
+      line-height: 35px;
+      background: #FFFFFF;
+      padding: 0 15px;
+      cursor:pointer;
+      fa-icon{
+        margin-right: 5px;
+        color: #909090;
+      }
+    }
   }
 
   .group {
@@ -46,15 +59,50 @@
     text-align: right;
 
     p {
-      display: inline-block;
+      display: none;
       margin-right: 24px;
+      border-radius: 17px;
+      box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.28);
+      border: solid 1px #707070;
+      background-color: #ffffff;
+      opacity:0;
+      pointer-events: none;
+      transition: all ease 0.2s;
+      padding: 10px;
+      margin: 0;
+      &.edit-text{
+        margin-right: -10px;
+        &.highlight{
+          margin-right: 10px;
+        }
+      }
+      &.remove-text{
+        margin-right: -70px;
+        &.highlight{
+          margin-right: -50px;
+        }
+      }
+      &.highlight{
+        display: inline-block;
+        opacity: 1;
+      }
     }
 
     fa-icon {
       cursor: pointer;
-
-      &:first-child {
-        margin-right: 12px;
+      width: 47px;
+      height: 47px;
+      display: inline-block;
+      color: #fff;
+      text-align: center;
+      line-height: 55px;
+      border-radius: 50%;
+      box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.26);
+      background-image: linear-gradient(139deg, #8a2387, #e94057 56%, #f27121);
+      font-size: 0.7em;
+      position: relative;
+      &:last-of-type{
+        margin-left: 12px;
       }
     }
   }

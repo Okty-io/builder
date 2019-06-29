@@ -8,28 +8,18 @@
     <form (submit)="handleSubmit($event)" [formGroup]="formGroup">
       <div class="general">
 
-        <p>
-          <label>
-            Input title
-            <input type="text" name="title" formControlName="label">
-          </label>
-          <span class="error" *ngIf="labelControl.touched && labelControl.invalid">This field is required</span>
-        </p>
+        <app-builder-popin-input [control]="labelControl" label="Field title" error="This field is required">
+        </app-builder-popin-input>
 
-        <p>
-          <label>
-            Destination
-            <select name="destination" formControlName="destination" (change)="onDestinationChange()">
-              <option *ngFor="let option of destinationOptions" [value]="option.value">{{option.label}}</option>
-            </select>
-          </label>
-          <span class="error" *ngIf="destinationControl.touched && destinationControl.invalid">This field is required</span>
-        </p>
+        <app-builder-popin-select [control]="destinationControl" [options]="destinationOptions"
+                                  label="Destination" error="This field is required"
+                                  (valueChanged)="resetCustomData()">
+        </app-builder-popin-select>
       </div>
 
       <app-builder-config-popin-destination-id *ngIf="destinationControl.value == 'id'"
-                                                    [form]="customGroup"
-                                                    [field]="field">
+                                               [form]="customGroup"
+                                               [field]="field">
       </app-builder-config-popin-destination-id>
 
       <app-builder-config-popin-destination-version *ngIf="destinationControl.value == 'version'"
@@ -57,7 +47,7 @@
                                                          [field]="field">
       </app-builder-config-popin-destination-environments>
 
-      <button [disabled]="formGroup.invalid">Save</button>
+      <button class="save-button">Save</button>
     </form>
   </div>
 </div>

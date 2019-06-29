@@ -34,6 +34,8 @@ import { VolumesValidator } from './validators/volumes.validator';
 import { DockerComposeValidator } from './validators/docker-compose.validator';
 import { ContainerService } from './services/container.service';
 import { IdComponent } from './components/config-popin/destination/id/id.component';
+import { InputComponent as PopinInputComponent } from './components/config-popin/input/input.component';
+import { SelectComponent } from './components/config-popin/select/select.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { IdComponent } from './components/config-popin/destination/id/id.compone
     PortsComponent,
     EnvironmentsComponent,
     IdComponent,
+    PopinInputComponent,
+    SelectComponent,
   ],
   imports: [
     CommonModule,

@@ -1,27 +1,22 @@
 <form [formGroup]="form">
-  <p>
-    <label>
-      Docker compose command
-      <input type="text" name="base" formControlName="base">
-    </label>
-    <span *ngIf="baseControl.touched && baseControl.invalid">This value is not allowed</span>
-  </p>
+  <div class="general">
+    <app-builder-popin-input [control]="baseControl" label="Docker compose entry" error="This field is required">
+    </app-builder-popin-input>
 
-  <p>
-    <label>
-      Default value
-      <input type="text" name="value" formControlName="value">
-    </label>
-    <span *ngIf="valueControl.touched && valueControl.invalid">This field is invalid</span>
-  </p>
+    <app-builder-popin-input [control]="valueControl" label="Default value" error="This field is required">
+    </app-builder-popin-input>
 
-  <p>
-    <label>
-      Is hidden ?
-      <input type="checkbox" name="hidden"
-             [formControl]="hiddenControl"
-             [checked]="form.get('type').value === 'hidden'"
-             (change)="checkValue()" >
-    </label>
-  </p>
+    <div>
+      <label class="checkbox-input">
+
+        <input type="checkbox" name="hidden"
+               [formControl]="hiddenControl"
+               [checked]="form.get('type').value === 'hidden'"
+               (change)="checkValue()" >
+        <span>Is hidden ?</span>
+      </label>
+    </div>
+  </div>
+
+
 </form>

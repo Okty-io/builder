@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ContainerConfigGroup } from '../../models/container-config-group';
 import { ContainerConfigField } from '../../models/container-config-field';
+import { TitleService } from '../../../../core/services/title.service';
 
 @Component({
   selector: 'app-builder-config',
@@ -12,7 +13,9 @@ export class ConfigComponent implements OnInit {
   @Input() imageName: string;
   @Input() logoUrl: string;
   @Input() tag: string;
+  @Input() config: ContainerConfigGroup[];
 
+  @Output() previous = new EventEmitter();
   @Output() next = new EventEmitter();
 
   public isPopinActive: boolean;
@@ -22,9 +25,21 @@ export class ConfigComponent implements OnInit {
   public popinFieldId: string;
   public popinField: ContainerConfigField;
 
+  constructor(private titleService: TitleService) {
+  }
+
   ngOnInit() {
+    this.titleService.set('Configuration');
     this.isPopinActive = false;
 
+    this.groups = this.config;
+    if (!this.config) {
+      this.initEmptyConfig();
+    }
+
+  }
+
+  private initEmptyConfig(): void {
     const id = this.imageName.replace('/', '-');
 
     this.groups = [];
@@ -96,5 +111,9 @@ export class ConfigComponent implements OnInit {
 
   updateGroup(event: ContainerConfigGroup[]) {
     this.groups = event;
+  }
+
+  goBack() {
+    this.previous.emit(true);
   }
 }

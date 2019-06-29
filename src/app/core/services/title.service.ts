@@ -5,7 +5,7 @@ import { Title } from '@angular/platform-browser';
 export class TitleService {
 
     private separator = ' - ';
-    private suffix = 'Okty';
+    private suffix = 'Okty Builder';
 
     constructor(private title: Title) {
         this.set('');

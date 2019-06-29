@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { ContainerConfigField } from '../../../../models/container-config-field';
 
 @Component({
@@ -15,9 +16,9 @@ export class VersionComponent implements OnInit {
 
   public data: string[];
   public faPlus;
+  public faTrash;
 
   constructor(private formBuilder: FormBuilder) {
-
   }
 
   ngOnInit() {
@@ -28,6 +29,7 @@ export class VersionComponent implements OnInit {
     this.form.addControl('value', new FormControl(this.field && this.field.value ? this.field.value : 'latest')); // Default value
 
     this.faPlus = faPlus;
+    this.faTrash = faTrash;
     this.data = [];
   }
 
@@ -58,5 +60,25 @@ export class VersionComponent implements OnInit {
 
   get sourceControls() {
     return (this.form.controls.source as FormArray).controls;
+  }
+
+  get valueControl() {
+    return this.form.get('value') as FormControl;
+  }
+
+  get versionOptions() {
+    return Object.values(this.form.controls.source.value).map((value: string) => {
+      if (!value || value.length <= 0) {
+        return;
+      }
+
+      return {label: value, value};
+    }).filter(Boolean);
+  }
+
+  sourceControl(i: number) {
+    const source = this.form.get('source') as FormArray;
+
+    return source.at(i) as FormControl;
   }
 }

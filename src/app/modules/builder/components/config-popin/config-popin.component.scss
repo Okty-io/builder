@@ -1,10 +1,11 @@
 :host {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto;
 }
 
 .popin {
@@ -19,6 +20,7 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   z-index: 100;
+  margin: 20px 0;
 }
 
 .header {
@@ -44,15 +46,25 @@
 
 
 form {
+  margin-top: 20px;
+
   .general {
     display: flex;
 
     & > * {
-      width: 50%;
+      width: calc(50% - 20px);
+      margin: 0 10px;
     }
   }
-}
 
-.error {
-  color: #f03434;
+  .save-button {
+    color: #fff;
+    border-radius: 16px;
+    background-color: #ff9900;
+    height: 40px;
+    margin: 20px 10px;
+    padding: 0 20px;
+    border: none;
+    cursor: pointer;
+  }
 }

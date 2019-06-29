@@ -1,6 +1,6 @@
 <ng-container *ngFor="let group of groupsData; let i = index;">
   <div class="remove">
-    <button (click)="remove(group)">Remove this group</button>
+    <button (click)="remove(group)"> <fa-icon [icon]="deleteIcon"></fa-icon>Remove this group</button>
   </div>
   <div class="group">
     <app-builder-form-group-title [(label)]="group.label" [editing]="group.editing"></app-builder-form-group-title>
@@ -16,8 +16,13 @@
     </div>
 
     <div class="action">
-      <p *ngIf="isEditing" [ngClass]="{'highlight': overlayVisible}">Which element do you want to edit ?</p>
-      <p *ngIf="isRemoving" [ngClass]="{'highlight': overlayVisible}">Which element do you want to remove ?</p>
+      <p *ngIf="isEditing" [ngClass]="{'highlight': overlayVisible, 'edit-text': true, 'action': true}">
+        Which element do you want to edit ?
+      </p>
+      <p *ngIf="isRemoving" [ngClass]="{'highlight': overlayVisible, 'remove-text': true, 'action': true}">
+        Which element do you want to remove ?
+      </p>
+
       <fa-icon [icon]="editIcon" [size]="'2x'" (click)="handleEdit(i)"
                [ngClass]="{'highlight': overlayVisible && isEditing}"></fa-icon>
       <fa-icon [icon]="deleteIcon" [size]="'2x'" (click)="handleRemove(i)"

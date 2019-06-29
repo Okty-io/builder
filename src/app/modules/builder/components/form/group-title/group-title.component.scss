@@ -7,6 +7,18 @@ h2 {
   display: inline-block;
 }
 
+input{
+  width: calc(100% - 18px);
+  text-align: center;
+  font-weight: 300;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  margin: 8px 0;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
 fa-icon {
   cursor: pointer;
   display: inline-block;

@@ -13,11 +13,30 @@
     </div>
   </div>
 
-  <button class="custom-button orange-button" (click)="handleGoBack()">Go back to configuration</button>
-  <button class="custom-button blue-button" (click)="createPullRequest()">Create the pull request</button>
+  <div class="actions" *ngIf="!loading && !pullRequestUrl">
+    <app-button class="align__left" type="cta cta__secondary gradient__red with__shadow" size="large" (click)="handleGoBack()">
+      Edit my work
+    </app-button>
+    <app-button type="cta cta__secondary gradient__cyan with__shadow" size="large"
+                (click)="createPullRequest()"
+                [disabled]="!!pullRequestUrl">
+      Send to github
+    </app-button>
+  </div>
 
-  <app-loader [loading]="loading" [error]="error"></app-loader>
-  <p *ngIf="pullRequestUrl">
-    Here is the link of your pull request : <a [href]="pullRequestUrl">{{pullRequestUrl}}</a>
-  </p>
+  <div class="loading" *ngIf="loading">
+    <p>We are submitting your pull request to github</p>
+    <app-loader [loading]="loading" [error]="error"></app-loader>
+  </div>
+
+  <div class="url">
+    <p *ngIf="pullRequestUrl">
+      Thank you so much for your help ! <br>
+      Someone is going to review your submission soon
+    </p>
+    <p>
+      <a [href]="pullRequestUrl">{{pullRequestUrl}}</a>
+    </p>
+  </div>
+
 </div>
