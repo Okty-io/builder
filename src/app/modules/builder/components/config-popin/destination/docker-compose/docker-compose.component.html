@@ -9,7 +9,7 @@
     <div>
       <label class="checkbox-input">
         <span [ngClass]="{'custom-checkbox': true, 'checked': form.get('type').value === 'hidden' }">
-          <fa-icon [icon]="form.get('type').value === 'hidden' ? faCheck : ''"></fa-icon>
+          <fa-icon [icon]="form.get('type').value === 'hidden' ? faCheck : null"></fa-icon>
         </span>
 
         <input type="checkbox" name="hidden"
