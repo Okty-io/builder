@@ -17,13 +17,26 @@ export class DockerComposeComponent implements OnInit {
     public hiddenControl: FormControl;
     public faCheck;
 
+    public baseOptions;
+
     ngOnInit() {
+        this.initBaseOptions();
+
         this.addBaseField();
         this.addValueField();
         this.addHiddenField();
 
         this.addStaticFields();
         this.faCheck = faCheck;
+    }
+
+    private initBaseOptions(): void {
+        this.baseOptions = [
+            {value: 'command', label: 'command'},
+            {value: 'restart', label: 'restart'},
+            {value: 'user', label: 'user'},
+            {value: 'working_dir', label: 'working_dir'},
+        ];
     }
 
     private addBaseField(): void {
