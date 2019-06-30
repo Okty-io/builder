@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 export const cookieConfig: NgcCookieConsentConfig = {
     cookie: {
         domain: environment.cookie.domain,
+        name: 'cookieconsent_status_builder'
     },
     position: 'bottom-right',
     theme: 'classic',
