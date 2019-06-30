@@ -3,6 +3,7 @@ import { VoidComponent } from '../components/fields/void/void.component';
 import { InputComponent } from '../components/fields/input/input.component';
 import { ContainerConfigField } from '../models/container-config-field';
 import { SelectSingleComponent } from '../components/fields/select-single/select-single.component';
+import { HiddenComponent } from '../components/fields/hidden/hidden.component';
 
 @Directive({
     selector: '[appGeneratorFormField]'
@@ -30,6 +31,7 @@ export class FormFieldDirective implements OnInit {
             'select-single': SelectSingleComponent,
             // 'select-multiple': SelectMultipleComponent,
             // 'select-container': SelectContainerComponent,
+            hidden: HiddenComponent
         };
 
         if (!mapping[this.appFormField.type]) {
