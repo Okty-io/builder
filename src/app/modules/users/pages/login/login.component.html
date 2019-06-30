@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
-
-<div>
-    <h1>Login</h1>
+<div class="logo-cache"></div>
+<div class="login-box">
+    <div class="title">
+        <h1>Login</h1>
+    </div>
     <div style="text-align: center">
-        <ul style="list-style: none">
-            <li><a [href]="githubUrl">Sign in with Github</a></li>
-            <li><a [href]="gitlabUrl">Sign in with Gitlab</a></li>
-        </ul>
+        <a class="login-button github" [href]="githubUrl"> <fa-icon [icon]="faGithub" [size]="'2x'"></fa-icon> <span>Sign in with Github</span> </a>
+        <a class="login-button gitlab"[href]="gitlabUrl"> <fa-icon [icon]="faGitlab" [size]="'2x'"></fa-icon> <span>Sign in with Gitlab</span></a>
     </div>
 </div>
