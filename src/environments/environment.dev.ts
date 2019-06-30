@@ -10,6 +10,6 @@ export const environment = {
         clientId: 'ec52e389d991ddbf48c4bd1d58ac64a60ea6e67f13657ff7848a8eddc27757f5'
     },
     cookie: {
-        domain: 'dev-builder.okty.io',
+        domain: '.dev-builder.okty.io',
     },
 };
