@@ -10,9 +10,11 @@ import { TitleService } from './core/services/title.service';
 import { SharedModule } from './shared/shared.module';
 import { HighlightModule } from 'ngx-highlightjs';
 import yaml from 'highlight.js/lib/languages/yaml';
+import { NgcCookieConsentModule } from 'ngx-cookieconsent';
+import { cookieConfig } from './core/configs/cookie-consent';
 
 export function hljsLanguages() {
-  return [{name: 'yaml', func: yaml}];
+    return [{name: 'yaml', func: yaml}];
 }
 
 @NgModule({
@@ -27,6 +29,7 @@ export function hljsLanguages() {
         CoreModule,
         SharedModule,
         HighlightModule.forRoot({languages: hljsLanguages}),
+        NgcCookieConsentModule.forRoot(cookieConfig)
     ],
     providers: [
         ApiService,
