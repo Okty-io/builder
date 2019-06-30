@@ -15,10 +15,6 @@ script:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then docker run -v $(pwd):/app -w /app node:11-stretch ./node_modules/.bin/ng build --prod --aot; fi
   - if [ "$TRAVIS_BRANCH" == "dev" ]; then docker run -v $(pwd):/app -w /app node:11-stretch ./node_modules/.bin/ng build --configuration=develop; fi
 
-after_script:
-  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then docker run -v $(pwd):/usr/src newtmitch/sonar-scanner  -Dsonar.projectBaseDir=/usr/src -Dsonar.login=$SONAR_TOKEN; fi
-  - rm -rf .scannerwork
-
 deploy:
   - provider: script
     skip_cleanup: true
@@ -36,3 +32,4 @@ deploy:
 after_deploy:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_PROD_DISTRIBUTION_ID --paths "/*"; fi
   - if [ "$TRAVIS_BRANCH" == "dev" ]; then aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DEV_DISTRIBUTION_ID --paths "/*"; fi
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then docker run -v $(pwd):/usr/src newtmitch/sonar-scanner  -Dsonar.projectBaseDir=/usr/src -Dsonar.login=$SONAR_TOKEN; fi
