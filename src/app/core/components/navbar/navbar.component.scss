@@ -136,6 +136,22 @@
   }
 }
 
+@include MQ(L) {
+  .navbar {
+    .navbar-right {
+      .large-nav {
+        a{
+          margin-top: 10px;
+          &:not(:last-of-type) {
+            display: none;
+          }
+        }
+
+      }
+    }
+  }
+}
+
 @include MQ(M) {
   .navbar {
     .navbar-right {

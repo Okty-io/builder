@@ -1,14 +1,14 @@
 <app-builder-steps stepNumber="1"></app-builder-steps>
 
 <div class="search-block">
-  <p>Which docker image should i use ?</p>
-  <input type="text" [(ngModel)]="apiSearch" (input)="searchApi()" (focus)="cancelImage()">
+    <label for="image-input">Which docker image should i use ?</label>
+    <input type="text" id="image-input" [(ngModel)]="apiSearch" (input)="searchApi()" (focus)="cancelImage()">
 </div>
 
 <ng-container *ngIf="!imageSent">
-  <app-loader [loading]="loading" *ngIf="loading"></app-loader>
-  <div class="list" [ngClass]="{'small': resultSearch.length <= 5 }" *ngIf="resultSearch && resultSearch.length > 0">
-    <app-generator-card (click)="handleNext(element.name)" [element]="element" *ngFor="let element of resultSearch">
-    </app-generator-card>
-  </div>
+    <app-loader [loading]="loading" *ngIf="loading"></app-loader>
+    <div class="list" [ngClass]="{'small': resultSearch.length <= 5 }" *ngIf="resultSearch && resultSearch.length > 0">
+        <app-generator-card (click)="handleNext(element.name)" [element]="element" *ngFor="let element of resultSearch">
+        </app-generator-card>
+    </div>
 </ng-container>

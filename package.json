@@ -22,6 +22,7 @@
     "@auth0/angular-jwt": "^2.1.0",
     "@fortawesome/angular-fontawesome": "^0.4.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-brands-svg-icons": "^5.9.0",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@ng-select/ng-select": "^2.20.2",
     "highlight.js": "^9.15.8",

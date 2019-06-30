@@ -1,9 +1,7 @@
 <div class="search-block">
-  <p>Which default tag name should i use ?</p>
-  <input type="text" [(ngModel)]="tag" (input)="searchTag()">
+  <label for="tag-input">Which default tag name should i use ?</label>
+  <input type="text" id="tag-input" [(ngModel)]="tag" (input)="searchTag()" autofocus>
 </div>
-
-<br>
 
 <div class="wrapper" *ngIf="tag">
   <app-loader [loading]="loading" *ngIf="loading"></app-loader>

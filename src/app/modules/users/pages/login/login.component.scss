@@ -1,15 +1,70 @@
-:host {
-    > div {
-        width: 40%;
-        border: 1px solid #000;
-        margin: 24px auto auto;
 
-        > p {
-            text-align: center;
+.logo-cache{
+    width: 658px;
+    height: 185px;
+    border:none;
+    border-radius: 93% 97% 80% 100%/85% 93% 97% 100%;
+    display: block;
+    position: absolute;
+    background-image: linear-gradient(108deg, #8a2387, #e94057 56%, #f27121);
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.login-box{
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.15);
+    margin: 50px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: "Open Sans", sans-serif;
+    .title{
+        width: 100%;
+        padding: 5px 0;
+        text-align: center;
+        background: #ff9900;
+        background-image: linear-gradient(108deg, #8a2387, #e94057 56%, #f27121);
+        border-bottom: solid 3px #ff9900;
+        h1{
+            margin: 0;
+            font-weight: 300;
+            color: #FFFFFF;
+            text-shadow: 0 3px 2px rgba(0, 0, 0, 0.5);
+            padding-bottom: 5px;
         }
     }
+}
 
-    h1 {
-        text-align: center;
+.login-button{
+    color: #fff;
+    text-decoration: none;
+    line-height: 50px;
+    display: block;
+    max-width: 300px;
+    margin: 20px auto;
+    border-radius: 10px;
+    text-shadow: 0 2px 1px rgba(0, 0, 0, 0.5);
+    &.github{
+        background: #404040;
+        box-shadow: 0 3px 0 0 darken(#333,50%);
+    }
+    &.gitlab{
+        background: #fc6d26;
+        box-shadow: 0 3px 0 0 #e24329;
+    }
+    fa-icon{
+        font-size: 14px;
+        display: inline-block;
+        vertical-align: middle;
+        height: 41px;
+        margin-right: 10px;
+
+    }
+    > * {
+        display: inline-block;
+        vertical-align: middle;
     }
 }
