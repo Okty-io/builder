@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     }
 
     private initState() {
-        this.state = 's3cr3t_r@nD0m';
+        this.state = Math.random().toString(36).substring(2);
         sessionStorage.setItem('api_state', this.state);
     }
 
