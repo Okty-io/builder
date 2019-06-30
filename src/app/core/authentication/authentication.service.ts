@@ -70,4 +70,15 @@ export class AuthenticationService {
 
         return user.username;
     }
+
+    getUsername(): string {
+        if (!this.hasToken()) {
+            return '';
+        }
+
+        const token = sessionStorage.getItem('token');
+        const user = this.jwtHelper.decodeToken(token);
+
+        return user.login;
+    }
 }
