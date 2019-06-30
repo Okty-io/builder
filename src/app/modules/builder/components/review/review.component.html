@@ -1,42 +1,48 @@
 <app-builder-steps stepNumber="3"></app-builder-steps>
 
 <div class="container">
-  <p class="title">Your configuration is ready !</p>
+    <p class="title">Your configuration is ready !</p>
 
-  <div class="search-block">
-    <p>Reminder, you have chosen</p>
-    <div class="choose-block">
-      <div class="container-chosen">
-        <div class="logo"><img [src]="logoUrl" alt=""></div>
-        <p class="name">{{imageName}}:{{tag}}</p>
-      </div>
+    <div class="search-block">
+        <p>Reminder, you have chosen</p>
+        <div class="choose-block">
+            <div class="container-chosen">
+                <div class="logo"><img [src]="logoUrl" alt=""></div>
+                <p class="name">{{imageName}}:{{tag}}</p>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="actions" *ngIf="!loading && !pullRequestUrl">
-    <app-button class="align__left" type="cta cta__secondary gradient__red with__shadow" size="large" (click)="handleGoBack()">
-      Edit my work
-    </app-button>
-    <app-button type="cta cta__secondary gradient__cyan with__shadow" size="large"
-                (click)="createPullRequest()"
-                [disabled]="!!pullRequestUrl">
-      Send to github
-    </app-button>
-  </div>
+    <div class="actions" *ngIf="!loading && !pullRequestUrl">
+        <app-button class="align__left" type="cta cta__secondary gradient__red with__shadow" size="large"
+                    (click)="handleGoBack()">
+            Edit my work
+        </app-button>
+        <app-button type="cta cta__secondary gradient__cyan with__shadow" size="large"
+                    (click)="createPullRequest()"
+                    [disabled]="!!pullRequestUrl">
+            Send to github
+        </app-button>
+    </div>
 
-  <div class="loading" *ngIf="loading">
-    <p>We are submitting your pull request to github</p>
-    <app-loader [loading]="loading" [error]="error"></app-loader>
-  </div>
+    <div class="loading" *ngIf="loading">
+        <p>We are submitting your pull request to github</p>
+        <app-loader [loading]="loading" [error]="error"></app-loader>
+    </div>
 
-  <div class="url">
-    <p *ngIf="pullRequestUrl">
-      Thank you so much for your help ! <br>
-      Someone is going to review your submission soon
-    </p>
-    <p>
-      <a [href]="pullRequestUrl">{{pullRequestUrl}}</a>
-    </p>
-  </div>
+    <div class="error" *ngIf="error">
+        <p>Hmm. This is embarrassing ... Something wrong happened</p>
+        <p>Feel free to report this issue on <a href="https://github.com/Okty-io/okty-builder/issues">GitHub</a></p>
+    </div>
+
+    <div class="url">
+        <p *ngIf="pullRequestUrl">
+            Thank you so much for your help ! <br>
+            Someone is going to review your submission soon
+        </p>
+        <p>
+            <a [href]="pullRequestUrl">{{pullRequestUrl}}</a>
+        </p>
+    </div>
 
 </div>
