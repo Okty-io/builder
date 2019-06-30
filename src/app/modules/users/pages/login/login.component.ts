@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../../../environments/environment';
 import { Router } from '@angular/router';
+import { faGithub, faGitlab } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
     selector: 'app-login',
@@ -17,6 +18,9 @@ export class LoginComponent implements OnInit {
     githubUrl: string;
     gitlabUrl: string;
 
+    public faGithub;
+    public faGitlab;
+
     constructor(private router: Router) {
     }
 
@@ -24,10 +28,12 @@ export class LoginComponent implements OnInit {
         this.initState();
         this.initGithub();
         this.initGitlab();
+        this.faGithub = faGithub;
+        this.faGitlab = faGitlab;
     }
 
     private initState() {
-        this.state = 's3cr3t_r@nD0m';
+        this.state = Math.random().toString(36).substring(2);
         sessionStorage.setItem('api_state', this.state);
     }
 

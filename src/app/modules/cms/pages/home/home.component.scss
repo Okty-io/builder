@@ -113,3 +113,17 @@
     }
   }
 }
+
+@media only screen and (max-width: 1000px) and (min-height: 750px) {
+  .row{
+    .column {
+      &.column_right {
+        top: inherit;
+        right: inherit;
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

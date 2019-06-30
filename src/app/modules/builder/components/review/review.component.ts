@@ -58,6 +58,7 @@ export class ReviewComponent implements OnInit, OnDestroy {
             this.loading = false;
         }, () => {
             this.error = true;
+            this.loading = false;
         });
     }
 }

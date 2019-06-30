@@ -1,22 +1,26 @@
 <form [formGroup]="form">
-  <div class="general">
-    <app-builder-popin-input [control]="baseControl" label="Docker compose entry" error="This field is required">
-    </app-builder-popin-input>
+    <div class="general">
+        <app-builder-popin-select [control]="baseControl" [options]="baseOptions"
+                                  label="Docker compose entry" error="This field is required">
+        </app-builder-popin-select>
 
-    <app-builder-popin-input [control]="valueControl" label="Default value" error="This field is required">
-    </app-builder-popin-input>
+        <app-builder-popin-input [control]="valueControl" label="Default value" error="This field is required">
+        </app-builder-popin-input>
 
-    <div>
-      <label class="checkbox-input">
+        <div>
+            <label class="checkbox-input">
+        <span [ngClass]="{'custom-checkbox': true, 'checked': form.get('type').value === 'hidden' }">
+          <fa-icon [icon]="form.get('type').value === 'hidden' ? faCheck : null"></fa-icon>
+        </span>
 
-        <input type="checkbox" name="hidden"
-               [formControl]="hiddenControl"
-               [checked]="form.get('type').value === 'hidden'"
-               (change)="checkValue()" >
-        <span>Is hidden ?</span>
-      </label>
+                <input type="checkbox" name="hidden"
+                       [formControl]="hiddenControl"
+                       [checked]="form.get('type').value === 'hidden'"
+                       (change)="checkValue()">
+                <span>Is hidden ?</span>
+            </label>
+        </div>
     </div>
-  </div>
 
 
 </form>
