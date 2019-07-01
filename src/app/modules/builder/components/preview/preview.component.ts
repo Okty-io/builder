@@ -23,6 +23,8 @@ export class PreviewComponent {
     @Input() image: string;
 
     @Input() set config(config) {
+        this.loading = true;
+
         const data = {
             id: '',
             image: this.image,
