@@ -4,116 +4,121 @@ import { ContainerConfigField } from '../../models/container-config-field';
 import { TitleService } from '../../../../core/services/title.service';
 
 @Component({
-  selector: 'app-builder-config',
-  templateUrl: './config.component.html',
-  styleUrls: ['./config.component.scss']
+    selector: 'app-builder-config',
+    templateUrl: './config.component.html',
+    styleUrls: ['./config.component.scss']
 })
 export class ConfigComponent implements OnInit {
 
-  @Input() imageName: string;
-  @Input() logoUrl: string;
-  @Input() tag: string;
-  @Input() config: ContainerConfigGroup[];
+    @Input() imageName: string;
+    @Input() logoUrl: string;
+    @Input() tag: string;
+    @Input() config: ContainerConfigGroup[];
 
-  @Output() previous = new EventEmitter();
-  @Output() next = new EventEmitter();
+    @Output() previous = new EventEmitter();
+    @Output() next = new EventEmitter();
 
-  public isPopinActive: boolean;
-  public groups: ContainerConfigGroup[];
+    public isPopinActive: boolean;
+    public groups: ContainerConfigGroup[];
 
-  public popinGroup: string;
-  public popinFieldId: string;
-  public popinField: ContainerConfigField;
+    public popinGroup: string;
+    public popinFieldId: string;
+    public popinField: ContainerConfigField;
 
-  constructor(private titleService: TitleService) {
-  }
-
-  ngOnInit() {
-    this.titleService.set('Configuration');
-    this.isPopinActive = false;
-
-    this.groups = this.config;
-    if (!this.config) {
-      this.initEmptyConfig();
+    constructor(private titleService: TitleService) {
     }
 
-  }
+    ngOnInit() {
+        this.titleService.set('Configuration');
+        this.isPopinActive = false;
 
-  private initEmptyConfig(): void {
-    const id = this.imageName.replace('/', '-');
 
-    this.groups = [];
-    this.groups.push({
-      id: 'group_0', label: 'Général', editing: false, fields: [
-        {id: 'name', label: 'Container ID', type: 'input', destination: 'id', value: id, base: '', validators: [], source: []},
-      ]
-    });
-  }
+        if (!this.logoUrl) {
+            this.logoUrl = 'https://d36jcksde1wxzq.cloudfront.net/be7833db9bddb4494d2a7c3dd659199a.png';
+        }
 
-  public openAddPopIn(group: ContainerConfigGroup): void {
-    this.isPopinActive = true;
-    this.popinGroup = group.id;
-  }
+        this.groups = this.config;
+        if (!this.config) {
+            this.initEmptyConfig();
+        }
 
-  public openEditPopIn(data: { group: ContainerConfigGroup, field: ContainerConfigField }): void {
-    this.isPopinActive = true;
-    this.popinGroup = data.group.id;
-    this.popinFieldId = data.field.id;
-    this.popinField = data.field;
-  }
-
-  public hidePopIn(): void {
-    this.isPopinActive = false;
-    this.popinGroup = '';
-    this.popinFieldId = '';
-    this.popinField = null;
-  }
-
-  public addGroup(): void {
-    const group = {
-      id: 'group_' + this.groups.length,
-      label: '',
-      editing: true,
-      fields: []
-    };
-    this.groups.push(group);
-  }
-
-  public handleNext(): void {
-    this.next.emit(this.groups);
-  }
-
-  public addField(data: any): void {
-    const groups = [...this.groups];
-
-    const index = groups.findIndex((element: ContainerConfigGroup) => element.id === this.popinGroup);
-
-    if (!this.popinField) {
-      groups[index].fields.push(data);
-      this.groups = groups;
-      this.hidePopIn();
-
-      return;
     }
 
-    const fieldIndex = groups[index].fields.findIndex((element) => element.id === this.popinFieldId);
-    groups[index].fields[fieldIndex] = data;
+    private initEmptyConfig(): void {
+        const id = this.imageName.replace('/', '-');
 
-    this.groups = groups;
-    this.hidePopIn();
-  }
+        this.groups = [];
+        this.groups.push({
+            id: 'group_0', label: 'Général', editing: false, fields: [
+                {id: 'name', label: 'Container ID', type: 'input', destination: 'id', value: id, base: '', validators: [], source: []},
+            ]
+        });
+    }
 
-  removeField(data: { group: ContainerConfigGroup, field: ContainerConfigField }): void {
-    const group = this.groups.find((element) => element.id === data.group.id);
+    public openAddPopIn(group: ContainerConfigGroup): void {
+        this.isPopinActive = true;
+        this.popinGroup = group.id;
+    }
 
-    group.fields = group.fields.filter(element => element.id !== data.field.id);
-  }
+    public openEditPopIn(data: { group: ContainerConfigGroup, field: ContainerConfigField }): void {
+        this.isPopinActive = true;
+        this.popinGroup = data.group.id;
+        this.popinFieldId = data.field.id;
+        this.popinField = data.field;
+    }
 
-  updateGroup(event: ContainerConfigGroup[]) {
-    this.groups = event;
-  }
+    public hidePopIn(): void {
+        this.isPopinActive = false;
+        this.popinGroup = '';
+        this.popinFieldId = '';
+        this.popinField = null;
+    }
 
-  goBack() {
-    this.previous.emit(true);
-  }
+    public addGroup(): void {
+        const group = {
+            id: 'group_' + this.groups.length,
+            label: '',
+            editing: true,
+            fields: []
+        };
+        this.groups.push(group);
+    }
+
+    public handleNext(): void {
+        this.next.emit(this.groups);
+    }
+
+    public addField(data: any): void {
+        const groups = [...this.groups];
+
+        const index = groups.findIndex((element: ContainerConfigGroup) => element.id === this.popinGroup);
+
+        if (!this.popinField) {
+            groups[index].fields.push(data);
+            this.groups = groups;
+            this.hidePopIn();
+
+            return;
+        }
+
+        const fieldIndex = groups[index].fields.findIndex((element) => element.id === this.popinFieldId);
+        groups[index].fields[fieldIndex] = data;
+
+        this.groups = groups;
+        this.hidePopIn();
+    }
+
+    removeField(data: { group: ContainerConfigGroup, field: ContainerConfigField }): void {
+        const group = this.groups.find((element) => element.id === data.group.id);
+
+        group.fields = group.fields.filter(element => element.id !== data.field.id);
+    }
+
+    updateGroup(event: ContainerConfigGroup[]) {
+        this.groups = event;
+    }
+
+    goBack() {
+        this.previous.emit(true);
+    }
 }
