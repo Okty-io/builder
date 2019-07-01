@@ -109,9 +109,12 @@ export class ConfigComponent implements OnInit {
     }
 
     removeField(data: { group: ContainerConfigGroup, field: ContainerConfigField }): void {
-        const group = this.groups.find((element) => element.id === data.group.id);
+        const groups = [...this.groups];
 
+        const group = groups.find((element) => element.id === data.group.id);
         group.fields = group.fields.filter(element => element.id !== data.field.id);
+
+        this.groups = groups;
     }
 
     updateGroup(event: ContainerConfigGroup[]) {
