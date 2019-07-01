@@ -1,8 +1,7 @@
 <app-builder-steps stepNumber="1"></app-builder-steps>
 
 <div class="search-block">
-    <label for="image-input">Which docker image should i use ?</label>
-    <input type="text" id="image-input" [(ngModel)]="apiSearch" (input)="searchApi()" (focus)="cancelImage()">
+    <input type="text" id="image-input" [(ngModel)]="apiSearch" (input)="searchApi()" (focus)="cancelImage()" placeholder="Chose a docker image">
 </div>
 
 <ng-container *ngIf="!imageSent">

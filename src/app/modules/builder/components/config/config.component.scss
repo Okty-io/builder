@@ -73,10 +73,9 @@
 
 :host {
   .form-and-preview {
-    display: inline-block;
-    vertical-align: top;
-    width: 75%;
-    margin-left: calc(12.5% - 140px);
+    display: block;
+    width: 90%;
+    margin: auto;
     font-family: 'Open Sans', sans-serif;
     margin-top: 50px;
 
@@ -84,6 +83,10 @@
       width: 92%;
       margin-left: 4%;
     }
+  }
+
+  .preview {
+    margin-top: 45px;
   }
 
   .config {
@@ -144,28 +147,25 @@
       margin: auto;
     }
 
-    @include MQ(1200px) {
+    @include MQ(1100px) {
       width: 100%;
     }
-
-    @include MQ(1400px) {
-      width: 100%;
-    }
-
   }
 
   .preview {
     width: 45%;
     margin-left: 5%;
 
-    @include MQ(1400px) {
+    @include MQ(1100px) {
       width: 100%;
       margin-left: 0;
+      margin-top: 0px;
     }
 
     @include MQ(S) {
       width: 96%;
       margin-left: 2%;
+      margin-top: 0px;
     }
   }
 }
