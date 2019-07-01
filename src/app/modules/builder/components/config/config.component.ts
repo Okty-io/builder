@@ -76,7 +76,7 @@ export class ConfigComponent implements OnInit {
 
     public addGroup(): void {
         const group = {
-            id: 'group_' + this.groups.length,
+            id: 'group_' + Math.random().toString(36).substring(8),
             label: '',
             editing: true,
             fields: []
