@@ -86,9 +86,9 @@ app-button {
 }
 
 .wrapper {
-    width: calc(100% - 200px);
+    width: 100%;
     display: grid;
-    padding: 50px 100px;
+    padding: 0 100px;
     grid-gap: 15px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
