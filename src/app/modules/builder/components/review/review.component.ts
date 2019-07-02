@@ -48,7 +48,7 @@ export class ReviewComponent implements OnInit, OnDestroy {
 
     createPullRequest() {
         const container = {image: this.imageName, tag: this.tag};
-        const form = {name: 'Name', logo: 'Logo', config: this.config};
+        const form = {name: this.imageName, logo: 'https://google.fr/', config: this.config};
         const user = {id: this.authentification.getUserId()};
 
         this.loading = true;

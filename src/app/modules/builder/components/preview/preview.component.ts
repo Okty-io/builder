@@ -21,6 +21,7 @@ export class PreviewComponent {
     }
 
     @Input() image: string;
+    @Input() tag: string;
 
     @Input() set config(config) {
         this.loading = true;
@@ -37,6 +38,10 @@ export class PreviewComponent {
         };
 
         const apiArg = this.containerService.formDataToApiArg(data);
+        if (!apiArg.args.version) {
+            apiArg.args.version = this.tag;
+        }
+
         this.updatePreview(apiArg);
     }
 
