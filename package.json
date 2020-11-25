@@ -26,7 +26,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@ng-select/ng-select": "^2.20.5",
     "cookieconsent": "^3.1.1",
-    "highlight.js": "^9.15.9",
+    "highlight.js": "^10.1.2",
     "ng-inline-svg": "^8.5.1",
     "ngx-cookieconsent": "^2.2.3",
     "ngx-highlightjs": "^3.0.3",
